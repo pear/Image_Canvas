@@ -1,0 +1,21 @@
+**************************
+ Image_Canvas - Changelog
+**************************
+Version 0.2.0 [2005-Aug-08] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * First released package in PEAR
+    * Added support for image maps - a separate canvas (Image_Canvas_ImageMap) has been created to accomplish this
+    * Added support for antialiasing images when using GD (both using native GD method and Image_Graph own implementation)
+    * Added support for multi line texts    
+    * Added a toHtml() method for to easy facilitate including canvas in HTML (this includes the associated image map, if any)
+    * Added line ends - only supported in GD canvases currently and not on polygons (yet!)
+    
+Version 0.1.2 [2005-Jul-21] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Changed write() to addText()
+    * Split done() into show() and save()
+    * Changed all methods with more than 1 parameter to use hashed array as parameters
+
+Version 0.1.1 [2005-Mar-21] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Renamed package to Image_Canvas
+    
+Version 0.1.0 [2005-Feb-14] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * First "stand-alone" release ("outside" Image_Graph)
