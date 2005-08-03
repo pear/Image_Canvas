@@ -27,7 +27,7 @@
  * @link       http://pear.php.net/pepr/pepr-proposal-show.php?id=212
  */
 
-include 'Image/Canvas.php';
+require_once 'Image/Canvas.php';
 
 $font = array('name' => 'Verdana', 'size' => 10);
 

@@ -1,6 +1,10 @@
 **************************
  Image_Canvas - Changelog
 **************************
+Version 0.2.1 [2005-xxx-xx] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Fixed bug with fonts, not it's not required for the font to have a name
+    * Changed examples to use require_once instead of include/require
+    
 Version 0.2.0 [2005-Aug-08] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * First released package in PEAR
     * Added support for image maps - a separate canvas (Image_Canvas_ImageMap) has been created to accomplish this

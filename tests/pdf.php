@@ -30,10 +30,10 @@
 // SPECIFY HERE WHERE A TRUETYPE FONT CAN BE FOUND
 $testFont = 'c:/windows/fonts/Arial.ttf';
 
-include 'Image/Canvas.php';
+require_once 'Image/Canvas.php';
 
 $canvas =& Image_Canvas::factory('pdf', array('page' => 'A4', 'align' => 'center', 'width' => 600, 'height' => 600));
 
-include './canvas_body.php';
+require_once './canvas_body.php';
 
 ?>

@@ -315,7 +315,7 @@ class Image_Canvas
             }
         }
         
-        if (!isset($this->_font['file'])) {
+        if ((!isset($this->_font['file'])) && (isset($this->_font['name']))) {
             include_once 'Image/Canvas/Tool.php';
             $this->_font['file'] = Image_Canvas_Tool::fontMap($this->_font['name']);
         }

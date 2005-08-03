@@ -1,0 +1,10 @@
+*********************
+ Image_Canvas - TODO
+*********************
+
+Image_Canvas_GD
+*** Fix the baseline size problem
+
+Image_Canvas_ImageMap
+*** Create support for text maps (problem: what is the size?)
+*** Create support for mapping images (problem: what is the size?)
