@@ -59,15 +59,15 @@ class Image_Canvas_ImageMap extends Image_Canvas
      */
     function _addMapTag($shape, $coords, $params)
     {
-   		$url = $params['url'];
-  		$target = (isset($params['target']) ? $params['target'] : false);
-  		$alt = (isset($params['alt']) ? $params['alt'] : false);
+           $url = $params['url'];
+          $target = (isset($params['target']) ? $params['target'] : false);
+          $alt = (isset($params['alt']) ? $params['alt'] : false);
 
-    	$this->_map[] = 
-			'<area shape="' . $shape . '" coords="' . $coords . '" href="' . $url . '"' .
-				($target ? ' target="' . $target . '"' : '') .
-				($alt ? ' alt="' . $alt . '"' : '') .
-				'>';
+        $this->_map[] = 
+            '<area shape="' . $shape . '" coords="' . $coords . '" href="' . $url . '"' .
+                ($target ? ' target="' . $target . '"' : '') .
+                ($alt ? ' alt="' . $alt . '"' : '') .
+                '>';
     }    
     
     /**
@@ -84,22 +84,22 @@ class Image_Canvas_ImageMap extends Image_Canvas
      */
     function line($params)
     {
-    	if (isset($params['url'])) {
-    		$mapsize = (isset($params['mapsize']) ? $params['mapsize'] : 2);
-    		$this->_addMapTag(
-				'polygon', 
-				$this->_getX($params['x0'] - $mapsize) . ',' . 
-				$this->_getY($params['y0'] - $mapsize) . ',' .
-				$this->_getX($params['x1'] + $mapsize) . ',' .
-				$this->_getY($params['y1'] - $mapsize) . ',' .
-				
-				$this->_getX($params['x1'] + $mapsize) . ',' . 
-				$this->_getY($params['y1'] + $mapsize) . ',' .
-				$this->_getX($params['x0'] - $mapsize) . ',' .
-				$this->_getY($params['y0'] + $mapsize),
-				$params
-			);
-    	}
+        if (isset($params['url'])) {
+            $mapsize = (isset($params['mapsize']) ? $params['mapsize'] : 2);
+            $this->_addMapTag(
+                'polygon', 
+                $this->_getX($params['x0'] - $mapsize) . ',' . 
+                $this->_getY($params['y0'] - $mapsize) . ',' .
+                $this->_getX($params['x1'] + $mapsize) . ',' .
+                $this->_getY($params['y1'] - $mapsize) . ',' .
+                
+                $this->_getX($params['x1'] + $mapsize) . ',' . 
+                $this->_getY($params['y1'] + $mapsize) . ',' .
+                $this->_getX($params['x0'] - $mapsize) . ',' .
+                $this->_getY($params['y0'] + $mapsize),
+                $params
+            );
+        }
         parent::line($params);
     }
 
@@ -119,42 +119,42 @@ class Image_Canvas_ImageMap extends Image_Canvas
      */
     function polygon($params)
     {
-		if ((isset($params['map_vertices'])) && ($params['map_vertices'] === true)) {
-			$mapsize = (isset($params['mapsize']) ? $params['mapsize'] : 2);
-			foreach ($this->_polygon as $point) {
-				$vertex_param = $params;
-				if (isset($point['url'])) {
-					$vertex_param['url'] = $point['url'];
-				}
-				if (isset($point['target'])) {
-					$vertex_param['target'] = $point['target'];
-				}
-				if (isset($point['alt'])) {
-					$vertex_param['alt'] = $point['alt'];
-				}
-				$vertex_mapsize = $mapsize;
-				if (isset($point['mapsize'])) {
-					$vertex_mapsize = $point['mapsize'];
-				}    	    				
-				$this->_addMapTag(
-					'circle', 
-					$this->_getX($point['X']) . ',' . 
-					$this->_getY($point['Y']) . ',' .
-					$mapsize,
-					$vertex_param
-				);
-	    	}
-		}
-		else if (isset($params['url'])) {
-	    	$points = '';
-	    	foreach ($this->_polygon as $point) {
-	    		if ($points != '') {
-	    			$points .= ',';
-	    		}
-	    		$points .= $this->_getX($point['X']) . ',' . $this->_getY($point['Y']);    		
-	    	}
-	    	$this->_addMapTag('polygon', $points, $params);
-    	}
+        if ((isset($params['map_vertices'])) && ($params['map_vertices'] === true)) {
+            $mapsize = (isset($params['mapsize']) ? $params['mapsize'] : 2);
+            foreach ($this->_polygon as $point) {
+                $vertex_param = $params;
+                if (isset($point['url'])) {
+                    $vertex_param['url'] = $point['url'];
+                }
+                if (isset($point['target'])) {
+                    $vertex_param['target'] = $point['target'];
+                }
+                if (isset($point['alt'])) {
+                    $vertex_param['alt'] = $point['alt'];
+                }
+                $vertex_mapsize = $mapsize;
+                if (isset($point['mapsize'])) {
+                    $vertex_mapsize = $point['mapsize'];
+                }                            
+                $this->_addMapTag(
+                    'circle', 
+                    $this->_getX($point['X']) . ',' . 
+                    $this->_getY($point['Y']) . ',' .
+                    $mapsize,
+                    $vertex_param
+                );
+            }
+        }
+        else if (isset($params['url'])) {
+            $points = '';
+            foreach ($this->_polygon as $point) {
+                if ($points != '') {
+                    $points .= ',';
+                }
+                $points .= $this->_getX($point['X']) . ',' . $this->_getY($point['Y']);            
+            }
+            $this->_addMapTag('polygon', $points, $params);
+        }
         parent::polygon($params);
     }
 
@@ -172,16 +172,16 @@ class Image_Canvas_ImageMap extends Image_Canvas
      */
     function rectangle($params)
     {
-    	if (isset($params['url'])) {
-    		$this->_addMapTag(
-				'rect', 
-				$this->_getX($params['x0']) . ',' . 
-				$this->_getY($params['y0']) . ',' .
-				$this->_getX($params['x1']) . ',' .
-				$this->_getY($params['y1']),
-				$params
-			);
-    	}
+        if (isset($params['url'])) {
+            $this->_addMapTag(
+                'rect', 
+                $this->_getX($params['x0']) . ',' . 
+                $this->_getY($params['y0']) . ',' .
+                $this->_getX($params['x1']) . ',' .
+                $this->_getY($params['y1']),
+                $params
+            );
+        }
         parent::rectangle($params);
     }
 
@@ -199,32 +199,32 @@ class Image_Canvas_ImageMap extends Image_Canvas
      */
     function ellipse($params)
     {
-    	if (isset($params['url'])) { 
-    		if ($params['rx'] == $params['ry']) {
-	    		$this->_addMapTag(
-					'circle', 
-					$this->_getX($params['x']) . ',' . 
-					$this->_getY($params['y']) . ',' .
-					$this->_getX($params['rx']),
-					$params
-				);
-    		} else {
-    			$points = '';
-    			for ($v = 0; $v <= 360; $v += 30) {
-    				if ($points != '') {
-    					$points .= ',';
-    				}
-    				$points .=
-    					round($this->_getX($params['x']) + $this->_getX($params['rx']) * cos(deg2rad($v % 360))) . ',' .
-    					round($this->_getY($params['y']) + $this->_getX($params['ry']) * sin(deg2rad($v % 360)));    					
-    			}
-    			$this->_addMapTag(
-    				'polygon',
-    				$points,
-    				$params
-    			);
-    		}
-    	}
+        if (isset($params['url'])) { 
+            if ($params['rx'] == $params['ry']) {
+                $this->_addMapTag(
+                    'circle', 
+                    $this->_getX($params['x']) . ',' . 
+                    $this->_getY($params['y']) . ',' .
+                    $this->_getX($params['rx']),
+                    $params
+                );
+            } else {
+                $points = '';
+                for ($v = 0; $v <= 360; $v += 30) {
+                    if ($points != '') {
+                        $points .= ',';
+                    }
+                    $points .=
+                        round($this->_getX($params['x']) + $this->_getX($params['rx']) * cos(deg2rad($v % 360))) . ',' .
+                        round($this->_getY($params['y']) + $this->_getX($params['ry']) * sin(deg2rad($v % 360)));                        
+                }
+                $this->_addMapTag(
+                    'polygon',
+                    $points,
+                    $params
+                );
+            }
+        }
         parent::ellipse($params);
     }
 
@@ -246,45 +246,45 @@ class Image_Canvas_ImageMap extends Image_Canvas
      */
     function pieslice($params)
     {
-    	if (isset($params['url'])) { 
-			$x = $this->_getX($params['x']);
-	        $y = $this->_getY($params['y']);
-	        $rx = $params['rx'];
-	        $ry = $params['ry'];
-	        $v1a = $params['v1'];
-	        $v2a = $params['v2'];
-	        $v1 = min($v1a, $v2a);
-	        $v2 = max($v1a, $v2a);
-	        $srx = (isset($params['srx']) ? $params['srx'] : 0);
-	        $sry = (isset($params['sry']) ? $params['sry'] : 0);
-    		
-    		$points = 
-    			round(($x + $srx * cos(deg2rad($v1 % 360)))) . ',' .
-            	round(($y + $sry * sin(deg2rad($v1 % 360)))) . ',';
-            	
-        	for ($v = $v1; $v < $v2; $v += 30) {
-    			$points .= 
-    				round(($x + $rx * cos(deg2rad($v % 360)))) . ',' .
-	        		round(($y + $ry * sin(deg2rad($v % 360)))) . ',';    	        
-        	}
-        	
-			$points .=
-				round(($x + $rx * cos(deg2rad($v2 % 360)))) . ',' .
-        		round(($y + $ry * sin(deg2rad($v2 % 360))));
-        		
-        	if (($srx != 0) || ($sry != 0)) {
-        		$points .= ',';
-            	for ($v = $v2; $v > $v1; $v -= 30) {            		
-	    			$points .= 
-	    				round(($x + $srx * cos(deg2rad($v % 360)))) . ',' .
-    	        		round(($y + $sry * sin(deg2rad($v % 360)))) . ',';    	        
-            	}
+        if (isset($params['url'])) { 
+            $x = $this->_getX($params['x']);
+            $y = $this->_getY($params['y']);
+            $rx = $params['rx'];
+            $ry = $params['ry'];
+            $v1a = $params['v1'];
+            $v2a = $params['v2'];
+            $v1 = min($v1a, $v2a);
+            $v2 = max($v1a, $v2a);
+            $srx = (isset($params['srx']) ? $params['srx'] : 0);
+            $sry = (isset($params['sry']) ? $params['sry'] : 0);
+            
+            $points = 
+                round(($x + $srx * cos(deg2rad($v1 % 360)))) . ',' .
+                round(($y + $sry * sin(deg2rad($v1 % 360)))) . ',';
+                
+            for ($v = $v1; $v < $v2; $v += 30) {
+                $points .= 
+                    round(($x + $rx * cos(deg2rad($v % 360)))) . ',' .
+                    round(($y + $ry * sin(deg2rad($v % 360)))) . ',';                
+            }
+            
+            $points .=
+                round(($x + $rx * cos(deg2rad($v2 % 360)))) . ',' .
+                round(($y + $ry * sin(deg2rad($v2 % 360))));
+                
+            if (($srx != 0) || ($sry != 0)) {
+                $points .= ',';
+                for ($v = $v2; $v > $v1; $v -= 30) {                    
+                    $points .= 
+                        round(($x + $srx * cos(deg2rad($v % 360)))) . ',' .
+                        round(($y + $sry * sin(deg2rad($v % 360)))) . ',';                
+                }
 
-        	}
-    	            	                   		   	
-    		$this->_addMapTag('polygon', $points, $params);
-    	}
-    	parent::pieslice($params);
+            }
+                                                          
+            $this->_addMapTag('polygon', $points, $params);
+        }
+        parent::pieslice($params);
     }
 
     /**
@@ -295,10 +295,10 @@ class Image_Canvas_ImageMap extends Image_Canvas
      */
     function show($params = false)
     {
-    	parent::show($params);
-  	 	if (count($this->_map) > 0) {
-     		print $this->_toHtml($params);
-     	}
+        parent::show($params);
+           if (count($this->_map) > 0) {
+             print $this->_toHtml($params);
+         }
     }
 
     /**
@@ -311,9 +311,9 @@ class Image_Canvas_ImageMap extends Image_Canvas
      */
     function save($params = false)
     {
-    	parent::save($params);
-    	$file = fopen($param['filename'], 'w+');
-  	 	fwrite($file, $this->_toHtml($params));        
+        parent::save($params);
+        $file = fopen($param['filename'], 'w+');
+           fwrite($file, $this->_toHtml($params));        
         fclose($file);
     }
     
@@ -325,10 +325,10 @@ class Image_Canvas_ImageMap extends Image_Canvas
      */
     function toHtml($params)
     {
-    	if (count($this->_map) > 0) {
-  	 		return '<map name="' . $params['name'] . '">' . "\n\t" . implode($this->_map, "\n\t") . "\n</map>";
-     	}
-     	return ''; 
+        if (count($this->_map) > 0) {
+               return '<map name="' . $params['name'] . '">' . "\n\t" . implode($this->_map, "\n\t") . "\n</map>";
+         }
+         return ''; 
     }
 }
 

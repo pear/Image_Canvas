@@ -37,14 +37,14 @@
  * This is set by default on Windows systems to %SystemRoot%\Fonts\
  */
 if (!defined('IMAGE_CANVAS_SYSTEM_FONT_PATH')) {
-	if (isset($_SERVER['SystemRoot'])) {
-    	define('IMAGE_CANVAS_SYSTEM_FONT_PATH', $_SERVER['SystemRoot'] . '/Fonts/');
-	} else {
-    	/**
-     	 * @ignore
-     	 */
-    	define('IMAGE_CANVAS_SYSTEM_FONT_PATH', '');
-	}
+    if (isset($_SERVER['SystemRoot'])) {
+        define('IMAGE_CANVAS_SYSTEM_FONT_PATH', $_SERVER['SystemRoot'] . '/Fonts/');
+    } else {
+        /**
+          * @ignore
+          */
+        define('IMAGE_CANVAS_SYSTEM_FONT_PATH', '');
+    }
 }
 
 /**
@@ -286,12 +286,12 @@ class Image_Canvas
      *
      * The $font array may have the following entries:
      *
-     * 'name'	The name of the font. This name must either be supported
+     * 'name'    The name of the font. This name must either be supported
      * natively by the canvas or mapped to a font using the font-mapping scheme
      *
-     * 'size' 	Size in pixels
+     * 'size'     Size in pixels
      *
-     * 'angle' 	The angle with which to write the text
+     * 'angle'     The angle with which to write the text
      *
      * @param array $fontOptions The font options.
      */
@@ -367,9 +367,9 @@ class Image_Canvas
      * 'angle': int [optional] The angle with which to draw the end
      * @param array $params Parameter array
      */
-	function drawEnd($params) 
-	{		
-	}
+    function drawEnd($params) 
+    {        
+    }
 
     /**
      * Draw a line
@@ -388,37 +388,37 @@ class Image_Canvas
      */
     function line($params)
     {
-    	$x0 = $this->_getX($params['x0']);
+        $x0 = $this->_getX($params['x0']);
         $y0 = $this->_getY($params['y0']);
         $x1 = $this->_getX($params['x1']);
         $y1 = $this->_getY($params['y1']);
-    	if (isset($params['end0'])) {
-    		$angle = Image_Canvas_Tool::getAngle($x1, $y1, $x0, $y0);
-    		$this->drawEnd(
-    			array(
-    				'end' => $params['end0'], 
-    				'x' => $params['x0'], 
-    				'y' => $params['y0'], 
-    				'angle' => $angle,
-    				'color' => (isset($params['color0']) ? $params['color0'] : false),
-    				'size' => $params['size0']
-    			)
-    		);
-    	}    
-    	if (isset($params['end1'])) {
-    		$angle = Image_Canvas_Tool::getAngle($x0, $y0, $x1, $y1);
-    		//print "<pre>"; var_dump($params, $angle); print "</pre>";
-    		$this->drawEnd(
-    			array(
-    				'end' => $params['end1'], 
-    				'x' => $params['x1'], 
-    				'y' => $params['y1'], 
-    				'angle' => $angle,
-    				'color' => (isset($params['color1']) ? $params['color1'] : false),
-    				'size' => $params['size1']
-    			)
-    		);
-    	}    
+        if (isset($params['end0'])) {
+            $angle = Image_Canvas_Tool::getAngle($x1, $y1, $x0, $y0);
+            $this->drawEnd(
+                array(
+                    'end' => $params['end0'], 
+                    'x' => $params['x0'], 
+                    'y' => $params['y0'], 
+                    'angle' => $angle,
+                    'color' => (isset($params['color0']) ? $params['color0'] : false),
+                    'size' => $params['size0']
+                )
+            );
+        }    
+        if (isset($params['end1'])) {
+            $angle = Image_Canvas_Tool::getAngle($x0, $y0, $x1, $y1);
+            //print "<pre>"; var_dump($params, $angle); print "</pre>";
+            $this->drawEnd(
+                array(
+                    'end' => $params['end1'], 
+                    'x' => $params['x1'], 
+                    'y' => $params['y1'], 
+                    'angle' => $angle,
+                    'color' => (isset($params['color1']) ? $params['color1'] : false),
+                    'size' => $params['size1']
+                )
+            );
+        }    
         $this->_reset();
     }
 
@@ -436,8 +436,8 @@ class Image_Canvas
      */
     function addVertex($params)
     {
-    	$params['X'] = $this->_getX($params['x']);
-    	$params['Y'] = $this->_getY($params['y']);
+        $params['X'] = $this->_getX($params['x']);
+        $params['Y'] = $this->_getY($params['y']);
         $this->_polygon[] = $params;
     }
 
@@ -459,12 +459,12 @@ class Image_Canvas
      */
     function addSpline($params)
     {
-    	$params['X'] = $this->_getX($params['x']);
+        $params['X'] = $this->_getX($params['x']);
         $params['Y'] = $this->_getY($params['y']);
-		$params['P1X'] = $this->_getX($params['p1x']);
-		$params['P1Y'] = $this->_getY($params['p1y']);
-		$params['P2X'] = $this->_getX($params['p2x']);
-		$params['P2Y'] = $this->_getY($params['p2y']);
+        $params['P1X'] = $this->_getX($params['p1x']);
+        $params['P1Y'] = $this->_getY($params['p1y']);
+        $params['P2X'] = $this->_getX($params['p2x']);
+        $params['P2Y'] = $this->_getY($params['p2y']);
         $this->_polygon[] = $params;
     }
 
@@ -480,7 +480,7 @@ class Image_Canvas
      */
     function polygon($params)
     {
-    	$this->_reset();
+        $this->_reset();
     }
 
     /**
@@ -535,7 +535,7 @@ class Image_Canvas
      */
     function pieslice($params)
     {
-    	$this->_reset();
+        $this->_reset();
     }
 
     /**
@@ -649,7 +649,7 @@ class Image_Canvas
      */
     function toHtml($params)
     {
-    	$this->save(array('filename' => $params['filepath'] . $params['filename']));    	
+        $this->save(array('filename' => $params['filepath'] . $params['filename']));        
     }
 
     /**
@@ -684,11 +684,11 @@ class Image_Canvas
         }
         
         if ($canvas == 'IMAGEMAP') {
-        	$canvas = 'ImageMap';
+            $canvas = 'ImageMap';
         }
 
         $class = 'Image_Canvas_'. $canvas;
-      	include_once 'Image/Canvas/'. str_replace('_', '/', $canvas) . '.php';
+          include_once 'Image/Canvas/'. str_replace('_', '/', $canvas) . '.php';
         return new $class($params);
     }
 

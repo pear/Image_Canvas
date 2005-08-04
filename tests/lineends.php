@@ -40,45 +40,45 @@ $shapes = array('arrow', 'box', 'diamond', 'arrow2', 'lollipop', 'line');
 
 $j = 0;
 for ($i = 0; $i < 360; $i += 30) {
-	$x0 = 150;
-	$y0 = 150;
-	if ($j >= count($shapes)) {
-		$j = 0;
-	}
-	$shape1 = $shapes[$j]; $j++;
+    $x0 = 150;
+    $y0 = 150;
+    if ($j >= count($shapes)) {
+        $j = 0;
+    }
+    $shape1 = $shapes[$j]; $j++;
 
-	if ($j >= count($shapes)) {
-		$j = 0;
-	}
-	$shape2 = $shapes[$j]; $j++;
+    if ($j >= count($shapes)) {
+        $j = 0;
+    }
+    $shape2 = $shapes[$j]; $j++;
 
-	$canvas->setLineColor('black');
-	$canvas->line(
-		array(
-			'x0' => $x0 + cos(deg2rad($i)) * 50,
-			'y0' => $y0 - sin(deg2rad($i)) * 50,
-			'x1' => $x0 + cos(deg2rad($i)) * 100,
-			'y1' => $y0 - sin(deg2rad($i)) * 100,
-			'end0' => $shape1,
-			'size0' => 8,
-			'color0' => 'red',
-			'end1' => $shape2,
-			'color1' => 'green',
-			'size1' => 8
-		)
-	);
+    $canvas->setLineColor('black');
+    $canvas->line(
+        array(
+            'x0' => $x0 + cos(deg2rad($i)) * 50,
+            'y0' => $y0 - sin(deg2rad($i)) * 50,
+            'x1' => $x0 + cos(deg2rad($i)) * 100,
+            'y1' => $y0 - sin(deg2rad($i)) * 100,
+            'end0' => $shape1,
+            'size0' => 8,
+            'color0' => 'red',
+            'end1' => $shape2,
+            'color1' => 'green',
+            'size1' => 8
+        )
+    );
     $canvas->setFont($font);
     $canvas->addText(
-    	array(
-			'x' => $x0 + cos(deg2rad($i)) * 125, 
-			'y' => $y0 - sin(deg2rad($i)) * 125, 
-			'text' => $i,
-			'alignment' => array(
-				'horizontal' => ((($i > 90) && ($i < 270)) ? 'right' : ((($i == 90) || ($i == 270)) ? 'center' : 'left')), 
-				'vertical' => (($i < 180) ? 'bottom' : ((($i == 0) || ($i == 180)) ? 'center' : 'top')), 
-			)			
-		)
-	);
+        array(
+            'x' => $x0 + cos(deg2rad($i)) * 125, 
+            'y' => $y0 - sin(deg2rad($i)) * 125, 
+            'text' => $i,
+            'alignment' => array(
+                'horizontal' => ((($i > 90) && ($i < 270)) ? 'right' : ((($i == 90) || ($i == 270)) ? 'center' : 'left')), 
+                'vertical' => (($i < 180) ? 'bottom' : ((($i == 0) || ($i == 180)) ? 'center' : 'top')), 
+            )            
+        )
+    );
 }
 $canvas->show();
 

@@ -829,8 +829,8 @@ class Image_Canvas_SVG extends Image_Canvas
      */
     function toHtml($params)
     {
-    	parent::toHtml($params);
-    	return '<embed src="' . $params['urlpath'] . $params['filename'] . '" width=' . $params['width'] . ' height=' . $params['height'] . ' type="image/svg+xml">';    	
+        parent::toHtml($params);
+        return '<embed src="' . $params['urlpath'] . $params['filename'] . '" width=' . $params['width'] . ' height=' . $params['height'] . ' type="image/svg+xml">';        
     }
       
 }

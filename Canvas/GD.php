@@ -144,7 +144,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
 
         parent::Image_Canvas_WithMap($param);
         
-		$this->_gd2 = ($this->_version() == 2);
+        $this->_gd2 = ($this->_version() == 2);
         $this->_font = array('font' => 1, 'color' => 'black');
 
         if ((isset($param['gd'])) && (is_resource($param['gd']))) {
@@ -379,7 +379,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                 $greenIncrement = ($endColor[1] - $startColor[1]) / $count;
                 $blueIncrement = ($endColor[2] - $startColor[2]) / $count;
 
-				$color = false;
+                $color = false;
                 for ($i = 0; $i < $count; $i ++) {
                     unset($color);
                     if ($i == 0) {
@@ -589,7 +589,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * @param int $x1 X end point
      * @param int $y1 Y end point
      * @return array An associated array of x,y points with all pixels on the
-     * line	
+     * line    
      * @access private
      */
     function &_linePixels($x0, $y0, $x1, $y1)
@@ -726,99 +726,99 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * 'angle': int [optional] The angle with which to draw the end
      * @param array $params Parameter array
      */
-	function drawEnd($params) 
-	{		
-		$x = $this->_getX($params['x']);
-		$y = $this->_getY($params['y']);
-		$size = $params['size'];
-		//var_dump($params);
-		$angle = deg2rad((isset($params['angle']) ? $params['angle'] : 0));
-		$pi2 = pi() / 2;
-		switch ($params['end']) {
-		case 'lollipop':
-		case 'circle':
-			$this->ellipse(
-				array(
-					'x' => $x,
-					'y' => $y,
-					'rx' => $size / 2,
-					'ry' => $size / 2,
-					'fill' => $params['color'],
-					'line' => $params['color']					
-				)
-			);
-			break;
-		case 'diamond':
-			$x0 = round($params['x'] + cos($angle) * $size * 0.65);
-			$y0 = round($params['y'] - sin($angle) * $size * 0.65);
-			$shape = array(
-				$x0 + round(cos($angle) * $size * 0.65),
-				$y0 - round(sin($angle) * $size * 0.65),
-				$x0 + round(cos($angle + $pi2) * $size * 0.65),
-				$y0 - round(sin($angle + $pi2) * $size * 0.65),
-				$x0 + round(cos($angle + pi()) * $size * 0.65),
-				$y0 - round(sin($angle + pi()) * $size * 0.65),
-				$x0 + round(cos($angle + 3 * $pi2) * $size * 0.65),
-				$y0 - round(sin($angle + 3 * $pi2) * $size * 0.65)
-			);
-			break;
-		case 'line':
-			$this->line(
-				array(
-					'x0' => $x + round(cos($angle + $pi2) * $size / 2),
-					'y0' => $y - round(sin($angle + $pi2) * $size / 2),
-					'x1' => $x + round(cos($angle + 3 * $pi2) * $size / 2),
-					'y1' => $y - round(sin($angle + 3 * $pi2) * $size / 2),
-					'color' => $params['color']					
-				)
-			);
-			break;
-		case 'box':
-		case 'rectangle':
-			$x0 = round($params['x'] + cos($angle) * $size / 2);
-			$y0 = round($params['y'] - sin($angle) * $size / 2);
-			$pi4 = pi() / 4;			
-			$shape = array(
-				$x0 + round(cos($angle + $pi4) * $size / 2),
-				$y0 - round(sin($angle + $pi4) * $size / 2),
-				$x0 + round(cos($angle + $pi2 + $pi4) * $size / 2),
-				$y0 - round(sin($angle + $pi2 + $pi4) * $size / 2),
-				$x0 + round(cos($angle + pi() + $pi4) * $size / 2),
-				$y0 - round(sin($angle + pi() + $pi4) * $size / 2),
-				$x0 + round(cos($angle + 3 * $pi2 + $pi4) * $size / 2),
-				$y0 - round(sin($angle + 3 * $pi2 + $pi4) * $size / 2)
-			);
-			break;
-		case 'arrow':  
-			$shape = array(
-				$x + cos($angle) * $size,
-				$y - sin($angle) * $size,
-				$x + cos($angle + $pi2) * $size * 0.4,
-				$y - sin($angle + $pi2) * $size * 0.4,
-				$x + cos($angle + 3 * $pi2) * $size * 0.4,
-				$y - sin($angle + 3 * $pi2) * $size * 0.4,				
-			);
-			break;
-		case 'arrow2':  
-			$shape = array(
-				$x + round(cos($angle) * $size),
-				$y - round(sin($angle) * $size),
-				$x + round(cos($angle + $pi2 + deg2rad(45)) * $size),
-				$y - round(sin($angle + $pi2 + deg2rad(45)) * $size),
-				$x,
-				$y,
-				$x + round(cos($angle + 3 * $pi2 - deg2rad(45)) * $size),
-				$y - round(sin($angle + 3 * $pi2 - deg2rad(45)) * $size),				
-			);
-			break;
-		}
-		
-		if (isset($shape)) {
-			// output the shape
-        	ImageFilledPolygon($this->_canvas, $shape, count($shape)/2, $this->_color($params['color']));
-		}
-		parent::drawEnd($params);
-	}    
+    function drawEnd($params) 
+    {        
+        $x = $this->_getX($params['x']);
+        $y = $this->_getY($params['y']);
+        $size = $params['size'];
+        //var_dump($params);
+        $angle = deg2rad((isset($params['angle']) ? $params['angle'] : 0));
+        $pi2 = pi() / 2;
+        switch ($params['end']) {
+        case 'lollipop':
+        case 'circle':
+            $this->ellipse(
+                array(
+                    'x' => $x,
+                    'y' => $y,
+                    'rx' => $size / 2,
+                    'ry' => $size / 2,
+                    'fill' => $params['color'],
+                    'line' => $params['color']                    
+                )
+            );
+            break;
+        case 'diamond':
+            $x0 = round($params['x'] + cos($angle) * $size * 0.65);
+            $y0 = round($params['y'] - sin($angle) * $size * 0.65);
+            $shape = array(
+                $x0 + round(cos($angle) * $size * 0.65),
+                $y0 - round(sin($angle) * $size * 0.65),
+                $x0 + round(cos($angle + $pi2) * $size * 0.65),
+                $y0 - round(sin($angle + $pi2) * $size * 0.65),
+                $x0 + round(cos($angle + pi()) * $size * 0.65),
+                $y0 - round(sin($angle + pi()) * $size * 0.65),
+                $x0 + round(cos($angle + 3 * $pi2) * $size * 0.65),
+                $y0 - round(sin($angle + 3 * $pi2) * $size * 0.65)
+            );
+            break;
+        case 'line':
+            $this->line(
+                array(
+                    'x0' => $x + round(cos($angle + $pi2) * $size / 2),
+                    'y0' => $y - round(sin($angle + $pi2) * $size / 2),
+                    'x1' => $x + round(cos($angle + 3 * $pi2) * $size / 2),
+                    'y1' => $y - round(sin($angle + 3 * $pi2) * $size / 2),
+                    'color' => $params['color']                    
+                )
+            );
+            break;
+        case 'box':
+        case 'rectangle':
+            $x0 = round($params['x'] + cos($angle) * $size / 2);
+            $y0 = round($params['y'] - sin($angle) * $size / 2);
+            $pi4 = pi() / 4;            
+            $shape = array(
+                $x0 + round(cos($angle + $pi4) * $size / 2),
+                $y0 - round(sin($angle + $pi4) * $size / 2),
+                $x0 + round(cos($angle + $pi2 + $pi4) * $size / 2),
+                $y0 - round(sin($angle + $pi2 + $pi4) * $size / 2),
+                $x0 + round(cos($angle + pi() + $pi4) * $size / 2),
+                $y0 - round(sin($angle + pi() + $pi4) * $size / 2),
+                $x0 + round(cos($angle + 3 * $pi2 + $pi4) * $size / 2),
+                $y0 - round(sin($angle + 3 * $pi2 + $pi4) * $size / 2)
+            );
+            break;
+        case 'arrow':  
+            $shape = array(
+                $x + cos($angle) * $size,
+                $y - sin($angle) * $size,
+                $x + cos($angle + $pi2) * $size * 0.4,
+                $y - sin($angle + $pi2) * $size * 0.4,
+                $x + cos($angle + 3 * $pi2) * $size * 0.4,
+                $y - sin($angle + 3 * $pi2) * $size * 0.4,                
+            );
+            break;
+        case 'arrow2':  
+            $shape = array(
+                $x + round(cos($angle) * $size),
+                $y - round(sin($angle) * $size),
+                $x + round(cos($angle + $pi2 + deg2rad(45)) * $size),
+                $y - round(sin($angle + $pi2 + deg2rad(45)) * $size),
+                $x,
+                $y,
+                $x + round(cos($angle + 3 * $pi2 - deg2rad(45)) * $size),
+                $y - round(sin($angle + 3 * $pi2 - deg2rad(45)) * $size),                
+            );
+            break;
+        }
+        
+        if (isset($shape)) {
+            // output the shape
+            ImageFilledPolygon($this->_canvas, $shape, count($shape)/2, $this->_color($params['color']));
+        }
+        parent::drawEnd($params);
+    }    
     
     /**
      * Draw a line
@@ -1013,7 +1013,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                         }
                         $prev_point = array('X' => $x, 'Y' => $y);;
                     }
-	            } elseif (($line = $this->_getLineStyle($lineColor)) !== false) {
+                } elseif (($line = $this->_getLineStyle($lineColor)) !== false) {
                     reset($polygon);
                     while (list(, $x) = each($polygon)) {
                         list(, $y) = each($polygon);
@@ -1186,27 +1186,27 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             $width = 0;
             $lines = explode("\n", $text);
             foreach ($lines as $line) {
-	            $bounds = ImageTTFBBox(
-	                $this->_font['size'],
-	                $angle,
-	                $this->_font['file'],
-	                $text
-	            );
-	
-	            $x0 = min($bounds[0], $bounds[2], $bounds[4], $bounds[6]);
-	        	$x1 = max($bounds[0], $bounds[2], $bounds[4], $bounds[6]);
-	        	$width = max(abs($x0 - $x1), $width);
+                $bounds = ImageTTFBBox(
+                    $this->_font['size'],
+                    $angle,
+                    $this->_font['file'],
+                    $text
+                );
+    
+                $x0 = min($bounds[0], $bounds[2], $bounds[4], $bounds[6]);
+                $x1 = max($bounds[0], $bounds[2], $bounds[4], $bounds[6]);
+                $width = max(abs($x0 - $x1), $width);
             }
             return $width;
         } else {
             if ((isset($this->_font['vertical'])) && ($this->_font['vertical'])) {
                 return ImageFontHeight($this->_font['font']) * (substr_count($text, "\n") + 1);
             } else {
-            	$width = 0;
-            	$lines = explode("\n", $text);
-            	foreach ($lines as $line) {
-            		$width = max($width, ImageFontWidth($this->_font['font']) * strlen($line));
-            	}
+                $width = 0;
+                $lines = explode("\n", $text);
+                foreach ($lines as $line) {
+                    $width = max($width, ImageFontWidth($this->_font['font']) * strlen($line));
+                }
                 return $width;
             }
         }
@@ -1246,28 +1246,28 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                 return $this->_font['size'] + 2;
             }
 
-			$height = 0;
-			$lines = explode("\n", $text);
-			foreach ($lines as $line) {            
-	            $bounds = ImageTTFBBox(
-	                $this->_font['size'],
-	                $angle,
-	                $this->_font['file'],
-	                $line
-	            );
-	
-	            $y0 = min($bounds[1], $bounds[3], $bounds[5], $bounds[7]);
-	            $y1 = max($bounds[1], $bounds[3], $bounds[5], $bounds[7]);
-	            $height += abs($y0 - $y1);
-			}
+            $height = 0;
+            $lines = explode("\n", $text);
+            foreach ($lines as $line) {            
+                $bounds = ImageTTFBBox(
+                    $this->_font['size'],
+                    $angle,
+                    $this->_font['file'],
+                    $line
+                );
+    
+                $y0 = min($bounds[1], $bounds[3], $bounds[5], $bounds[7]);
+                $y1 = max($bounds[1], $bounds[3], $bounds[5], $bounds[7]);
+                $height += abs($y0 - $y1);
+            }
             return $height + $linebreaks * 2;
         } else {
             if ((isset($this->_font['vertical'])) && ($this->_font['vertical'])) {
                 $width = 0;
-            	$lines = explode("\n", $text);
-            	foreach ($lines as $line) {
-            		$width = max($width, ImageFontWidth($this->_font['font']) * strlen($line));
-            	}
+                $lines = explode("\n", $text);
+                foreach ($lines as $line) {
+                    $width = max($width, ImageFontWidth($this->_font['font']) * strlen($line));
+                }
                 return $width;
             } else {
                 return ImageFontHeight($this->_font['font']) * (substr_count($text, "\n") + 1);
@@ -1293,7 +1293,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
         $color = (isset($params['color']) ? $params['color'] : false);
         $alignment = (isset($params['alignment']) ? $params['alignment'] : false);
 
-		$text = str_replace("\r", '', $text);
+        $text = str_replace("\r", '', $text);
 
         if (!is_array($alignment)) {
             $alignment = array('vertical' => 'top', 'horizontal' => 'left');
@@ -1315,65 +1315,65 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
 
         $lines = explode("\n", $text);                
         foreach ($lines as $line) {
-	        $textWidth = $this->textWidth($line);
-    	    $textHeight = $this->textHeight($line, true);
-    	    
-          	$x = $x0;
-        	$y = $y0;
-        	
-        	$y0 += $textHeight + 2;
-    	   	     
-	        if ($alignment['horizontal'] == 'right') {
-	            $x = $x - $textWidth;
-	        } elseif ($alignment['horizontal'] == 'center') {
-	            $x = $x - ($textWidth / 2);
-	        }	       
+            $textWidth = $this->textWidth($line);
+            $textHeight = $this->textHeight($line, true);
+            
+              $x = $x0;
+            $y = $y0;
+            
+            $y0 += $textHeight + 2;
+                    
+            if ($alignment['horizontal'] == 'right') {
+                $x = $x - $textWidth;
+            } elseif ($alignment['horizontal'] == 'center') {
+                $x = $x - ($textWidth / 2);
+            }           
 
-	        if (($color === false) && (isset($this->_font['color']))) {
-	            $color = $this->_font['color'];
-	        }
+            if (($color === false) && (isset($this->_font['color']))) {
+                $color = $this->_font['color'];
+            }
 
-	        if ($color != 'transparent') {
-	            if (isset($this->_font['file'])) {
-	                if (($this->_font['angle'] < 180) && ($this->_font['angle'] >= 0)) {
-	                    $y += $textHeight;
-	                }
-	                if (($this->_font['angle'] >= 90) && ($this->_font['angle'] < 270)) {
-	                    $x += $textWidth;
-	                }
-	
-	                ImageTTFText(
-	                    $this->_canvas,
-	                    $this->_font['size'],
-	                    $this->_font['angle'],
-	                    $x,
-	                    $y,
-	                    $this->_color($color),
-	                    $this->_font['file'],
-	                    $line
-	                );
+            if ($color != 'transparent') {
+                if (isset($this->_font['file'])) {
+                    if (($this->_font['angle'] < 180) && ($this->_font['angle'] >= 0)) {
+                        $y += $textHeight;
+                    }
+                    if (($this->_font['angle'] >= 90) && ($this->_font['angle'] < 270)) {
+                        $x += $textWidth;
+                    }
+    
+                    ImageTTFText(
+                        $this->_canvas,
+                        $this->_font['size'],
+                        $this->_font['angle'],
+                        $x,
+                        $y,
+                        $this->_color($color),
+                        $this->_font['file'],
+                        $line
+                    );
 
-	            } else {
-	                if ((isset($this->_font['vertical'])) && ($this->_font['vertical'])) {
-	                    ImageStringUp(
-	                        $this->_canvas,
-	                        $this->_font['font'],
-	                        $x,
-	                        $y + $this->textHeight($text),
-	                        $line,
-	                        $this->_color($color)
-	                    );
-	                } else {
-	                    ImageString(
-	                        $this->_canvas,
-	                        $this->_font['font'],
-	                        $x,
-	                        $y,
-	                        $line,
-	                        $this->_color($color)
-	                    );
-	                }
-	            }
+                } else {
+                    if ((isset($this->_font['vertical'])) && ($this->_font['vertical'])) {
+                        ImageStringUp(
+                            $this->_canvas,
+                            $this->_font['font'],
+                            $x,
+                            $y + $this->textHeight($text),
+                            $line,
+                            $this->_color($color)
+                        );
+                    } else {
+                        ImageString(
+                            $this->_canvas,
+                            $this->_font['font'],
+                            $x,
+                            $y,
+                            $line,
+                            $this->_color($color)
+                        );
+                    }
+                }
             }
         }
         parent::addText($params);
@@ -1499,11 +1499,11 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      */
     function toHtml($params)
     {
-    	parent::toHtml($params);
-    	return '<img src="' . $params['urlpath'] . $params['filename'] . '"' .
-    		(isset($params['alt']) ? ' alt="' . $params['alt'] . '"' : '') .
-    		(isset($this->_imageMap) ? ' usemap="#' . $params['filename'] . '"' : '') . '>' .
-    		(isset($this->_imageMap) ? "\n" . $this->_imageMap->toHtml(array('name' => $params['filename'])) : '');
+        parent::toHtml($params);
+        return '<img src="' . $params['urlpath'] . $params['filename'] . '"' .
+            (isset($params['alt']) ? ' alt="' . $params['alt'] . '"' : '') .
+            (isset($this->_imageMap) ? ' usemap="#' . $params['filename'] . '"' : '') . '>' .
+            (isset($this->_imageMap) ? "\n" . $this->_imageMap->toHtml(array('name' => $params['filename'])) : '');
     }
 
     /**

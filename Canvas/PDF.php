@@ -148,7 +148,7 @@ class Image_Canvas_PDF extends Image_Canvas
      */
     function &Image_Canvas_PDF($param)
     {
-		if (isset($param['page'])) {
+        if (isset($param['page'])) {
             switch (strtoupper($param['page'])) {
             case 'A0':
                 $this->_pageWidth = 2380;
@@ -967,8 +967,8 @@ class Image_Canvas_PDF extends Image_Canvas
      */
     function toHtml($params)
     {
-    	parent::toHtml($params);
-    	return '<a href="' . $params['urlpath'] . $params['filename'] . '">' . $params['title'] . '</a>';    	
+        parent::toHtml($params);
+        return '<a href="' . $params['urlpath'] . $params['filename'] . '">' . $params['title'] . '</a>';        
     }    
 
     /**

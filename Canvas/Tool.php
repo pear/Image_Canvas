@@ -200,16 +200,16 @@ class Image_Canvas_Tool
      */
     function getAngle($x0, $y0, $x1, $y1)
     {
-    	
-    	$dx = ($x1 - $x0);
-    	$dy = ($y1 - $y0);
-    	$l = sqrt($dx * $dx + $dy * $dy);
-    	$v = rad2deg(asin(($y0 - $y1) / $l));
-    	if ($dx < 0) {
-    		$v = 180 - $v;
-    	}
-    	return $v;
-    	
+        
+        $dx = ($x1 - $x0);
+        $dy = ($y1 - $y0);
+        $l = sqrt($dx * $dx + $dy * $dy);
+        $v = rad2deg(asin(($y0 - $y1) / $l));
+        if ($dx < 0) {
+            $v = 180 - $v;
+        }
+        return $v;
+        
     }
 
 }

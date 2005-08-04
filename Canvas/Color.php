@@ -120,7 +120,7 @@ class Image_Canvas_Color extends Image_Color
                              (int) $tempColor[2],
                              $alpha);
             }
-            if (strpos($color,'%') !== FALSE) {
+            if (strpos($color,'%') !== false) {
                 $tempColor = parent::percentageColor2RGB($color);
                 return array((int) $tempColor[0],
                              (int) $tempColor[1],

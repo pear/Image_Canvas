@@ -75,15 +75,15 @@ class Image_Canvas_WithMap extends Image_Canvas
         parent::Image_Canvas($params);
                 
         if ((isset($params['usemap'])) && ($params['usemap'] === true)) {
-        	$this->_imageMap =& Image_Canvas::factory(
-        		'ImageMap',
-        		array(
-					'left' => $this->_left,
-					'top' => $this->_top,
-					'width' => $this->_width,
-					'height' => $this->_height
-				)
-        	);
+            $this->_imageMap =& Image_Canvas::factory(
+                'ImageMap',
+                array(
+                    'left' => $this->_left,
+                    'top' => $this->_top,
+                    'width' => $this->_width,
+                    'height' => $this->_height
+                )
+            );
         }
     }
     /**
@@ -99,9 +99,9 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function line($params)
     {
-    	if (isset($this->_imageMap)) {
-    		$this->_imageMap->line($params);
-    	}
+        if (isset($this->_imageMap)) {
+            $this->_imageMap->line($params);
+        }
         parent::line($params);
     }
 
@@ -115,9 +115,9 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function addVertex($params)
     {
-    	if (isset($this->_imageMap)) {
-    		$this->_imageMap->addVertex($params);
-    	}
+        if (isset($this->_imageMap)) {
+            $this->_imageMap->addVertex($params);
+        }
         parent::addVertex($params);
     }
 
@@ -135,9 +135,9 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function addSpline($params)
     {
-    	if (isset($this->_imageMap)) {
-    		$this->_imageMap->addSpline($params);
-    	}
+        if (isset($this->_imageMap)) {
+            $this->_imageMap->addSpline($params);
+        }
         parent::addSpline($params);
     }
 
@@ -153,10 +153,10 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function polygon($params)
     {
-    	if (isset($this->_imageMap)) {
-    		$this->_imageMap->polygon($params);
-    	}
-    	parent::polygon($params);
+        if (isset($this->_imageMap)) {
+            $this->_imageMap->polygon($params);
+        }
+        parent::polygon($params);
     }
 
     /**
@@ -173,9 +173,9 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function rectangle($params)
     {
-    	if (isset($this->_imageMap)) {
-    		$this->_imageMap->rectangle($params);
-    	}    	
+        if (isset($this->_imageMap)) {
+            $this->_imageMap->rectangle($params);
+        }        
         parent::rectangle($params);
     }
 
@@ -193,9 +193,9 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function ellipse($params)
     {
-    	if (isset($this->_imageMap)) {
-    		$this->_imageMap->ellipse($params);
-    	}    	
+        if (isset($this->_imageMap)) {
+            $this->_imageMap->ellipse($params);
+        }        
         parent::ellipse($params);
     }
 
@@ -217,10 +217,10 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function pieslice($params)
     {
-    	if (isset($this->_imageMap)) {
-    		$this->_imageMap->pieslice($params);
-    	}    	
-    	parent::pieslice($params);
+        if (isset($this->_imageMap)) {
+            $this->_imageMap->pieslice($params);
+        }        
+        parent::pieslice($params);
     }
 
     /**
@@ -235,9 +235,9 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function addText($params)
     {
-    	if (isset($this->_imageMap)) {
-    		$this->_imageMap->addText($params);
-    	}
+        if (isset($this->_imageMap)) {
+            $this->_imageMap->addText($params);
+        }
         parent::addText($params);
     }
 
@@ -254,10 +254,10 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function image($params)
     {
-    	if (isset($this->_imageMap)) {
-    		$this->_imageMap->image($params);
-    	}
-    	parent::image($params);
+        if (isset($this->_imageMap)) {
+            $this->_imageMap->image($params);
+        }
+        parent::image($params);
     }
 
     /**
@@ -266,10 +266,10 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function &getImageMap()
     {
-    	if (isset($this->_imageMap)) {
-    		return $this->_imageMap;
-    	}
-    	return false;
+        if (isset($this->_imageMap)) {
+            return $this->_imageMap;
+        }
+        return false;
     }
 
 }
