@@ -59,15 +59,31 @@ class Image_Canvas_ImageMap extends Image_Canvas
      */
     function _addMapTag($shape, $coords, $params)
     {
-           $url = $params['url'];
-          $target = (isset($params['target']) ? $params['target'] : false);
-          $alt = (isset($params['alt']) ? $params['alt'] : false);
-
-        $this->_map[] = 
-            '<area shape="' . $shape . '" coords="' . $coords . '" href="' . $url . '"' .
-                ($target ? ' target="' . $target . '"' : '') .
-                ($alt ? ' alt="' . $alt . '"' : '') .
-                '>';
+        if (isset($params['url'])) {
+            $url = $params['url'];
+            $target = (isset($params['target']) ? $params['target'] : false);
+            $alt = (isset($params['alt']) ? $params['alt'] : false);
+            
+            $tags = '';
+            if (isset($params['htmltags'])) {
+                foreach ($params['htmltags'] as $key => $value) {
+                    $tags .= ' ';
+                    if (strpos($value, '"') >= 0) {
+                        $tags .= $key . '=\'' . $value . '\'';
+                    } else {
+                        $tags .= $key . '="' . $value . '"';
+                    }
+                }
+            }
+            
+            $this->_map[] = 
+                '<area shape="' . $shape . '" coords="' . $coords . '" href="' . $url . '"' .
+                    ($target ? ' target="' . $target . '"' : '') .
+                    ($alt ? ' alt="' . $alt . '"' : '') .
+                    (isset($params['id']) ? ' id="' . $params['id'] . '"' : '') .
+                    $tags .
+                    '>';
+        }       
     }    
     
     /**
@@ -296,9 +312,9 @@ class Image_Canvas_ImageMap extends Image_Canvas
     function show($params = false)
     {
         parent::show($params);
-           if (count($this->_map) > 0) {
+        if (count($this->_map) > 0) {
              print $this->_toHtml($params);
-         }
+        }
     }
 
     /**
@@ -313,7 +329,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
     {
         parent::save($params);
         $file = fopen($param['filename'], 'w+');
-           fwrite($file, $this->_toHtml($params));        
+        fwrite($file, $this->_toHtml($params));        
         fclose($file);
     }
     
@@ -326,9 +342,9 @@ class Image_Canvas_ImageMap extends Image_Canvas
     function toHtml($params)
     {
         if (count($this->_map) > 0) {
-               return '<map name="' . $params['name'] . '">' . "\n\t" . implode($this->_map, "\n\t") . "\n</map>";
-         }
-         return ''; 
+            return '<map name="' . $params['name'] . '">' . "\n\t" . implode($this->_map, "\n\t") . "\n</map>";
+        }
+        return ''; 
     }
 }
 
