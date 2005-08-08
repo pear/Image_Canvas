@@ -2,8 +2,8 @@
 <!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
 <package version="1.0">
   <name>Image_Canvas</name>
-  <summary>A package providing a common interface to image drawing, making output independent on the library used.</summary>
-  <description>A package providing a common interface to image drawing, making output independent on the library used.</description>
+  <summary>A package providing a common interface to image drawing, making image source code independent on the library used.</summary>
+  <description>A package providing a common interface to image drawing, making image source code independent on the library used.</description>
   <maintainers>
     <maintainer>
       <user>nosey</user>
@@ -13,18 +13,13 @@
     </maintainer>
   </maintainers>
   <release>
-    <version>0.2.0</version>
-    <date>2005-08-01</date>
+    <version>0.2.1</version>
+    <date>2005-08-08</date>
     <license>LGPL</license>
     <state>alpha</state>
-    <notes>First released package in PEAR
-
-Changes since last PEPr release:
-* Added support for image maps - a separate canvas (Image_Canvas_ImageMap) has been created to accomplish this
-* Added support for antialiasing images when using GD (both using native GD method and Image_Graph own implementation)
-* Added support for multi line texts    
-* Added a toHtml() method for to easy facilitate including canvas in HTML (this includes the associated image map, if any)
-* Added line ends - only supported in GD canvases currently and not on polygons (yet!)</notes>
+    <notes>* Added Request #4997 &quot;HTML attributes and JS actions in imagemaps&quot; - using 'htmltags' entry
+* Fixed bug with fonts, now it's not required for the font to have a name
+* Changed examples to use require_once instead of include/require</notes>
     <deps>
       <dep type="ext" rel="has" optional="no">gd</dep>
       <dep type="pkg" rel="ge" version="1.0.0" optional="no">Image_Color</dep>
@@ -144,33 +139,33 @@ Changes since last PEPr release:
     <provides type="function" name="Image_Canvas::toHtml" />
     <provides type="function" name="Image_Canvas::factory" />
     <filelist>
-      <file role="php" baseinstalldir="Image" md5sum="985f6a575f5b747c4ed733113f6e87d7" name="Canvas/Color.php"/>
-      <file role="php" baseinstalldir="Image" md5sum="7dc42a6b47a9b8af25468852c3afaf8c" name="Canvas/GD.php"/>
-      <file role="php" baseinstalldir="Image" md5sum="097f1b48f26b4e7a30c89b89dd20c9a6" name="Canvas/ImageMap.php"/>
-      <file role="php" baseinstalldir="Image" md5sum="0369d3cc8ea07771538ceb89a4260025" name="Canvas/PDF.php"/>
-      <file role="php" baseinstalldir="Image" md5sum="2361bfc9ca2acdf6649d67ca09a95487" name="Canvas/SVG.php"/>
-      <file role="php" baseinstalldir="Image" md5sum="b69cbc003e031442803c2b053e158ac0" name="Canvas/Tool.php"/>
-      <file role="php" baseinstalldir="Image" md5sum="3e698d553c76333e8fb3f8fac0729dde" name="Canvas/WithMap.php"/>
-      <file role="data" baseinstalldir="Image" md5sum="2bdeec77724050cdcb59b73483c82246" name="Canvas/Fonts/fontmap.txt"/>
-      <file role="php" baseinstalldir="Image" md5sum="4cd0aff8a64eb24ec75bdae04fccdb23" name="Canvas/GD/JPG.php"/>
-      <file role="php" baseinstalldir="Image" md5sum="97ab2897049e6f9b56239c48ddbecbe9" name="Canvas/GD/PNG.php"/>
-      <file role="doc" baseinstalldir="Image" md5sum="1e3fe35915e930ff71666fc814e84695" name="docs/ChangeLog"/>
-      <file role="doc" baseinstalldir="Image" md5sum="34566f391beb7149dfd38221b6077c47" name="docs/README"/>
-      <file role="doc" baseinstalldir="Image" md5sum="01eb2d5c25553f105535bafed2bec28b" name="docs/examples/canvas.php"/>
-      <file role="doc" baseinstalldir="Image" md5sum="fa5c8de54f615176ce77221188aef76b" name="docs/examples/pear-icon.png"/>
-      <file role="test" baseinstalldir="Image" md5sum="7f8d68c19c1cceb4833a68cea63ec368" name="tests/canvas_body.php"/>
-      <file role="test" baseinstalldir="Image" md5sum="e0287b36a41fa1206755a91d008bfcd6" name="tests/gradients.php"/>
-      <file role="test" baseinstalldir="Image" md5sum="b46df828c0218b84866de5015628b542" name="tests/imagemap.php"/>
-      <file role="test" baseinstalldir="Image" md5sum="d326350460389a6975e203f0c414ea08" name="tests/imagemap.png"/>
-      <file role="test" baseinstalldir="Image" md5sum="d7127e3cd33958399a8f3fe7ea6f630a" name="tests/jpg.php"/>
-      <file role="test" baseinstalldir="Image" md5sum="397a1eaadb75cb8a8bada2fbac7af9a0" name="tests/lineends.php"/>
-      <file role="test" baseinstalldir="Image" md5sum="bc0f88fbed586e0bd00cf735b7c0344c" name="tests/pdf.php"/>
-      <file role="test" baseinstalldir="Image" md5sum="fa5c8de54f615176ce77221188aef76b" name="tests/pear-icon.png"/>
-      <file role="test" baseinstalldir="Image" md5sum="5a10001b07c1ee8f5e734af64ede9deb" name="tests/png.php"/>
-      <file role="test" baseinstalldir="Image" md5sum="e57ee6ce6b53281052862e6906f123d6" name="tests/README"/>
-      <file role="test" baseinstalldir="Image" md5sum="f160feb2673e9fbc7e35459d16c8eb55" name="tests/svg.php"/>
-      <file role="test" baseinstalldir="Image" md5sum="5239bb6d77c1d1df94301759e4db0e9d" name="tests/text.php"/>
-      <file role="php" baseinstalldir="Image" md5sum="b568c3c3fec1c7cba8a434a6fb169831" name="Canvas.php"/>
+      <file role="php" baseinstalldir="Image" name="Canvas/Color.php"/>
+      <file role="php" baseinstalldir="Image" name="Canvas/GD.php"/>
+      <file role="php" baseinstalldir="Image" name="Canvas/ImageMap.php"/>
+      <file role="php" baseinstalldir="Image" name="Canvas/PDF.php"/>
+      <file role="php" baseinstalldir="Image" name="Canvas/SVG.php"/>
+      <file role="php" baseinstalldir="Image" name="Canvas/Tool.php"/>
+      <file role="php" baseinstalldir="Image" name="Canvas/WithMap.php"/>
+      <file role="data" baseinstalldir="Image" name="Canvas/Fonts/fontmap.txt"/>
+      <file role="data" baseinstalldir="Image" name="Canvas/Fonts/README"/>
+      <file role="php" baseinstalldir="Image" name="Canvas/GD/JPG.php"/>
+      <file role="php" baseinstalldir="Image" name="Canvas/GD/PNG.php"/>
+      <file role="doc" baseinstalldir="Image" name="docs/ChangeLog"/>
+      <file role="doc" baseinstalldir="Image" name="docs/README"/>
+      <file role="doc" baseinstalldir="Image" name="docs/examples/canvas.php"/>
+      <file role="doc" baseinstalldir="Image" name="docs/examples/pear-icon.png"/>
+      <file role="test" baseinstalldir="Image" name="tests/canvas_body.php"/>
+      <file role="test" baseinstalldir="Image" name="tests/gradients.php"/>
+      <file role="test" baseinstalldir="Image" name="tests/imagemap.php"/>
+      <file role="test" baseinstalldir="Image" name="tests/jpg.php"/>
+      <file role="test" baseinstalldir="Image" name="tests/lineends.php"/>
+      <file role="test" baseinstalldir="Image" name="tests/pdf.php"/>
+      <file role="test" baseinstalldir="Image" name="tests/pear-icon.png"/>
+      <file role="test" baseinstalldir="Image" name="tests/png.php"/>
+      <file role="test" baseinstalldir="Image" name="tests/README"/>
+      <file role="test" baseinstalldir="Image" name="tests/svg.php"/>
+      <file role="test" baseinstalldir="Image" name="tests/text.php"/>
+      <file role="php" baseinstalldir="Image" name="Canvas.php"/>
     </filelist>
   </release>
   <changelog>
@@ -179,16 +174,14 @@ Changes since last PEPr release:
       <date>2005-03-21</date>
       <license>LGPL</license>
       <state>devel</state>
-      <notes>First PEPr release
-</notes>
+      <notes>First PEPr release</notes>
     </release>
     <release>
       <version>0.1.1</version>
       <date>2005-03-21</date>
       <license>LGPL</license>
       <state>devel</state>
-      <notes>First PEPr release
-</notes>
+      <notes>First PEPr release</notes>
     </release>
     <release>
       <version>0.1.2</version>
@@ -197,8 +190,7 @@ Changes since last PEPr release:
       <state>devel</state>
       <notes>* Changed write() to addText()
 * Split done() into show() and save()
-* Changed all methods with more than 1 parameter to use hashed array as parameters
-</notes>
+* Changed all methods with more than 1 parameter to use hashed array as parameters</notes>
     </release>
     <release>
       <version>0.2.0</version>
@@ -212,8 +204,16 @@ Changes since last PEPr release:
 * Added support for antialiasing images when using GD (both using native GD method and Image_Graph own implementation)
 * Added support for multi line texts    
 * Added a toHtml() method for to easy facilitate including canvas in HTML (this includes the associated image map, if any)
-* Added line ends - only supported in GD canvases currently and not on polygons (yet!)
-</notes>
+* Added line ends - only supported in GD canvases currently and not on polygons (yet!)</notes>
+    </release>
+    <release>
+      <version>0.2.1</version>
+      <date>2005-08-08</date>
+      <license>LGPL</license>
+      <state>alpha</state>
+      <notes>* Added Request #4997 &quot;HTML attributes and JS actions in imagemaps&quot; - using 'htmltags' entry
+* Fixed bug with fonts, now it's not required for the font to have a name
+* Changed examples to use require_once instead of include/require</notes>
     </release>
   </changelog>
 </package>
