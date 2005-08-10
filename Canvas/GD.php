@@ -1492,16 +1492,25 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * filesystem path specified and parses it as URL specified by URL path
      * 
      * Parameter array:
-     * 'filename': string
+     * 'filename' string
+     * 
      * 'filepath': string Path to the file on the file system. Remember the final slash
+     * 
      * 'urlpath': string Path to the file available through an URL. Remember the final slash
-     * 'alt': Alternative text on image
+     * 
+     * 'alt': string [optional] Alternative text on image
+     * 
+     * 'cssclass': string [optional] The CSS Stylesheet class
+     * 
+     * 'border': int [optional] The border width on the image 
      */
     function toHtml($params)
     {
         parent::toHtml($params);
         return '<img src="' . $params['urlpath'] . $params['filename'] . '"' .
             (isset($params['alt']) ? ' alt="' . $params['alt'] . '"' : '') .
+            (isset($params['cssclass']) ? ' class="' . $params['cssclass'] . '"' : '') .
+            (isset($params['border']) ? ' border="' . $params['border'] . '"' : '') .
             (isset($this->_imageMap) ? ' usemap="#' . $params['filename'] . '"' : '') . '>' .
             (isset($this->_imageMap) ? "\n" . $this->_imageMap->toHtml(array('name' => $params['filename'])) : '');
     }

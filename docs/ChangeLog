@@ -1,6 +1,10 @@
 **************************
  Image_Canvas - Changelog
 **************************
+Version 0.2.1 [2005-xxx-xxx] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Added 'border' and 'cssclass' option to Image_Canvas_GD::toHtml()
+    * Fixed bug where 'htmltags' were not transferred to image mapping of polygon vertices
+
 Version 0.2.1 [2005-Aug-08] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Added Request #4997 "HTML attributes and JS actions in imagemaps" - using 'htmltags' entry
     * Fixed bug with fonts, now it's not required for the font to have a name

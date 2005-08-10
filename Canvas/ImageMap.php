@@ -152,6 +152,9 @@ class Image_Canvas_ImageMap extends Image_Canvas
                 if (isset($point['mapsize'])) {
                     $vertex_mapsize = $point['mapsize'];
                 }                            
+                if (isset($point['htmltags'])) {
+                    $vertex_param['htmltags'] = $point['htmltags'];
+                }
                 $this->_addMapTag(
                     'circle', 
                     $this->_getX($point['X']) . ',' . 

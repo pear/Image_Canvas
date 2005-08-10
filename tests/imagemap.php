@@ -162,7 +162,10 @@ $canvas->pieslice(
         'srx' => 25,
         'sry' => 10, 
         'url' => 'http://www.dr.dk/',    
-        'alt' => 'Donut slice'
+        'alt' => 'Donut slice',
+        'htmltags' => array(
+            'onMouseOver' => 'alert("Hello, World!");'
+        )
     )
 );
 
