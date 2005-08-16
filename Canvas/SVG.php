@@ -715,17 +715,22 @@ class Image_Canvas_SVG extends Image_Canvas
         $x = $this->_getX($params['x']);
         $y = $this->_getY($params['y']);
         $filename = $params['filename'];
-        $width = (isset($params['width']) ? $params['width'] : false);
-        $height = (isset($params['height']) ? $params['height'] : false);
+
+        list($width, $height, $type, $attr) = getimagesize($filename);        
+        $width = (isset($params['width']) ? $params['width'] : $width);
+        $height = (isset($params['height']) ? $params['height'] : $height);
         $alignment = (isset($params['alignment']) ? $params['alignment'] : false);
 
-        // TODO Make images work in SVG
-        $filename = 'file:///' . str_replace('\\', '/', $filename);
+        $file = fopen($filename, 'rb');
+        $filedata = fread($file, filesize($filename));
+        fclose($file);
+                
+        $data = 'data:' . image_type_to_mime_type($type) . ';base64,' . base64_encode($filedata);
         $this->_addElement(
-            '<image xlink:href="' . $filename . '" x="' . $x . '" y="' . $y .
-                ($width ? '" width="' . $width : '') .
-                ($height ? '" height="' . $height : '') .
-            '"/>'
+            '<image xlink:href="' . $data . '" x="' . $x . '" y="' . $y . '"' .
+                ($width ? ' width="' . $width . '"' : '') .
+                ($height ? ' height="' . $height . '"' : '') .
+            ' preserveAspectRatio="none"/>'
         );
         parent::image($params);
     }

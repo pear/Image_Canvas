@@ -311,6 +311,16 @@ $canvas->image(array('x' => 445, 'y' => 495, 'filename' => './pear-icon.png', 'w
 
 $canvas->image(array('x' => 445, 'y' => 523, 'filename' => './pear-icon.png', 'width' => 40, 'height' => 40));
 
-$canvas->show();
+//$canvas->show();
+$type = basename($_SERVER['SCRIPT_NAME'], '.php');
+$canvas->toHtml(
+    array(
+        'filename' => 'test' . $type . '.' . $type, 
+        'urlpath' => '', 
+        'filepath' => './', 
+        'width' => '100%', 
+        'height' => '100%'
+    )
+); 
 
 ?>
