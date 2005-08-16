@@ -107,8 +107,34 @@ class Image_Canvas_SVG extends Image_Canvas
      * @param string $element The element
      * @access private
      */
-    function _addElement($element) {
-        $this->_elements .= $this->_indent . $element . "\n";
+    function _addElement($element, $params) {
+        $elementdata = $this->_indent . $element . "\n";
+        
+        if (isset($params['url'])) {
+            $url = $params['url'];
+            $target = (isset($params['target']) ? $params['target'] : false);
+            $alt = (isset($params['alt']) ? $params['alt'] : false);
+            
+            $tags = '';
+            if (isset($params['htmltags'])) {
+                foreach ($params['htmltags'] as $key => $value) {
+                    $tags .= ' ';
+                    if (strpos($value, '"') >= 0) {
+                        $tags .= $key . '=\'' . $value . '\'';
+                    } else {
+                        $tags .= $key . '="' . $value . '"';
+                    }
+                }
+            }
+            
+            $elementdata =
+                $this->_indent . '<a xlink:href="' . $url . '"' . ($target ? ' target="' . $target . '"' : '') . '>' . "\n" .
+                '    ' . $elementdata .
+                $this->_indent . '</a>' . "\n";                           
+        }
+       
+        
+        $this->_elements .= $elementdata;
     }
 
     /**
@@ -395,7 +421,8 @@ class Image_Canvas_SVG extends Image_Canvas
                     'x2="' . round($x1) . '" ' .
                     'y2="' . round($y1) . '" ' .
                     'style="' . $style . '"' .
-                '/>'
+                '/>',
+                $params
             );
         }
         parent::line($params);
@@ -452,7 +479,8 @@ class Image_Canvas_SVG extends Image_Canvas
             '<path ' .
                  'd="' . $points . '" ' .
                  'style="' . $style . '"' .
-            '/>'
+            '/>',
+            $params
         );
 
         parent::polygon($params);
@@ -488,7 +516,8 @@ class Image_Canvas_SVG extends Image_Canvas
                     'width="' . round(abs($x1 - $x0)) . '" ' .
                     'height="' . round(abs($y1 - $y0)) . '" ' .
                     'style="' . $style . '"' .
-                '/>'
+                '/>',
+                $params
             );
         }
         parent::rectangle($params);
@@ -524,7 +553,8 @@ class Image_Canvas_SVG extends Image_Canvas
                     'rx="' . round($rx) . '" ' .
                     'ry="' . round($ry) . '" ' .
                     'style="' . $style . '"' .
-                '/>'
+                '/>',
+                $params
             );
         }
         parent::ellipse($params);
@@ -559,27 +589,32 @@ class Image_Canvas_SVG extends Image_Canvas
         $fillColor = (isset($params['fill']) ? $params['line'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
-        // TODO Pieslices with v2-v1 < 90 "curl" the wrong way
-
-        $style = $this->_getLineStyle($lineColor) . $this->_getFillStyle($fillColor);
-        if ($style != '') {
-            $x1 = ($x + $rx * cos(deg2rad(min($v1, $v2) % 360)));
-            $y1 = ($y + $ry * sin(deg2rad(min($v1, $v2) % 360)));
-            $x2 = ($x + $rx * cos(deg2rad(max($v1, $v2) % 360)));
-            $y2 = ($y + $ry * sin(deg2rad(max($v1, $v2) % 360)));
-            $this->_addElement(
-                '<path d="' .
-                    'M' . round($x) . ',' . round($y) . ' ' .
-                    'L' . round($x1) . ',' . round($y1) . ' ' .
-                    'A' . round($rx) . ',' . round($ry) . ' 0 0,1 ' .
-                        round($x2) . ',' . round($y2) . ' ' .
-                    'z" ' .
-                    'style="' . $style . '"' .
-                '/>'
-            );
+        $dv = max($v2, $v1) - min($v2, $v1);
+        if ($dv >= 360) {
+            $this->ellipse($params);
         }
+        else {
+            $style = $this->_getLineStyle($lineColor) . $this->_getFillStyle($fillColor);
+            if ($style != '') {
+                $x1 = ($x + $rx * cos(deg2rad(min($v1, $v2) % 360)));
+                $y1 = ($y + $ry * sin(deg2rad(min($v1, $v2) % 360)));
+                $x2 = ($x + $rx * cos(deg2rad(max($v1, $v2) % 360)));
+                $y2 = ($y + $ry * sin(deg2rad(max($v1, $v2) % 360)));
+                $this->_addElement(
+                    '<path d="' .
+                        'M' . round($x) . ',' . round($y) . ' ' .
+                        'L' . round($x1) . ',' . round($y1) . ' ' .
+                        'A' . round($rx) . ',' . round($ry) . ($dv > 180 ? ' 0 1,1 ' : ' 0 0,1 ') .
+                              round($x2) . ',' . round($y2) . ' ' .
+                        'Z" ' .
+                        'style="' . $style . '"' .
+                    '/>',
+                    $params
+                );
+            }
 
-        parent::pieslice($params);
+            parent::pieslice($params);
+        }
     }
 
     /**
@@ -694,7 +729,8 @@ class Image_Canvas_SVG extends Image_Canvas
                     ''
                 ) . ';' . $align . '">' .
                 str_replace('&', '&amp;', $text) .
-            '</text>'
+            '</text>',
+            $params
         );
         parent::addText($params);
     }
@@ -730,7 +766,8 @@ class Image_Canvas_SVG extends Image_Canvas
             '<image xlink:href="' . $data . '" x="' . $x . '" y="' . $y . '"' .
                 ($width ? ' width="' . $width . '"' : '') .
                 ($height ? ' height="' . $height . '"' : '') .
-            ' preserveAspectRatio="none"/>'
+            ' preserveAspectRatio="none"/>',
+            $params
         );
         parent::image($params);
     }

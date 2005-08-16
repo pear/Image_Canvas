@@ -136,7 +136,7 @@ $canvas->ellipse(array('x' => 390, 'y' => 230, 'rx' => 40, 'ry' => 20));
 $canvas->addText(array('x' => 5, 'y' => 270, 'text' => 'Pie slices'));
 
 $c = 0;
-for ($i = 360; $i >= 45; $i -= 45) {
+for ($i = 360; $i >= 45; $i -= 30) {
     $canvas->setLineColor('black');
     $canvas->setFillColor('blue@' . sprintf('%0.1f', ((360 - $i) / 360)));
     $canvas->pieslice(
@@ -305,7 +305,7 @@ $canvas->polygon(array('connect' => true));
 
 $canvas->addText(array('x' => 375, 'y' => 455, 'text' => 'Image'));
 
-$canvas->image(array('x' => 445, 'y' => 455, 'filename' => './pear-icon.png'));
+$canvas->image(array('x' => 445, 'y' => 455, 'filename' => './pear-icon.png', 'url' => 'http://pear.veggerby.dk/', 'target' => '_blank'));
 
 $canvas->image(array('x' => 445, 'y' => 495, 'filename' => './pear-icon.png', 'width' => 20, 'height' => 20));
 
