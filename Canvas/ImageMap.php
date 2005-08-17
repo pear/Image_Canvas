@@ -316,7 +316,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
     {
         parent::show($params);
         if (count($this->_map) > 0) {
-             print $this->_toHtml($params);
+             print $this->toHtml($params);
         }
     }
 
@@ -332,7 +332,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
     {
         parent::save($params);
         $file = fopen($param['filename'], 'w+');
-        fwrite($file, $this->_toHtml($params));        
+        fwrite($file, $this->toHtml($params));        
         fclose($file);
     }
     
