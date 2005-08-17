@@ -449,12 +449,18 @@ class Image_Canvas_SVG extends Image_Canvas
 
         $first = true;
         $spline = false;
+        $lastpoint = false;
         foreach($this->_polygon as $point) {
             if ($first) {
                 $points = 'M';
             } elseif (!$spline) {
                 $points .= ' L';
             }
+            
+            if (($spline) && ($lastpoint !== false)) {
+                $points .= ' ' .round($lastpoint['P1X']) . ',' . round($lastpoint['P1Y']) . ' ' .
+                           round($lastpoint['P2X']) . ',' . round($lastpoint['P2Y']);
+            } 
 
             $points .= ' ' . round($point['X']) . ',' . round($point['Y']);
 
@@ -464,8 +470,7 @@ class Image_Canvas_SVG extends Image_Canvas
                 if (($first) || (!$spline)) {
                     $points .= ' C';
                 }
-                $points .= ' ' .round($point['P1X']) . ',' . round($point['P1Y']) . ' ' .
-                           round($point['P2X']) . ',' . round($point['P2Y']);
+                $lastpoint = $point;
                 $spline = true;
             } else {
                 $spline = false;
