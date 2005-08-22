@@ -57,7 +57,7 @@ class Image_Canvas_Tool
      *
      * The translated font-name (or the original if no translation) exists is
      * then returned if it is an existing file, otherwise the file is searched
-     * first in the path specified by IMAGE_GRAPH_SYSTEM_FONT_PATH defined in
+     * first in the path specified by IMAGE_CANVAS_SYSTEM_FONT_PATH defined in
      * Image/Canvas.php, then in the Image/Canvas/Fonts folder. If a font is
      * still not found and the name is not beginning with a '/' the search is
      * left to the library, otherwise the font is deemed non-existing.
