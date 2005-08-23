@@ -769,7 +769,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                     'y0' => $y - round(sin($angle + $pi2) * $size / 2),
                     'x1' => $x + round(cos($angle + 3 * $pi2) * $size / 2),
                     'y1' => $y - round(sin($angle + 3 * $pi2) * $size / 2),
-                    'color' => $params['color']                    
+                    'color' => $params['color']
                 )
             );
             break;
@@ -815,7 +815,9 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
         
         if (isset($shape)) {
             // output the shape
-            ImageFilledPolygon($this->_canvas, $shape, count($shape)/2, $this->_color($params['color']));
+            if (($fill = $this->_getFillStyle($params['color'])) !== false) {
+                ImageFilledPolygon($this->_canvas, $shape, count($shape)/2, $fill);
+            }
         }
         parent::drawEnd($params);
     }    

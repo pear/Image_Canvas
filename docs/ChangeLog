@@ -10,6 +10,7 @@ Version 0.2.2 [2005-xxx-xxx] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Fixed bug in Image_Canvas_ImageMap::show() and Image_Canvas_ImageMap::save() calling non-existing method _toHtml()
     * Fixed bug in Image_Canvas_SVG::polygon() not showing polygon if last point was a spline - addSpline()
     * Fixed bug #5175 "Unable to define IMAGE_GRAPH_SYSTEM_FONT_PATH outside of Config.php"
+    * Fixed bug causing line ends not to show if color not exlicitly defined
 
 Version 0.2.1 [2005-Aug-08] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Added Request #4997 "HTML attributes and JS actions in imagemaps" - using 'htmltags' entry
