@@ -70,7 +70,7 @@ class Image_Canvas_WithMap extends Image_Canvas
      * @param array $params Parameter array
      * @abstract
      */
-    function &Image_Canvas_WithMap($params)
+    function Image_Canvas_WithMap($params)
     {
         parent::Image_Canvas($params);
                 
@@ -266,10 +266,11 @@ class Image_Canvas_WithMap extends Image_Canvas
      */
     function &getImageMap()
     {
+        $result = null;
         if (isset($this->_imageMap)) {
-            return $this->_imageMap;
+            $result =& $this->_imageMap;
         }
-        return false;
+        return $result;
     }
 
 }

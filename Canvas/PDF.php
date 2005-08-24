@@ -146,7 +146,7 @@ class Image_Canvas_PDF extends Image_Canvas
      *
      * @param array $param Parameter array
      */
-    function &Image_Canvas_PDF($param)
+    function Image_Canvas_PDF($param)
     {
         if (isset($param['page'])) {
             switch (strtoupper($param['page'])) {

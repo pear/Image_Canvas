@@ -138,7 +138,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      *
      * @param array $param Parameter array
      */
-    function &Image_Canvas_GD($param)
+    function Image_Canvas_GD($param)
     {
         include_once 'Image/Canvas/Color.php';
 
@@ -189,18 +189,19 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
     {
         $ext = strtolower(substr($filename, -4));
         
+        $result = null;
         switch($ext) {
         case '.png':
-            return ImageCreateFromPNG($filename);
+            $result =& ImageCreateFromPNG($filename);
             
         case '.jpg':
         case '.jpeg':
-            return ImageCreateFromJPEG($filename);
+            $result =& ImageCreateFromJPEG($filename);
             
         case '.gif':
-            return ImageCreateFromGIF($filename);
+            $result =& ImageCreateFromGIF($filename);
         }
-        return false;
+        return $result;
     }
 
     /**
@@ -861,7 +862,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * 'line': mixed [optional] The line color
      * @param array $params Parameter array
      */
-    function polygon($params = array())
+    function polygon($params)
     {
         include_once 'Image/Canvas/Tool.php';
 

@@ -148,7 +148,7 @@ class Image_Canvas
      * @param array $params Parameter array
      * @abstract
      */
-    function &Image_Canvas($params)
+    function Image_Canvas($params)
     {
         if (isset($params['left'])) {
             $this->_left = $params['left'];
@@ -688,8 +688,10 @@ class Image_Canvas
         }
 
         $class = 'Image_Canvas_'. $canvas;
-          include_once 'Image/Canvas/'. str_replace('_', '/', $canvas) . '.php';
-        return new $class($params);
+        include_once 'Image/Canvas/'. str_replace('_', '/', $canvas) . '.php';
+        
+        $obj =& new $class($params);
+        return $obj;
     }
 
 }

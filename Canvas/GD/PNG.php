@@ -53,7 +53,7 @@ class Image_Canvas_GD_PNG extends Image_Canvas_GD
      *
      * @param array $param Parameter array
      */
-    function &Image_Canvas_GD_PNG($param)
+    function Image_Canvas_GD_PNG($param)
     {
         parent::Image_Canvas_GD($param);
 
