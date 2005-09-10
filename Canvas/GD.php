@@ -187,19 +187,21 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      */
     function &_getGD($filename)
     {
-        $ext = strtolower(substr($filename, -4));
+        $info = getimagesize($filename);
         
         $result = null;
-        switch($ext) {
-        case '.png':
+        switch($info[2]) {
+        case IMG_PNG:
             $result =& ImageCreateFromPNG($filename);
+            break;
             
-        case '.jpg':
-        case '.jpeg':
+        case IMG_JPG:
             $result =& ImageCreateFromJPEG($filename);
+            break;
             
-        case '.gif':
+        case IMG_GIF:
             $result =& ImageCreateFromGIF($filename);
+            break;
         }
         return $result;
     }
