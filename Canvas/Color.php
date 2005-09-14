@@ -61,7 +61,7 @@ class Image_Canvas_Color extends Image_Color
     {
         $color = Image_Canvas_Color::color2RGB($color);
 
-        if ($color[3] == 255) {
+        if (($color[3] == 255) || (!function_exists("imagecolorallocatealpha"))) {
             return imagecolorallocate($img, $color[0], $color[1], $color[2]);
         } else {
             return imagecolorallocatealpha($img, $color[0], $color[1], $color[2], 127-round(($color[3]*127)/255));
