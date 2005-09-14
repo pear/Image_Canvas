@@ -1548,6 +1548,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      */
     function _version()
     {
+        $result = false;
         if (function_exists('gd_info')) {
             $info = gd_info();
             $version = $info['GD Version'];

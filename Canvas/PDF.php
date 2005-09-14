@@ -979,6 +979,7 @@ class Image_Canvas_PDF extends Image_Canvas
      */
     function _version()
     {
+        $result = false;
         if (function_exists('pdf_get_majorversion')) {
             $version = pdf_get_majorversion();
         } else {
