@@ -318,7 +318,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                 }
                 ImageSetTile($this->_canvas, $this->_tileImage);
                 return IMG_COLOR_TILED;
-            } elseif (is_array($this->_fillStyle)) {
+            } elseif ((is_array($this->_fillStyle)) && (isset($this->_fillStyle['direction']))) {
                 $width = abs($x1 - $x0) + 1;
                 $height = abs($y1 - $y0) + 1;
 
@@ -721,12 +721,19 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * Draw a line end
      *
      * Parameter array:
+     * 
      * 'x': int X point
+     * 
      * 'y': int Y point
+     * 
      * 'end': string The end type of the end
+     * 
      * 'size': int The size of the end
+     * 
      * 'color': string The color of the end
+     * 
      * 'angle': int [optional] The angle with which to draw the end
+     * 
      * @param array $params Parameter array
      */
     function drawEnd($params) 
@@ -829,11 +836,17 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * Draw a line
      *
      * Parameter array:
+     * 
      * 'x0': int X start point
+     * 
      * 'y0': int Y start point
+     * 
      * 'x1': int X end point
+     * 
      * 'y1': int Y end point
+     * 
      * 'color': mixed [optional] The line color
+     * 
      * @param array $params Parameter array
      */
     function line($params)
@@ -858,9 +871,12 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
 
     /**
      * Parameter array:
+     * 
      * 'connect': bool [optional] Specifies whether the start point should be
-     *   connected to the endpoint (closed polygon) or not (connected line)
+     * connected  to the endpoint (closed polygon) or not (connected line)
+     * 
      * 'fill': mixed [optional] The fill color
+     * 
      * 'line': mixed [optional] The line color
      * @param array $params Parameter array
      */
@@ -1045,12 +1061,19 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * Draw a rectangle
      *
      * Parameter array:
+     * 
      * 'x0': int X start point
+     * 
      * 'y0': int Y start point
+     * 
      * 'x1': int X end point
+     * 
      * 'y1': int Y end point
+     * 
      * 'fill': mixed [optional] The fill color
+     * 
      * 'line': mixed [optional] The line color
+     * 
      * @param array $params Parameter array
      */
     function rectangle($params)
@@ -1077,12 +1100,19 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * Draw an ellipse
      *
      * Parameter array:
+     * 
      * 'x': int X center point
+     * 
      * 'y': int Y center point
+     * 
      * 'rx': int X radius
+     * 
      * 'ry': int Y radius
+     * 
      * 'fill': mixed [optional] The fill color
+     * 
      * 'line': mixed [optional] The line color
+     * 
      * @param array $params Parameter array
      */
     function ellipse($params)
@@ -1108,16 +1138,27 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * Draw a pie slice
      *
      * Parameter array:
+     * 
      * 'x': int X center point
+     * 
      * 'y': int Y center point
+     * 
      * 'rx': int X radius
+     * 
      * 'ry': int Y radius
+     * 
      * 'v1': int The starting angle (in degrees)
+     * 
      * 'v2': int The end angle (in degrees)
+     * 
      * 'srx': int [optional] Starting X-radius of the pie slice (i.e. for a doughnut)
+     * 
      * 'sry': int [optional] Starting Y-radius of the pie slice (i.e. for a doughnut)
+     * 
      * 'fill': mixed [optional] The fill color
+     * 
      * 'line': mixed [optional] The line color
+     * 
      * @param array $params Parameter array
      */
     function pieslice($params)
@@ -1284,10 +1325,15 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * Writes text
      *
      * Parameter array:
+     * 
      * 'x': int X-point of text
+     * 
      * 'y': int Y-point of text
+     * 
      * 'text': string The text to add
+     * 
      * 'alignment': array [optional] Alignment
+     * 
      * 'color': mixed [optional] The color of the text
      */
     function addText($params)
@@ -1388,11 +1434,17 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * Overlay image
      *
      * Parameter array:
+     * 
      * 'x': int X-point of overlayed image
+     * 
      * 'y': int Y-point of overlayed image
+     * 
      * 'filename': string The filename of the image to overlay
+     * 
      * 'width': int [optional] The width of the overlayed image (resizing if possible)
+     * 
      * 'height': int [optional] The height of the overlayed image (resizing if possible)
+     * 
      * 'alignment': array [optional] Alignment
      */
     function image($params)
@@ -1497,6 +1549,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * filesystem path specified and parses it as URL specified by URL path
      * 
      * Parameter array:
+     * 
      * 'filename' string
      * 
      * 'filepath': string Path to the file on the file system. Remember the final slash
@@ -1542,8 +1595,8 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
     /**
      * Check which version of GD is installed
      *
-     * @return int 0 if GD isn't installed, 1 if GD 1.x is installed and 2 if
-     *   GD 2.x is installed
+     * @return int 0 if GD isn't installed, 1 if GD 1.x is installed and 2 if GD
+     * 2.x is installed
      * @access private
      */
     function _version()
