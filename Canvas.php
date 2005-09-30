@@ -667,6 +667,16 @@ class Image_Canvas
      * 
      * 'imagemap': output as a html image map
      *
+     * An example of usage:
+     * 
+     * <code>
+     * <?php
+     * $Canvas =& Image_Graph::factory('png', 
+     *     array('width' => 800, 'height' => 600, 'antialias' => 'native')
+     * );
+     * ?>
+     * </code>
+     *
      * @param string $canvas The canvas type
      * @param array $params The parameters for the canvas constructor
      * @return Image_Canvas The newly created canvas

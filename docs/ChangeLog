@@ -1,7 +1,7 @@
 **************************
  Image_Canvas - Changelog
 **************************
-Version 0.2.2 [2005-xxx-xxx] - Jesper Veggerby <pear.nosey@veggerby.dk>
+Version 0.2.2 [2005-Sep-30] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Added 'border' and 'cssclass' option to Image_Canvas_GD::toHtml()
     * Added image support when using SVG (using embedded base64 encoding)
     * Added link ("imagemap") support with SVG
@@ -10,9 +10,9 @@ Version 0.2.2 [2005-xxx-xxx] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Fixed bug in SVG where pie slices with some specific angles curled the wrong way
     * Fixed bug in Image_Canvas_ImageMap::show() and Image_Canvas_ImageMap::save() calling non-existing method _toHtml()
     * Fixed bug in Image_Canvas_SVG::polygon() not showing polygon if last point was a spline - addSpline()
-    * Fixed bug #5175 "Unable to define IMAGE_GRAPH_SYSTEM_FONT_PATH outside of Config.php"
     * Fixed bug causing line ends not to show if color not exlicitly defined
     * Fixed Bug #5066 "Reference Notices" (from Image_Graph)
+    * Fixed bug #5175 "Unable to define IMAGE_GRAPH_SYSTEM_FONT_PATH outside of Config.php"
     * Fixed Bug #5325 "Image/Color.php compatibility with old PHP versions"
 
 Version 0.2.1 [2005-Aug-08] - Jesper Veggerby <pear.nosey@veggerby.dk>
