@@ -733,7 +733,7 @@ class Image_Canvas_SVG extends Image_Canvas
                         $textOpacity :
                     ''
                 ) . ';' . $align . '">' .
-                str_replace('&', '&amp;', $text) .
+                htmlspecialchars($text) .
             '</text>',
             $params
         );
@@ -792,7 +792,7 @@ class Image_Canvas_SVG extends Image_Canvas
             $this->_id++;
         }
         $this->_groupIDs[] = $name;
-        $this->_addElement('<g id="' . $name . '">');
+        $this->_addElement('<g id="' . htmlspecialchars($name) . '">');
         $this->_indent .= '    ';        
     }
 
