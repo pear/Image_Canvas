@@ -14,22 +14,12 @@
   </maintainer>
   </maintainers>
  <release>
-  <version>0.2.2</version>
-  <date>2005-09-30</date>
+  <version>0.2.3</version>
+  <date>2005-10-28</date>
   <license>LGPL</license>
   <state>alpha</state>
-  <notes>* Added &apos;border&apos; and &apos;cssclass&apos; option to Image_Canvas_GD::toHtml()
-* Added image support when using SVG (using embedded base64 encoding)
-* Added link (&quot;imagemap&quot;) support with SVG
-* Made image loading in GD canvas use getimagesize() to determine type instead of relying on extension
-* Fixed bug where &apos;htmltags&apos; were not transferred to image mapping of polygon vertices
-* Fixed bug in SVG where pie slices with some specific angles curled the wrong way
-* Fixed bug in Image_Canvas_ImageMap::show() and Image_Canvas_ImageMap::save() calling non-existing method _toHtml()
-* Fixed bug in Image_Canvas_SVG::polygon() not showing polygon if last point was a spline - addSpline()
-* Fixed bug causing line ends not to show if color not exlicitly defined
-* Fixed Bug #5066 &quot;Reference Notices&quot; (from Image_Graph)
-* Fixed bug #5175 &quot;Unable to define IMAGE_GRAPH_SYSTEM_FONT_PATH outside of Config.php&quot;
-* Fixed Bug #5325 &quot;Image/Color.php compatibility with old PHP versions&quot;
+  <notes>Fixed Bug #5786 &quot;Error in producing SVG&quot;
+* Fixed Bug #5805 &quot;Canvas\Fonts\fontmap.txt is missing&quot;
   </notes>
   <deps>
    <dep type="ext" rel="has" optional="no">gd</dep>
@@ -157,8 +147,8 @@
    <file role="php" baseinstalldir="Image" name="Canvas/SVG.php"/>
    <file role="php" baseinstalldir="Image" name="Canvas/Tool.php"/>
    <file role="php" baseinstalldir="Image" name="Canvas/WithMap.php"/>
-   <file role="data" baseinstalldir="Image" name="Canvas/Fonts/fontmap.txt"/>
-   <file role="data" baseinstalldir="Image" name="Canvas/Fonts/README"/>
+   <file role="php" baseinstalldir="Image" name="Canvas/Fonts/fontmap.txt"/>
+   <file role="php" baseinstalldir="Image" name="Canvas/Fonts/README"/>
    <file role="php" baseinstalldir="Image" name="Canvas/GD/JPG.php"/>
    <file role="php" baseinstalldir="Image" name="Canvas/GD/PNG.php"/>
    <file role="doc" baseinstalldir="Image" name="docs/ChangeLog"/>
@@ -248,6 +238,15 @@ Changes since last PEPr release:
 * Fixed Bug #5066 &quot;Reference Notices&quot; (from Image_Graph)
 * Fixed bug #5175 &quot;Unable to define IMAGE_GRAPH_SYSTEM_FONT_PATH outside of Config.php&quot;
 * Fixed Bug #5325 &quot;Image/Color.php compatibility with old PHP versions&quot;
+    </notes>
+   </release>
+   <release>
+    <version>0.2.3</version>
+    <date>2005-10-28</date>
+    <license>LGPL</license>
+    <state>alpha</state>
+    <notes>Fixed Bug #5786 &quot;Error in producing SVG&quot;
+* Fixed Bug #5805 &quot;Canvas\Fonts\fontmap.txt is missing&quot;
     </notes>
    </release>
  </changelog>
