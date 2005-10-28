@@ -1,6 +1,10 @@
 **************************
  Image_Canvas - Changelog
 **************************
+Version 0.2.3 [2005-Oct-28] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Fixed Bug #5786 "Error in producing SVG"
+    * Fixed Bug #5805 "Canvas\Fonts\fontmap.txt is missing"
+    
 Version 0.2.2 [2005-Sep-30] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Added 'border' and 'cssclass' option to Image_Canvas_GD::toHtml()
     * Added image support when using SVG (using embedded base64 encoding)

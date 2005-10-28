@@ -364,7 +364,7 @@ class Image_Canvas_PDF extends Image_Canvas
      */
     function _color($color = false)
     {
-        if ($color === false) {
+        if (($color === false) || ($color === 'opague') || ($color === 'transparent')) {
             return false;
         } else {
             $color = Image_Canvas_Color::color2RGB($color);
@@ -835,7 +835,7 @@ class Image_Canvas_PDF extends Image_Canvas
 
         pdf_show_xy($this->_pdf, $text, $this->_getX($x), $this->_getY($y));
 
-        parent::write($params);
+        parent::addText($params);
     }
 
     /**
