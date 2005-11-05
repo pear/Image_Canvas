@@ -107,7 +107,7 @@ class Image_Canvas_SVG extends Image_Canvas
      * @param string $element The element
      * @access private
      */
-    function _addElement($element, $params) {
+    function _addElement($element, $params = array()) {
         $elementdata = $this->_indent . $element . "\n";
         
         if (isset($params['url'])) {
