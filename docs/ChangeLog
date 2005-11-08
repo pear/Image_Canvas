@@ -1,9 +1,13 @@
 **************************
  Image_Canvas - Changelog
 **************************
+Version 0.2.4 [2005-Nov-08] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Fixed a bug causing in Image_Canvas_SVG causing grouping to give a "Missing argument..." error (this rendered Image_Graph using SVG broken)
+    * Fixed a bug causing rectangles not being displayed, if points were given in the wrong order
+
 Version 0.2.3 [2005-Oct-28] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Fixed Bug #5786 "Error in producing SVG"
-    * Fixed Bug #5805 "Canvas\Fonts\fontmap.txt is missing"
+    * Fixed Bug #5805 "Canvas\Fonts\fontmap.txt is missing"    
     
 Version 0.2.2 [2005-Sep-30] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Added 'border' and 'cssclass' option to Image_Canvas_GD::toHtml()
