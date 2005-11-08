@@ -14,12 +14,12 @@
   </maintainer>
   </maintainers>
  <release>
-  <version>0.2.3</version>
-  <date>2005-10-28</date>
+  <version>0.2.4</version>
+  <date>2005-11-08</date>
   <license>LGPL</license>
   <state>alpha</state>
-  <notes>Fixed Bug #5786 &quot;Error in producing SVG&quot;
-* Fixed Bug #5805 &quot;Canvas\Fonts\fontmap.txt is missing&quot;
+  <notes>* Fixed a bug causing in Image_Canvas_SVG causing grouping to give a &quot;Missing argument...&quot; error (this rendered Image_Graph using SVG broken)
+* Fixed a bug causing rectangles not being displayed, if points were given in the wrong order
   </notes>
   <deps>
    <dep type="ext" rel="has" optional="no">gd</dep>
@@ -247,6 +247,15 @@ Changes since last PEPr release:
     <state>alpha</state>
     <notes>Fixed Bug #5786 &quot;Error in producing SVG&quot;
 * Fixed Bug #5805 &quot;Canvas\Fonts\fontmap.txt is missing&quot;
+    </notes>
+   </release>
+   <release>
+    <version>0.2.4</version>
+    <date>2005-11-08</date>
+    <license>LGPL</license>
+    <state>alpha</state>
+    <notes>* Fixed a bug causing in Image_Canvas_SVG causing grouping to give a &quot;Missing argument...&quot; error (this rendered Image_Graph using SVG broken)
+* Fixed a bug causing rectangles not being displayed, if points were given in the wrong order
     </notes>
    </release>
  </changelog>
