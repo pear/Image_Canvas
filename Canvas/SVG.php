@@ -505,10 +505,10 @@ class Image_Canvas_SVG extends Image_Canvas
      */
     function rectangle($params)
     {
-        $x0 = $this->_getX($params['x0']);
-        $y0 = $this->_getY($params['y0']);
-        $x1 = $this->_getX($params['x1']);
-        $y1 = $this->_getY($params['y1']);
+        $x0 = min($this->_getX($params['x0']), $this->_getX($params['x1']));
+        $y0 = min($this->_getY($params['y0']), $this->_getY($params['y1']));
+        $x1 = max($this->_getX($params['x0']), $this->_getX($params['x1']));
+        $y1 = max($this->_getY($params['y0']), $this->_getY($params['y1']));
         $fillColor = (isset($params['fill']) ? $params['line'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
