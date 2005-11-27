@@ -88,6 +88,10 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
      * @access private
      */
     var $_antialias = 'off';
+    
+    var $_alpha = false;
+        
+    var $_clipping = array();
 
     /**
      * Create the GD canvas.
@@ -159,10 +163,11 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                 );
                 if ((!isset($param['noalpha'])) || ($param['noalpha'] !== true)) {
                     ImageAlphaBlending($this->_canvas, true);
-                }               
+                    $this->_alpha = true;
+                }
             } else {
                 $this->_canvas = ImageCreate($this->_width, $this->_height);
-            }            
+            }
         }
         
         if (isset($param['antialias'])) {
@@ -1540,6 +1545,62 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             ImageDestroy($image);
         }
         parent::image($params);
+    }
+    
+    /**
+     * Set clipping to occur
+     * 
+     * Parameter array:
+     * 
+     * 'x0': int X point of Upper-left corner
+     * 'y0': int X point of Upper-left corner
+     * 'x1': int X point of lower-right corner
+     * 'y1': int Y point of lower-right corner
+     */
+    function setClipping($params = false) 
+    {
+        if ($params === false) {
+            $index = count($this->_clipping) - 1;
+            if (isset($this->_clipping[$index])) {                
+                $params = $this->_clipping[$index];
+                $canvas = $params['canvas'];
+                ImageCopy(
+                    $canvas, 
+                    $this->_canvas,
+                    min($params['x0'], $params['x1']),
+                    min($params['y0'], $params['y1']),
+                    min($params['x0'], $params['x1']),
+                    min($params['y0'], $params['y1']),
+                    abs($params['x1'] - $params['x0']),
+                    abs($params['y1'] - $params['y0'])
+                );
+                $this->_canvas = $canvas;
+                unset($this->_clipping[$index]);
+            }
+        }
+        else {
+            $params['canvas'] = $this->_canvas;
+
+            if ($this->_gd2) {
+                $this->_canvas = ImageCreateTrueColor(
+                    $this->_width,
+                    $this->_height
+                );
+                if ($this->_alpha) {
+                    ImageAlphaBlending($this->_canvas, true);
+                }
+            } else {
+                $this->_canvas = ImageCreate($this->_width, $this->_height);
+            }
+            
+            if (($this->_gd2) && ($this->_antialias === 'native')) {
+                ImageAntialias($this->_canvas, true);
+            }
+            
+            ImageCopy($this->_canvas, $params['canvas'], 0, 0, 0, 0, $this->_width, $this->_height);                
+            
+            $this->_clipping[count($this->_clipping)] = $params;
+        }
     }
     
     /**

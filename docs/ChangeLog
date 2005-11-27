@@ -1,6 +1,9 @@
 **************************
  Image_Canvas - Changelog
 **************************
+Version x.x.x [2005-xxx-xx] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())
+    
 Version 0.2.4 [2005-Nov-08] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Fixed a bug causing in Image_Canvas_SVG causing grouping to give a "Missing argument..." error (this rendered Image_Graph using SVG broken)
     * Fixed a bug causing rectangles not being displayed, if points were given in the wrong order

@@ -862,6 +862,37 @@ class Image_Canvas_SVG extends Image_Canvas
     }
     
     /**
+     * Set clipping to occur
+     * 
+     * Parameter array:
+     * 
+     * 'x0': int X point of Upper-left corner
+     * 'y0': int X point of Upper-left corner
+     * 'x1': int X point of lower-right corner
+     * 'y1': int Y point of lower-right corner
+     */
+    function setClipping($params = false) 
+    {
+        if ($params === false) {
+            $this->_addElement('</g>');
+        }        
+        else {
+            $group = "clipping_" . $this->_id;
+            $this->_id++;
+            $this->_addElement('<g clip-path="url(#' . $group . ')">');
+            
+            $this->_addDefine('<clipPath id="' . $group . '">');
+            $this->_addDefine('    <path d="' .
+                'M' . $this->_getX($params['x0']) . ' ' . $this->_getY($params['y0']) . 
+                ' H' . $this->_getX($params['x1']) . 
+                ' V' . $this->_getY($params['y1']) . 
+                ' H' . $this->_getX($params['x0']) . 
+                ' Z"/>');
+            $this->_addDefine('</clipPath>');            
+        }
+    }       
+    
+    /**
      * Get a canvas specific HTML tag.
      * 
      * This method implicitly saves the canvas to the filename in the 

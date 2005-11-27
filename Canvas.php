@@ -587,6 +587,20 @@ class Image_Canvas
     function image($params)
     {
     }
+    
+    /**
+     * Set clipping to occur
+     * 
+     * Parameter array:
+     * 
+     * 'x0': int X point of Upper-left corner
+     * 'y0': int X point of Upper-left corner
+     * 'x1': int X point of lower-right corner
+     * 'y1': int Y point of lower-right corner
+     */
+    function setClipping($params = false) 
+    {
+    }       
 
     /**
      * Start a group.
