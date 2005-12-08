@@ -687,7 +687,7 @@ class Image_Canvas_SVG extends Image_Canvas
         $align = '';
 
         if ((isset($this->_font['vertical'])) && ($this->_font['vertical'])) {
-            $align .= 'writing-mode: tb-rl;';
+//            $align .= 'writing-mode: tb-rl;';
 
             if ($alignment['vertical'] == 'bottom') {
                 $align .= 'text-anchor:end;';
@@ -718,13 +718,14 @@ class Image_Canvas_SVG extends Image_Canvas
         $textOpacity = $this->_opacity($color);
 
         $this->_addElement(
-            '<text ' .
-                'x="' . round($x) . '" ' .
-                'y="' . round($y) . '" ' .
-/*                (isset($this->_font['angle']) && ($this->_font['angle'] > 0) ?
-                    'rotate="' . $this->_font['angle'] . '" ' :
+            '<g transform="translate(' . round($x) . ', ' . round($y) . ')">' . "\n" .
+            $this->_indent . '    <text ' .
+                'x="0" ' .
+                'y="0" ' .
+                (isset($this->_font['angle']) && ($this->_font['angle'] > 0) ?
+                    'transform="rotate(' . $this->_font['angle'] . ')" ' :
                     ''
-                ) .*/
+                ) .
                 'style="' .
                 (isset($this->_font['name']) ?
                     'font-family:' . $this->_font['name'] . ';' : '') .
@@ -734,7 +735,8 @@ class Image_Canvas_SVG extends Image_Canvas
                     ''
                 ) . ';' . $align . '">' .
                 htmlspecialchars($text) .
-            '</text>',
+            '</text>' . "\n" . 
+            $this->_indent . '</g>',
             $params
         );
         parent::addText($params);
@@ -890,7 +892,7 @@ class Image_Canvas_SVG extends Image_Canvas
                 ' Z"/>');
             $this->_addDefine('</clipPath>');            
         }
-    }       
+    }
     
     /**
      * Get a canvas specific HTML tag.

@@ -1571,8 +1571,8 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                     min($params['y0'], $params['y1']),
                     min($params['x0'], $params['x1']),
                     min($params['y0'], $params['y1']),
-                    abs($params['x1'] - $params['x0']),
-                    abs($params['y1'] - $params['y0'])
+                    abs($params['x1'] - $params['x0'] + 1),
+                    abs($params['y1'] - $params['y0'] + 1)
                 );
                 $this->_canvas = $canvas;
                 unset($this->_clipping[$index]);
