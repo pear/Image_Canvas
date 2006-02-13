@@ -68,7 +68,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
             if (isset($params['htmltags'])) {
                 foreach ($params['htmltags'] as $key => $value) {
                     $tags .= ' ';
-                    if (strpos($value, '"') >= 0) {
+                    if (strpos($value, '"') !== false) {
                         $tags .= $key . '=\'' . $value . '\'';
                     } else {
                         $tags .= $key . '="' . $value . '"';

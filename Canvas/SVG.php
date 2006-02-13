@@ -729,7 +729,7 @@ class Image_Canvas_SVG extends Image_Canvas
                 'style="' .
                 (isset($this->_font['name']) ?
                     'font-family:' . $this->_font['name'] . ';' : '') .
-                        'font-size:' . $this->_font['size'] . 'px;fill=' .
+                        'font-size:' . $this->_font['size'] . 'px;fill:' .
                         $textColor . ($textOpacity ? ';fill-opacity:' .
                         $textOpacity :
                     ''

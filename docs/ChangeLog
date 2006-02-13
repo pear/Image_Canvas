@@ -3,6 +3,10 @@
 **************************
 Version x.x.x [2005-xxx-xx] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())
+    * Fixed the way SVG rotates text to use transform
+    * Fixed Bug #6406 "method _mapFont missing"
+    * Fixed Request #6632 "Style element assigned with = instead of :"
+    * Fixed Bug #6769 "ImageMap.php does not check for boolean false with strpos"
     
 Version 0.2.4 [2005-Nov-08] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Fixed a bug causing in Image_Canvas_SVG causing grouping to give a "Missing argument..." error (this rendered Image_Graph using SVG broken)

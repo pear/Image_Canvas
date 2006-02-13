@@ -575,7 +575,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
         parent::setFont($fontOptions);
 
         if (isset($this->_font['ttf'])) {
-            $this->_font['file'] = str_replace('\\', '/', $this->_mapFont($this->_font['ttf']));
+            $this->_font['file'] = str_replace('\\', '/', Image_Canvas_Tool::fontMap($this->_font['ttf']));
         } elseif (!isset($this->_font['font'])) {
             $this->_font['font'] = 1;
         }
