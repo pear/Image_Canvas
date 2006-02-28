@@ -356,7 +356,17 @@ class Image_Canvas
         $this->_polygon = array();
         $this->_font = $this->_defaultFont;
     }
-
+    
+    /**
+     * Reset the canvas.
+     *
+     * Includes fillstyle, linestyle, thickness and polygon
+     */
+    function reset() 
+    {
+        $this->_reset();
+    }
+    
     /**
      * Draw a line end
      *
