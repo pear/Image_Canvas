@@ -14,12 +14,16 @@
   </maintainer>
   </maintainers>
  <release>
-  <version>0.2.4</version>
-  <date>2005-11-08</date>
+  <version>0.3.0</version>
+  <date>2006-03-02</date>
   <license>LGPL</license>
   <state>alpha</state>
-  <notes>* Fixed a bug causing in Image_Canvas_SVG causing grouping to give a &quot;Missing argument...&quot; error (this rendered Image_Graph using SVG broken)
-* Fixed a bug causing rectangles not being displayed, if points were given in the wrong order
+  <notes>* Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())
+* Fixed the way SVG rotates text to now use transform
+* Added public reset() method to Image_Canvas
+* Fixed Bug #6406 &quot;method _mapFont missing&quot;
+* Fixed Request #6632 &quot;Style element assigned with = instead of :&quot;
+* Fixed Bug #6769 &quot;ImageMap.php does not check for boolean false with strpos&quot;
   </notes>
   <deps>
    <dep type="ext" rel="has" optional="no">gd</dep>
@@ -42,6 +46,7 @@
   <provides type="function" name="Image_Canvas_GD::textHeight" />
   <provides type="function" name="Image_Canvas_GD::addText" />
   <provides type="function" name="Image_Canvas_GD::image" />
+  <provides type="function" name="Image_Canvas_GD::setClipping" />
   <provides type="function" name="Image_Canvas_GD::toHtml" />
   <provides type="class" name="Image_Canvas_ImageMap" extends="Image_Canvas" />
   <provides type="function" name="Image_Canvas_ImageMap::line" />
@@ -85,6 +90,7 @@
   <provides type="function" name="Image_Canvas_SVG::endGroup" />
   <provides type="function" name="Image_Canvas_SVG::show" />
   <provides type="function" name="Image_Canvas_SVG::save" />
+  <provides type="function" name="Image_Canvas_SVG::setClipping" />
   <provides type="function" name="Image_Canvas_SVG::toHtml" />
   <provides type="class" name="Image_Canvas_Tool" />
   <provides type="function" name="Image_Canvas_Tool::fontMap" />
@@ -121,6 +127,7 @@
   <provides type="function" name="Image_Canvas::setGradientFill" />
   <provides type="function" name="Image_Canvas::setFont" />
   <provides type="function" name="Image_Canvas::setDefaultFont" />
+  <provides type="function" name="Image_Canvas::reset" />
   <provides type="function" name="Image_Canvas::drawEnd" />
   <provides type="function" name="Image_Canvas::line" />
   <provides type="function" name="Image_Canvas::addVertex" />
@@ -133,6 +140,7 @@
   <provides type="function" name="Image_Canvas::textHeight" />
   <provides type="function" name="Image_Canvas::addText" />
   <provides type="function" name="Image_Canvas::image" />
+  <provides type="function" name="Image_Canvas::setClipping" />
   <provides type="function" name="Image_Canvas::startGroup" />
   <provides type="function" name="Image_Canvas::endGroup" />
   <provides type="function" name="Image_Canvas::show" />
@@ -256,6 +264,19 @@ Changes since last PEPr release:
     <state>alpha</state>
     <notes>* Fixed a bug causing in Image_Canvas_SVG causing grouping to give a &quot;Missing argument...&quot; error (this rendered Image_Graph using SVG broken)
 * Fixed a bug causing rectangles not being displayed, if points were given in the wrong order
+    </notes>
+   </release>
+   <release>
+    <version>0.3.0</version>
+    <date>2006-03-02</date>
+    <license>LGPL</license>
+    <state>alpha</state>
+    <notes>* Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())
+* Fixed the way SVG rotates text to now use transform
+* Added public reset() method to Image_Canvas
+* Fixed Bug #6406 &quot;method _mapFont missing&quot;
+* Fixed Request #6632 &quot;Style element assigned with = instead of :&quot;
+* Fixed Bug #6769 &quot;ImageMap.php does not check for boolean false with strpos&quot;
     </notes>
    </release>
  </changelog>
