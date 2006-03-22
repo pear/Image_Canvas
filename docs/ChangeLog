@@ -1,7 +1,10 @@
 **************************
  Image_Canvas - Changelog
 **************************
-Version 0.3.0 [2005-Mar-02] - Jesper Veggerby <pear.nosey@veggerby.dk>
+Version 0.3.1 [2006-xxx-xx] - Jesper Veggerby <pear.nosey@veggerby.dk>
+    * Modified GD canvas addText() method with TTF fonts - (x, y) parameters now specify the absolute lower-left corner of the text (if angle is 0) instead of the baseline of the first letter, making texts appear incorrectly. This however require fonts to have a steady baseline, like fx. Arial, Verdana, etc. unlike Comic
+
+Version 0.3.0 [2006-Mar-02] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())
     * Fixed the way SVG rotates text to now use transform
     * Added public reset() method to Image_Canvas

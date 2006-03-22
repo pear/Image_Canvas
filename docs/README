@@ -1,7 +1,7 @@
                 *******************************
                          Image_Canvas
                 *******************************
-                        version 0.2.4
+                        version 0.3.1
 
   ------ CopyRight (C) Jesper Veggerby Hansen, 2003-2005 ------
       http://pear.php.net/pepr/pepr-proposal-show.php?id=212
@@ -31,6 +31,7 @@ See http://pear.veggerby.dk/Image_Canvas/docs/ for documentation
 History
 -------
 Release history of Image_Canvas
+0.3.0        02-Mar-2006
 0.2.4        08-Nov-2005
 0.2.3        28-Oct-2005
 0.2.2        30-Sep-2005

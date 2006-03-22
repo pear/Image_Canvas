@@ -1288,13 +1288,13 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             }
             
             $linebreaks = substr_count($text, "\n"); 
-            if (($angle == 0) && ($linebreaks == 0) && ($force === false)) {
+            if (($angle == 0) && ($force === false)) {
                 /*
                  * if the angle is 0 simply return the size, due to different
                  * heights for example for x-axis labels, making the labels
                  * _not_ appear as written on the same baseline
                  */ 
-                return $this->_font['size'] + 2;
+                return $this->_font['size'] + ($this->_font['size'] + 2) * $linebreaks;
             }
 
             $height = 0;
@@ -1324,6 +1324,105 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                 return ImageFontHeight($this->_font['font']) * (substr_count($text, "\n") + 1);
             }
         }
+    }
+    
+    /**
+     * Calculated the absolute bottom-left position of the text, by simulating
+     * the calculation of the baseline drop.
+     * @param int $x The relative x position to write the text 
+     * @param int $y The relative y position to write the text
+     * @param string $text The text to write 
+     * @param array $align The alignment of the text relative to (x, y)
+     * @returns array An array containing the absolute x and y positions
+	 * @access private
+     */
+    function _getAbsolutePosition($x, $y, $text, $align) 
+    {
+        if ($this->_font['angle'] > 0) {
+            $w0 = $this->textWidth($text);
+            $h0 = $this->textHeight($text);
+            
+            if ($align['vertical'] == 'bottom') {
+                $dy = $y - $h0;
+            }
+            else if ($align['vertical'] == 'center') {
+                $dy = $y - $h0 / 2;
+            }
+            else if ($align['vertical'] == 'top') {
+                $dy = $y;
+            }
+
+            if ($align['horizontal'] == 'right') {
+                $dx = $x - $w0;
+            }
+            else if ($align['horizontal'] == 'center') {
+                $dx = $x - $w0 / 2;
+            }
+            else if ($align['horizontal'] == 'left') {
+                $dx = $x;
+            }
+            
+            if (($this->_font['angle'] < 180) && ($this->_font['angle'] >= 0)) {
+                $dy += $h0;
+            }
+            if (($this->_font['angle'] >= 90) && ($this->_font['angle'] < 270)) {
+                $dx += $w0;
+            }            
+        }
+        else {       
+            // get the maximum size of normal text above base line - sampled by 'Al'
+            $size1 = imagettfbbox($this->_font['size'], 0, $this->_font['file'], 'Al');    
+            $height1 = abs($size1[7] - $size1[1]);
+            
+            // get the maximum size of all text above base and below line - sampled by 'AlgjpqyQ'
+            $size2 = imagettfbbox($this->_font['size'], 0, $this->_font['file'], 'AlgjpqyQ');
+            $height2 = abs($size2[7] - $size2[1]);
+        
+            // get the size of the text, simulating height above baseline beinh max, by sampling using 'Al'
+            $size = imagettfbbox($this->_font['size'], 0, $this->_font['file'], 'Al' . $text);
+            $height = abs($size[7] - $size[1]);
+            
+            // if all text is above baseline, i.e. height of text compares to max height above (within 10%)     
+            if (abs($height - $height1)/$height1 < 0.1) { 
+                $dHeight = 0;        
+            }
+            else {
+                $dHeight = abs($height2 - $height1);
+            }
+
+            // specifies the bottom-left corner!
+            $dx = $x + sin(deg2rad($this->_font['angle'])) * $dHeight;
+            $dy = $y - cos(deg2rad($this->_font['angle'])) * $dHeight;
+
+            if ($align['vertical'] == 'top') {
+                $dy += $height;
+            }
+            else if ($align['vertical'] == 'center') {
+                $dy += ($height + $dHeight) / 2;
+            }
+            else if ($align['vertical'] == 'bottom') {
+                $dy += $dHeight;
+            }
+        
+            if ($align['horizontal'] == 'center') {
+                $factor = 0.5;
+            }
+            else if ($align['horizontal'] == 'right') {
+                $factor = 1;
+            }
+            else {
+                $factor = 0;
+            }
+            
+            if ($factor != 0) {
+                $size = imagettfbbox($this->_font['size'], 0, $this->_font['file'], $text);
+                $w0 = abs($size[2] - $size[0]);                
+                $dx -= cos(deg2rad($this->_font['angle'])) * $w0 * $factor;
+                $dy += sin(deg2rad($this->_font['angle'])) * $w0 * $factor;
+            }
+        }
+                
+        return array('x' => $dx, 'y' => $dy);  
     }
 
     /**
@@ -1362,55 +1461,54 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
         if (!isset($alignment['horizontal'])) {
             $alignment['horizontal'] = 'left';
         }
-        
-        if ($alignment['vertical'] == 'bottom') {
-            $y0 = $y0 - $this->textHeight($text, true);
-        } elseif ($alignment['vertical'] == 'center') {
-            $y0 = $y0 - ($this->textHeight($text, true) / 2);
-        }
 
+        if (isset($this->_font['size'])) {            
+            $textHeight = $this->_font['size'] + 2;
+        }
+        else {
+            $textHeight = $this->textHeight('A');
+        }
         $lines = explode("\n", $text);                
-        foreach ($lines as $line) {
-            $textWidth = $this->textWidth($line);
-            $textHeight = $this->textHeight($line, true);
-            
-              $x = $x0;
+        foreach ($lines as $line) {          
+            $x = $x0; 
             $y = $y0;
             
             $y0 += $textHeight + 2;
                     
-            if ($alignment['horizontal'] == 'right') {
-                $x = $x - $textWidth;
-            } elseif ($alignment['horizontal'] == 'center') {
-                $x = $x - ($textWidth / 2);
-            }           
-
             if (($color === false) && (isset($this->_font['color']))) {
                 $color = $this->_font['color'];
             }
 
             if ($color != 'transparent') {
-                if (isset($this->_font['file'])) {
-                    if (($this->_font['angle'] < 180) && ($this->_font['angle'] >= 0)) {
-                        $y += $textHeight;
-                    }
-                    if (($this->_font['angle'] >= 90) && ($this->_font['angle'] < 270)) {
-                        $x += $textWidth;
-                    }
-    
+                if (isset($this->_font['file'])) {                   
+                    $result = $this->_getAbsolutePosition($x, $y, $line, $alignment);                    
                     ImageTTFText(
                         $this->_canvas,
                         $this->_font['size'],
                         $this->_font['angle'],
-                        $x,
-                        $y,
+                        $result['x'],
+                        $result['y'],
                         $this->_color($color),
                         $this->_font['file'],
                         $line
                     );
 
                 } else {
-                    if ((isset($this->_font['vertical'])) && ($this->_font['vertical'])) {
+                    $width = $this->textWidth($line);
+                    $height = $this->textHeight($line);
+                    if ($alignment['horizontal'] == 'right') {
+                        $x -= $width;
+                    }
+                    else if ($alignment['horizontal'] == 'center') {
+                        $x -= $width / 2;
+                    }
+                    if ($alignment['vertical'] == 'bottom') {
+                        $y -= $height;
+                    }
+                    else if ($alignment['vertical'] == 'center') {
+                        $y -= $height / 2;
+                    }
+                    if ((isset($this->_font['vertical'])) && ($this->_font['vertical'])) {                      
                         ImageStringUp(
                             $this->_canvas,
                             $this->_font['font'],
