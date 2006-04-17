@@ -83,6 +83,13 @@ class Image_Canvas_SVG extends Image_Canvas
      * @access private
      */
     var $_groupIDs = array();
+    
+    /**
+     * The XML encoding (default iso-8859-1)
+     * @var string
+     * @access private
+     */
+    var $_encoding = 'iso-8859-1';   
 
     /**
      * Create the SVG canvas.
@@ -93,12 +100,18 @@ class Image_Canvas_SVG extends Image_Canvas
      *
      * 'height' The height of the graph
      *
+     * 'encoding' The encoding of the SVG document
+     *
      * @param array $param Parameter array
      */
     function Image_Canvas_SVG($param)
     {
         parent::Image_Canvas($param);
-        $this->_reset();        
+        $this->_reset();
+
+        if (isset($params['encoding'])) {
+            $this->_encoding = $params['encoding'];
+        }
     }
 
     /**
@@ -817,7 +830,7 @@ class Image_Canvas_SVG extends Image_Canvas
     function show($param = false)
     {
         parent::show($param);
-        $output = '<?xml version="1.0" encoding="iso-8859-1"?>' . "\n" .
+        $output = '<?xml version="1.0" encoding="' . $this->_encoding . '"?>' . "\n" .
             '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"' . "\n\t" .
             ' "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">' . "\n" .
             '<svg width="' . $this->_width . '" height="' . $this->_height .
@@ -844,7 +857,7 @@ class Image_Canvas_SVG extends Image_Canvas
     function save($param = false)
     {
         parent::save($param);
-        $output = '<?xml version="1.0" encoding="iso-8859-1"?>' . "\n" .
+        $output = '<?xml version="1.0" encoding="'. $this->_encoding . '"?>' . "\n" .
             '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"' . "\n\t" .
             ' "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">' . "\n" .
             '<svg width="' . $this->_width . '" height="' . $this->_height .
