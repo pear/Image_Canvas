@@ -736,7 +736,7 @@ class Image_Canvas_SVG extends Image_Canvas
                 'x="0" ' .
                 'y="0" ' .
                 (isset($this->_font['angle']) && ($this->_font['angle'] > 0) ?
-                    'transform="rotate(' . $this->_font['angle'] . ')" ' :
+                    'transform="rotate(' . (($this->_font['angle'] + 180) % 360) . ')" ' :
                     ''
                 ) .
                 'style="' .
