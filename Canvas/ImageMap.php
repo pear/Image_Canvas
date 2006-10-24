@@ -331,7 +331,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
     function save($params = false)
     {
         parent::save($params);
-        $file = fopen($param['filename'], 'w+');
+        $file = fopen($params['filename'], 'w+');
         fwrite($file, $this->toHtml($params));        
         fclose($file);
     }

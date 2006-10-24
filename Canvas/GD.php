@@ -1774,6 +1774,8 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                 $php_info, $result))
             {
                 $version = $result[1];
+            } else {
+                $version = null;
             }
         }
 
