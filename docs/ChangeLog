@@ -8,6 +8,7 @@ Version 0.3.1 [2006-xxx-xx] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Fixed Bug #7454 "Vertical axis title is shifted 180 degrees between SVG and PNG output"
     * Fixed Bug #8488 "wrong variable name" (thanks to troehr at php dot net)
     * Fixed Bug #8556 "SVG.php contains typo" (thanks to troehr at php dot net)
+    * Fixed Bug #8776 "Fatal error: Call to undefined function: imageantialias()"
     * Fixed Bug #9070 "factory method causes PHP error if no GD" (thanks to troehr at php dot net)
 
 Version 0.3.0 [2006-Mar-02] - Jesper Veggerby <pear.nosey@veggerby.dk>

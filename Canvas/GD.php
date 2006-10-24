@@ -178,7 +178,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             $this->_antialias = 'driver';
         }
         
-        if (($this->_gd2) && ($this->_antialias === 'native')) {
+        if (($this->_gd2) && ($this->_antialias === 'native') && (function_exists('ImageAntialias'))) {
             ImageAntialias($this->_canvas, true);
         }
     }
