@@ -104,9 +104,9 @@ class Image_Canvas_SVG extends Image_Canvas
      *
      * @param array $param Parameter array
      */
-    function Image_Canvas_SVG($param)
+    function Image_Canvas_SVG($params)
     {
-        parent::Image_Canvas($param);
+        parent::Image_Canvas($params);
         $this->_reset();
 
         if (isset($params['encoding'])) {
@@ -856,21 +856,7 @@ class Image_Canvas_SVG extends Image_Canvas
         
         $attrs = (isset($param['attrs']) && is_array($param['attrs'])) ? $this->_getAttributes($param['attrs']) : null;
         
-        $output = '<?xml version="1.0" encoding="' . $this->_encoding . '"?>' . "\n" .
-            '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"' . "\n\t" .
-            ' "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">' . "\n" .
-            '<svg width="' . $this->_width . '" height="' . $this->_height .
-                '" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"' .
-                ($attrs ? ' ' . $attrs : '') .
-                '>' . "\n" .
-            ($this->_defs ?
-                '    <defs>' . "\n" .
-                $this->_defs .
-                '    </defs>' . "\n" :
-                ''
-            ) .
-            $this->_elements .
-            '</svg>';
+        $output = $this->getData($param);
 
         header('Content-Type: image/svg+xml');
         header('Content-Disposition: inline; filename = "' . basename($_SERVER['PHP_SELF'], '.php') . '.svg"');
@@ -886,9 +872,26 @@ class Image_Canvas_SVG extends Image_Canvas
     {
         parent::save($param);
 
+        $output = $this->getData($param);
+        
+        $file = fopen($param['filename'], 'w+');
+        fwrite($file, $output);
+        fclose($file);
+    }
+    
+    
+    /**
+     * Get SVG data
+     *
+     * @param array $param Parameter array
+     *
+     * @return string
+     */
+    function getData($param = false)
+    {
         $attrs = (isset($param['attrs']) && is_array($param['attrs'])) ? $this->_getAttributes($param['attrs']) : null;
 
-        $output = '<?xml version="1.0" encoding="'. $this->_encoding . '"?>' . "\n" .
+        return '<?xml version="1.0" encoding="'. $this->_encoding . '"?>' . "\n" .
             '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"' . "\n\t" .
             ' "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">' . "\n" .
             '<svg width="' . $this->_width . '" height="' . $this->_height .
@@ -903,12 +906,8 @@ class Image_Canvas_SVG extends Image_Canvas
             ) .
             $this->_elements .
             '</svg>';
-
-        $file = fopen($param['filename'], 'w+');
-        fwrite($file, $output);
-        fclose($file);
-    }
-    
+     }
+ 
     /**
      * Set clipping to occur
      * 

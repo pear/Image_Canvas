@@ -10,6 +10,9 @@ Version 0.3.1 [2006-xxx-xx] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Fixed Bug #8556 "SVG.php contains typo" (thanks to troehr at php dot net)
     * Fixed Bug #8776 "Fatal error: Call to undefined function: imageantialias()"
     * Fixed Bug #9070 "factory method causes PHP error if no GD" (thanks to troehr at php dot net)
+    * Fixed Bug #9176 "UTF-8 in SVGs does not work (patch included)" (thanks to troehr at php dot net)
+    * Fixed Bug #10236 "Pie Chart Shading Error when datapoint has 0 value" (thanks to peter_wake at hotmail dot com)
+    * Fixed Request #11402 "Implement Image_Canvas_SVG::getData()" (thanks to troehr at php dot net)
 
 Version 0.3.0 [2006-Mar-02] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())

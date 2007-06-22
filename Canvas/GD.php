@@ -1209,7 +1209,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             $polygon[] = ($y + $ry * sin(deg2rad(max($v1, $v2) % 360)));
         }
 
-        if (($fill = $this->_getFillStyle($fillColor, $x - $rx - 1, $y - $ry - 1, $x + $rx + 1, $y + $ry + 1)) !== false) {
+        if (($fill = $this->_getFillStyle($fillColor, $x - $rx - 1, $y - $ry - 1, $x + $rx + 1, $y + $ry + 1)) !== false && count($polygon) > 2)
             ImageFilledPolygon($this->_canvas, $polygon, count($polygon) / 2, $fill);
         }
 
