@@ -1,7 +1,7 @@
 **************************
  Image_Canvas - Changelog
 **************************
-Version 0.3.1 [2006-xxx-xx] - Jesper Veggerby <pear.nosey@veggerby.dk>
+Version 0.3.1 [2007-Jun-22] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Modified GD canvas addText() method with TTF fonts - (x, y) parameters now specify the absolute lower-left corner of the text (if angle is 0) instead of the baseline of the first letter, making texts appear incorrectly. This however require fonts to have a steady baseline, like fx. Arial, Verdana, etc. unlike Comic
     * Fixed Image_Canvas_PDF to display correctly
     * Fixed Request #7285 "UTF-8 in SVGs"

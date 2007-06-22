@@ -1,215 +1,165 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0" packagerversion="1.4.1">
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.5.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+http://pear.php.net/dtd/tasks-1.0.xsd
+http://pear.php.net/dtd/package-2.0
+http://pear.php.net/dtd/package-2.0.xsd">
  <name>Image_Canvas</name>
+ <channel>pear.php.net</channel>
  <summary>A package providing a common interface to image drawing, making image source code independent on the library used.</summary>
  <description>A package providing a common interface to image drawing, making image source code independent on the library used.
+ 
  </description>
- <maintainers>
-  <maintainer>
-   <user>nosey</user>
-   <name>Jesper Veggerby</name>
-   <email>pear.nosey@veggerby.dk</email>
-   <role>lead</role>
-  </maintainer>
-  </maintainers>
- <release>
-  <version>0.3.0</version>
-  <date>2006-03-02</date>
-  <license>LGPL</license>
-  <state>alpha</state>
-  <notes>* Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())
-* Fixed the way SVG rotates text to now use transform
-* Added public reset() method to Image_Canvas
-* Fixed Bug #6406 &quot;method _mapFont missing&quot;
-* Fixed Request #6632 &quot;Style element assigned with = instead of :&quot;
-* Fixed Bug #6769 &quot;ImageMap.php does not check for boolean false with strpos&quot;
-  </notes>
-  <deps>
-   <dep type="ext" rel="has" optional="no">gd</dep>
-   <dep type="pkg" rel="ge" version="1.0.0" optional="no">Image_Color</dep>
-  </deps>
-  <provides type="class" name="Image_Canvas_Color" extends="Image_Color" />
-  <provides type="function" name="Image_Canvas_Color::allocateColor" />
-  <provides type="function" name="Image_Canvas_Color::color2RGB" />
-  <provides type="function" name="Image_Canvas_Color::getRange" />
-  <provides type="class" name="Image_Canvas_GD" extends="Image_Canvas_WithMap" />
-  <provides type="function" name="Image_Canvas_GD::setFillImage" />
-  <provides type="function" name="Image_Canvas_GD::setFont" />
-  <provides type="function" name="Image_Canvas_GD::drawEnd" />
-  <provides type="function" name="Image_Canvas_GD::line" />
-  <provides type="function" name="Image_Canvas_GD::polygon" />
-  <provides type="function" name="Image_Canvas_GD::rectangle" />
-  <provides type="function" name="Image_Canvas_GD::ellipse" />
-  <provides type="function" name="Image_Canvas_GD::pieslice" />
-  <provides type="function" name="Image_Canvas_GD::textWidth" />
-  <provides type="function" name="Image_Canvas_GD::textHeight" />
-  <provides type="function" name="Image_Canvas_GD::addText" />
-  <provides type="function" name="Image_Canvas_GD::image" />
-  <provides type="function" name="Image_Canvas_GD::setClipping" />
-  <provides type="function" name="Image_Canvas_GD::toHtml" />
-  <provides type="class" name="Image_Canvas_ImageMap" extends="Image_Canvas" />
-  <provides type="function" name="Image_Canvas_ImageMap::line" />
-  <provides type="function" name="Image_Canvas_ImageMap::polygon" />
-  <provides type="function" name="Image_Canvas_ImageMap::rectangle" />
-  <provides type="function" name="Image_Canvas_ImageMap::ellipse" />
-  <provides type="function" name="Image_Canvas_ImageMap::pieslice" />
-  <provides type="function" name="Image_Canvas_ImageMap::show" />
-  <provides type="function" name="Image_Canvas_ImageMap::save" />
-  <provides type="function" name="Image_Canvas_ImageMap::toHtml" />
-  <provides type="class" name="Image_Canvas_PDF" extends="Image_Canvas" />
-  <provides type="function" name="Image_Canvas_PDF::setFillImage" />
-  <provides type="function" name="Image_Canvas_PDF::setGradientFill" />
-  <provides type="function" name="Image_Canvas_PDF::setFont" />
-  <provides type="function" name="Image_Canvas_PDF::line" />
-  <provides type="function" name="Image_Canvas_PDF::polygon" />
-  <provides type="function" name="Image_Canvas_PDF::rectangle" />
-  <provides type="function" name="Image_Canvas_PDF::ellipse" />
-  <provides type="function" name="Image_Canvas_PDF::pieslice" />
-  <provides type="function" name="Image_Canvas_PDF::textWidth" />
-  <provides type="function" name="Image_Canvas_PDF::textHeight" />
-  <provides type="function" name="Image_Canvas_PDF::addText" />
-  <provides type="function" name="Image_Canvas_PDF::image" />
-  <provides type="function" name="Image_Canvas_PDF::show" />
-  <provides type="function" name="Image_Canvas_PDF::save" />
-  <provides type="function" name="Image_Canvas_PDF::toHtml" />
-  <provides type="class" name="Image_Canvas_SVG" extends="Image_Canvas" />
-  <provides type="function" name="Image_Canvas_SVG::setFillImage" />
-  <provides type="function" name="Image_Canvas_SVG::setGradientFill" />
-  <provides type="function" name="Image_Canvas_SVG::setFont" />
-  <provides type="function" name="Image_Canvas_SVG::line" />
-  <provides type="function" name="Image_Canvas_SVG::polygon" />
-  <provides type="function" name="Image_Canvas_SVG::rectangle" />
-  <provides type="function" name="Image_Canvas_SVG::ellipse" />
-  <provides type="function" name="Image_Canvas_SVG::pieslice" />
-  <provides type="function" name="Image_Canvas_SVG::textWidth" />
-  <provides type="function" name="Image_Canvas_SVG::textHeight" />
-  <provides type="function" name="Image_Canvas_SVG::addText" />
-  <provides type="function" name="Image_Canvas_SVG::image" />
-  <provides type="function" name="Image_Canvas_SVG::startGroup" />
-  <provides type="function" name="Image_Canvas_SVG::endGroup" />
-  <provides type="function" name="Image_Canvas_SVG::show" />
-  <provides type="function" name="Image_Canvas_SVG::save" />
-  <provides type="function" name="Image_Canvas_SVG::setClipping" />
-  <provides type="function" name="Image_Canvas_SVG::toHtml" />
-  <provides type="class" name="Image_Canvas_Tool" />
-  <provides type="function" name="Image_Canvas_Tool::fontMap" />
-  <provides type="function" name="Image_Canvas_Tool::mid" />
-  <provides type="function" name="Image_Canvas_Tool::mirror" />
-  <provides type="function" name="Image_Canvas_Tool::controlPoint" />
-  <provides type="function" name="Image_Canvas_Tool::bezier" />
-  <provides type="function" name="Image_Canvas_Tool::getAngle" />
-  <provides type="class" name="Image_Canvas_WithMap" extends="Image_Canvas" />
-  <provides type="function" name="Image_Canvas_WithMap::line" />
-  <provides type="function" name="Image_Canvas_WithMap::addVertex" />
-  <provides type="function" name="Image_Canvas_WithMap::addSpline" />
-  <provides type="function" name="Image_Canvas_WithMap::polygon" />
-  <provides type="function" name="Image_Canvas_WithMap::rectangle" />
-  <provides type="function" name="Image_Canvas_WithMap::ellipse" />
-  <provides type="function" name="Image_Canvas_WithMap::pieslice" />
-  <provides type="function" name="Image_Canvas_WithMap::addText" />
-  <provides type="function" name="Image_Canvas_WithMap::image" />
-  <provides type="function" name="Image_Canvas_WithMap::getImageMap" />
-  <provides type="class" name="Image_Canvas_GD_JPG" extends="Image_Canvas_GD" />
-  <provides type="function" name="Image_Canvas_GD_JPG::show" />
-  <provides type="function" name="Image_Canvas_GD_JPG::save" />
-  <provides type="class" name="Image_Canvas_GD_PNG" extends="Image_Canvas_GD" />
-  <provides type="function" name="Image_Canvas_GD_PNG::show" />
-  <provides type="function" name="Image_Canvas_GD_PNG::save" />
-  <provides type="class" name="Image_Canvas" />
-  <provides type="function" name="Image_Canvas::getWidth" />
-  <provides type="function" name="Image_Canvas::getHeight" />
-  <provides type="function" name="Image_Canvas::setLineThickness" />
-  <provides type="function" name="Image_Canvas::setLineColor" />
-  <provides type="function" name="Image_Canvas::setFill" />
-  <provides type="function" name="Image_Canvas::setFillColor" />
-  <provides type="function" name="Image_Canvas::setFillImage" />
-  <provides type="function" name="Image_Canvas::setGradientFill" />
-  <provides type="function" name="Image_Canvas::setFont" />
-  <provides type="function" name="Image_Canvas::setDefaultFont" />
-  <provides type="function" name="Image_Canvas::reset" />
-  <provides type="function" name="Image_Canvas::drawEnd" />
-  <provides type="function" name="Image_Canvas::line" />
-  <provides type="function" name="Image_Canvas::addVertex" />
-  <provides type="function" name="Image_Canvas::addSpline" />
-  <provides type="function" name="Image_Canvas::polygon" />
-  <provides type="function" name="Image_Canvas::rectangle" />
-  <provides type="function" name="Image_Canvas::ellipse" />
-  <provides type="function" name="Image_Canvas::pieslice" />
-  <provides type="function" name="Image_Canvas::textWidth" />
-  <provides type="function" name="Image_Canvas::textHeight" />
-  <provides type="function" name="Image_Canvas::addText" />
-  <provides type="function" name="Image_Canvas::image" />
-  <provides type="function" name="Image_Canvas::setClipping" />
-  <provides type="function" name="Image_Canvas::startGroup" />
-  <provides type="function" name="Image_Canvas::endGroup" />
-  <provides type="function" name="Image_Canvas::show" />
-  <provides type="function" name="Image_Canvas::save" />
-  <provides type="function" name="Image_Canvas::toHtml" />
-  <provides type="function" name="Image_Canvas::factory" />
-  <filelist>
-   <file role="php" baseinstalldir="Image" name="Canvas/Color.php"/>
-   <file role="php" baseinstalldir="Image" name="Canvas/GD.php"/>
-   <file role="php" baseinstalldir="Image" name="Canvas/ImageMap.php"/>
-   <file role="php" baseinstalldir="Image" name="Canvas/PDF.php"/>
-   <file role="php" baseinstalldir="Image" name="Canvas/SVG.php"/>
-   <file role="php" baseinstalldir="Image" name="Canvas/Tool.php"/>
-   <file role="php" baseinstalldir="Image" name="Canvas/WithMap.php"/>
-   <file role="php" baseinstalldir="Image" name="Canvas/Fonts/fontmap.txt"/>
-   <file role="php" baseinstalldir="Image" name="Canvas/Fonts/README"/>
-   <file role="php" baseinstalldir="Image" name="Canvas/GD/JPG.php"/>
-   <file role="php" baseinstalldir="Image" name="Canvas/GD/PNG.php"/>
-   <file role="doc" baseinstalldir="Image" name="docs/ChangeLog"/>
-   <file role="doc" baseinstalldir="Image" name="docs/README"/>
-   <file role="doc" baseinstalldir="Image" name="docs/examples/canvas.php"/>
-   <file role="doc" baseinstalldir="Image" name="docs/examples/pear-icon.png"/>
-   <file role="test" baseinstalldir="Image" name="tests/canvas_body.php"/>
-   <file role="test" baseinstalldir="Image" name="tests/gradients.php"/>
-   <file role="test" baseinstalldir="Image" name="tests/imagemap.php"/>
-   <file role="test" baseinstalldir="Image" name="tests/jpg.php"/>
-   <file role="test" baseinstalldir="Image" name="tests/lineends.php"/>
-   <file role="test" baseinstalldir="Image" name="tests/pdf.php"/>
-   <file role="test" baseinstalldir="Image" name="tests/pear-icon.png"/>
-   <file role="test" baseinstalldir="Image" name="tests/png.php"/>
-   <file role="test" baseinstalldir="Image" name="tests/README"/>
-   <file role="test" baseinstalldir="Image" name="tests/svg.php"/>
-   <file role="test" baseinstalldir="Image" name="tests/text.php"/>
-   <file role="php" baseinstalldir="Image" name="Canvas.php"/>
-  </filelist>
- </release>
+ <lead>
+  <name>Jesper Veggerby</name>
+  <user>nosey</user>
+  <email>pear.nosey@veggerby.dk</email>
+  <active>yes</active>
+ </lead>
+ <date>2007-06-22</date>
+ <time>22:31:28</time>
+ <version>
+  <release>0.3.1</release>
+  <api>0.3.1</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+ <notes>* Modified GD canvas addText() method with TTF fonts - (x, y) parameters now specify the absolute lower-left corner of the text (if angle is 0) instead of the baseline of the first letter, making texts appear incorrectly. This however require fonts to have a steady baseline, like fx. Arial, Verdana, etc. unlike Comic
+* Fixed Image_Canvas_PDF to display correctly
+* Fixed Request #7285 "UTF-8 in SVGs"
+* Fixed Bug #7454 "Vertical axis title is shifted 180 degrees between SVG and PNG output"
+* Fixed Bug #8488 "wrong variable name" (thanks to troehr at php dot net)
+* Fixed Bug #8556 "SVG.php contains typo" (thanks to troehr at php dot net)
+* Fixed Bug #8776 "Fatal error: Call to undefined function: imageantialias()"
+* Fixed Bug #9070 "factory method causes PHP error if no GD" (thanks to troehr at php dot net)
+* Fixed Bug #9176 "UTF-8 in SVGs does not work (patch included)" (thanks to troehr at php dot net)
+* Fixed Bug #10236 "Pie Chart Shading Error when datapoint has 0 value" (thanks to peter_wake at hotmail dot com)
+* Fixed Request #11402 "Implement Image_Canvas_SVG::getData()" (thanks to troehr at php dot net)
+ </notes>
+ <contents>
+  <dir name="/">
+   <dir name="Canvas">
+    <dir name="Fonts">
+     <file baseinstalldir="Image" name="fontmap.txt" role="php" />
+     <file baseinstalldir="Image" name="README" role="php" />
+    </dir> <!-- /Canvas/Fonts -->
+    <dir name="GD">
+     <file baseinstalldir="Image" name="JPG.php" role="php" />
+     <file baseinstalldir="Image" name="PNG.php" role="php" />
+    </dir> <!-- /Canvas/GD -->
+    <file baseinstalldir="Image" name="Color.php" role="php" />
+    <file baseinstalldir="Image" name="GD.php" role="php" />
+    <file baseinstalldir="Image" name="ImageMap.php" role="php" />
+    <file baseinstalldir="Image" name="PDF.php" role="php" />
+    <file baseinstalldir="Image" name="SVG.php" role="php" />
+    <file baseinstalldir="Image" name="Tool.php" role="php" />
+    <file baseinstalldir="Image" name="WithMap.php" role="php" />
+   </dir> <!-- /Canvas -->
+   <dir name="docs">
+    <dir name="examples">
+     <file baseinstalldir="Image" name="canvas.php" role="doc" />
+     <file baseinstalldir="Image" name="pear-icon.png" role="doc" />
+    </dir> <!-- /docs/examples -->
+    <file baseinstalldir="Image" name="ChangeLog" role="doc" />
+    <file baseinstalldir="Image" name="README" role="doc" />
+   </dir> <!-- /docs -->
+   <dir name="tests">
+    <file baseinstalldir="Image" name="canvas_body.php" role="test" />
+    <file baseinstalldir="Image" name="gradients.php" role="test" />
+    <file baseinstalldir="Image" name="imagemap.php" role="test" />
+    <file baseinstalldir="Image" name="jpg.php" role="test" />
+    <file baseinstalldir="Image" name="lineends.php" role="test" />
+    <file baseinstalldir="Image" name="pdf.php" role="test" />
+    <file baseinstalldir="Image" name="pear-icon.png" role="test" />
+    <file baseinstalldir="Image" name="png.php" role="test" />
+    <file baseinstalldir="Image" name="README" role="test" />
+    <file baseinstalldir="Image" name="svg.php" role="test" />
+    <file baseinstalldir="Image" name="text.php" role="test" />
+   </dir> <!-- /tests -->
+   <file baseinstalldir="Image" name="Canvas.php" role="php" />
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0b1</min>
+   </pearinstaller>
+   <package>
+    <name>Image_Color</name>
+    <channel>pear.php.net</channel>
+    <min>1.0.0</min>
+   </package>
+   <extension>
+    <name>gd</name>
+   </extension>
+  </required>
+ </dependencies>
+ <phprelease />
  <changelog>
-   <release>
-    <version>0.1.0</version>
-    <date>2005-03-21</date>
-    <license>LGPL</license>
-    <state>devel</state>
-    <notes>First PEPr release
-    </notes>
-   </release>
-   <release>
-    <version>0.1.1</version>
-    <date>2005-03-21</date>
-    <license>LGPL</license>
-    <state>devel</state>
-    <notes>First PEPr release
-    </notes>
-   </release>
-   <release>
-    <version>0.1.2</version>
-    <date>2005-07-21</date>
-    <license>LGPL</license>
-    <state>devel</state>
-    <notes>* Changed write() to addText()
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>devel</release>
+    <api>devel</api>
+   </stability>
+   <date>2005-03-21</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>First PEPr release
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.1</release>
+    <api>0.1.1</api>
+   </version>
+   <stability>
+    <release>devel</release>
+    <api>devel</api>
+   </stability>
+   <date>2005-03-21</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>First PEPr release
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1.2</release>
+    <api>0.1.2</api>
+   </version>
+   <stability>
+    <release>devel</release>
+    <api>devel</api>
+   </stability>
+   <date>2005-07-21</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>* Changed write() to addText()
 * Split done() into show() and save()
 * Changed all methods with more than 1 parameter to use hashed array as parameters
-    </notes>
-   </release>
-   <release>
-    <version>0.2.0</version>
-    <date>2005-08-01</date>
-    <license>LGPL</license>
-    <state>alpha</state>
-    <notes>First released package in PEAR
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.0</release>
+    <api>0.2.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2005-08-01</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>First released package in PEAR
 
 Changes since last PEPr release:
 * Added support for image maps - a separate canvas (Image_Canvas_ImageMap) has been created to accomplish this
@@ -217,24 +167,38 @@ Changes since last PEPr release:
 * Added support for multi line texts    
 * Added a toHtml() method for to easy facilitate including canvas in HTML (this includes the associated image map, if any)
 * Added line ends - only supported in GD canvases currently and not on polygons (yet!)
-    </notes>
-   </release>
-   <release>
-    <version>0.2.1</version>
-    <date>2005-08-08</date>
-    <license>LGPL</license>
-    <state>alpha</state>
-    <notes>* Added Request #4997 &quot;HTML attributes and JS actions in imagemaps&quot; - using &apos;htmltags&apos; entry
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.1</release>
+    <api>0.2.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2005-08-08</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>* Added Request #4997 &quot;HTML attributes and JS actions in imagemaps&quot; - using &apos;htmltags&apos; entry
 * Fixed bug with fonts, now it&apos;s not required for the font to have a name
 * Changed examples to use require_once instead of include/require
-    </notes>
-   </release>
-   <release>
-    <version>0.2.2</version>
-    <date>2005-09-30</date>
-    <license>LGPL</license>
-    <state>alpha</state>
-    <notes>* Added &apos;border&apos; and &apos;cssclass&apos; option to Image_Canvas_GD::toHtml()
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.2</release>
+    <api>0.2.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2005-09-30</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>* Added &apos;border&apos; and &apos;cssclass&apos; option to Image_Canvas_GD::toHtml()
 * Added image support when using SVG (using embedded base64 encoding)
 * Added link (&quot;imagemap&quot;) support with SVG
 * Made image loading in GD canvas use getimagesize() to determine type instead of relying on extension
@@ -246,38 +210,60 @@ Changes since last PEPr release:
 * Fixed Bug #5066 &quot;Reference Notices&quot; (from Image_Graph)
 * Fixed bug #5175 &quot;Unable to define IMAGE_GRAPH_SYSTEM_FONT_PATH outside of Config.php&quot;
 * Fixed Bug #5325 &quot;Image/Color.php compatibility with old PHP versions&quot;
-    </notes>
-   </release>
-   <release>
-    <version>0.2.3</version>
-    <date>2005-10-28</date>
-    <license>LGPL</license>
-    <state>alpha</state>
-    <notes>Fixed Bug #5786 &quot;Error in producing SVG&quot;
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.3</release>
+    <api>0.2.3</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2005-10-28</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>Fixed Bug #5786 &quot;Error in producing SVG&quot;
 * Fixed Bug #5805 &quot;Canvas\Fonts\fontmap.txt is missing&quot;
-    </notes>
-   </release>
-   <release>
-    <version>0.2.4</version>
-    <date>2005-11-08</date>
-    <license>LGPL</license>
-    <state>alpha</state>
-    <notes>* Fixed a bug causing in Image_Canvas_SVG causing grouping to give a &quot;Missing argument...&quot; error (this rendered Image_Graph using SVG broken)
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2.4</release>
+    <api>0.2.4</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2005-11-08</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>* Fixed a bug causing in Image_Canvas_SVG causing grouping to give a &quot;Missing argument...&quot; error (this rendered Image_Graph using SVG broken)
 * Fixed a bug causing rectangles not being displayed, if points were given in the wrong order
-    </notes>
-   </release>
-   <release>
-    <version>0.3.0</version>
-    <date>2006-03-02</date>
-    <license>LGPL</license>
-    <state>alpha</state>
-    <notes>* Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())
+    
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3.0</release>
+    <api>0.3.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2006-03-02</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>* Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())
 * Fixed the way SVG rotates text to now use transform
 * Added public reset() method to Image_Canvas
 * Fixed Bug #6406 &quot;method _mapFont missing&quot;
 * Fixed Request #6632 &quot;Style element assigned with = instead of :&quot;
 * Fixed Bug #6769 &quot;ImageMap.php does not check for boolean false with strpos&quot;
-    </notes>
-   </release>
+    
+   </notes>
+  </release>
  </changelog>
 </package>
