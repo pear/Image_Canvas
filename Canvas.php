@@ -689,6 +689,8 @@ class Image_Canvas
      *
      * 'svg': output in SVG format
      * 
+     * 'swf': output in SWF flash format (using ming extension)
+     *
      * 'imagemap': output as a html image map
      *
      * An example of usage:
@@ -703,7 +705,8 @@ class Image_Canvas
      *
      * @param string $canvas The canvas type
      * @param array $params The parameters for the canvas constructor
-     * @return Image_Canvas The newly created canvas
+     * @return Image_Canvas The newly created canvas or
+     *         PEAR_Error on error
      * @static
      */
     function &factory($canvas, $params)
@@ -717,6 +720,19 @@ class Image_Canvas
             $canvas = 'GD_JPG';
         }
         
+        if ($canvas == 'SWF') {
+            // return PEAR_Error object if ming extension is not installed
+            if (!extension_loaded('ming')) {
+
+                require_once 'PEAR.php';
+
+                $error  = 'PHP extension ming is required for output in swf format.';
+                $error .= 'Please install the ming extension (http://de.php.net/ming).';
+                $error  =& new PEAR_Error($error);
+                return $error;
+            }
+        }
+
         if ($canvas == 'IMAGEMAP') {
             $canvas = 'ImageMap';
         }
