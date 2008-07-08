@@ -18,25 +18,21 @@ http://pear.php.net/dtd/package-2.0.xsd">
  <date>2007-06-22</date>
  <time>22:31:28</time>
  <version>
-  <release>0.3.1</release>
-  <api>0.3.1</api>
+  <release>0.3.2</release>
+  <api>0.3.2</api>
  </version>
  <stability>
   <release>alpha</release>
   <api>alpha</api>
  </stability>
  <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
- <notes>* Modified GD canvas addText() method with TTF fonts - (x, y) parameters now specify the absolute lower-left corner of the text (if angle is 0) instead of the baseline of the first letter, making texts appear incorrectly. This however require fonts to have a steady baseline, like fx. Arial, Verdana, etc. unlike Comic
-* Fixed Image_Canvas_PDF to display correctly
-* Fixed Request #7285 "UTF-8 in SVGs"
-* Fixed Bug #7454 "Vertical axis title is shifted 180 degrees between SVG and PNG output"
-* Fixed Bug #8488 "wrong variable name" (thanks to troehr at php dot net)
-* Fixed Bug #8556 "SVG.php contains typo" (thanks to troehr at php dot net)
-* Fixed Bug #8776 "Fatal error: Call to undefined function: imageantialias()"
-* Fixed Bug #9070 "factory method causes PHP error if no GD" (thanks to troehr at php dot net)
-* Fixed Bug #9176 "UTF-8 in SVGs does not work (patch included)" (thanks to troehr at php dot net)
-* Fixed Bug #10236 "Pie Chart Shading Error when datapoint has 0 value" (thanks to peter_wake at hotmail dot com)
-* Fixed Request #11402 "Implement Image_Canvas_SVG::getData()" (thanks to troehr at php dot net)
+ <notes>
+* Fixed Bug #12064 "Updated all @link to official url (thanks to Torsten Roehr)"
+* Fixed Bug #14199 "Added new driver for PostScript output"
+* Fixed Bug #12122 "Added new driver for SWF output (thanks to Torsten Roehr)"
+* Fixed Bug #12084 "Set wrong fill color in PDF.php, SVG.php (thanks to Torsten Roehr)"
+* Fixed Bug #12745 "Make area tag xhtml compliant, added missing '/' (thanks to Christian Weiske)"
+* Fixed Bug #12746 "Make img tag xhtml compliant, added missing '/' (thanks to Christian Weiske)"
  </notes>
  <contents>
   <dir name="/">
@@ -265,6 +261,30 @@ Changes since last PEPr release:
 * Fixed Request #6632 &quot;Style element assigned with = instead of :&quot;
 * Fixed Bug #6769 &quot;ImageMap.php does not check for boolean false with strpos&quot;
     
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3.1</release>
+    <api>0.3.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2007-06-22</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>* Modified GD canvas addText() method with TTF fonts - (x, y) parameters now specify the absolute lower-left corner of the text (if angle is 0) instead of the baseline of the first letter, making texts appear incorrectly. This however require fonts to have a steady baseline, like fx. Arial, Verdana, etc. unlike Comic
+* Fixed Image_Canvas_PDF to display correctly
+* Fixed Request #7285 "UTF-8 in SVGs"
+* Fixed Bug #7454 "Vertical axis title is shifted 180 degrees between SVG and PNG output"
+* Fixed Bug #8488 "wrong variable name" (thanks to troehr at php dot net)
+* Fixed Bug #8556 "SVG.php contains typo" (thanks to troehr at php dot net)
+* Fixed Bug #8776 "Fatal error: Call to undefined function: imageantialias()"
+* Fixed Bug #9070 "factory method causes PHP error if no GD" (thanks to troehr at php dot net)
+* Fixed Bug #9176 "UTF-8 in SVGs does not work (patch included)" (thanks to troehr at php dot net)
+* Fixed Bug #10236 "Pie Chart Shading Error when datapoint has 0 value" (thanks to peter_wake at hotmail dot com)
+* Fixed Request #11402 "Implement Image_Canvas_SVG::getData()" (thanks to troehr at php dot net)
    </notes>
   </release>
  </changelog>
