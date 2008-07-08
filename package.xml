@@ -53,6 +53,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
     <file baseinstalldir="Image" name="GD.php" role="php" />
     <file baseinstalldir="Image" name="ImageMap.php" role="php" />
     <file baseinstalldir="Image" name="PDF.php" role="php" />
+    <file baseinstalldir="Image" name="PS.php" role="php" />
     <file baseinstalldir="Image" name="SVG.php" role="php" />
     <file baseinstalldir="Image" name="Tool.php" role="php" />
     <file baseinstalldir="Image" name="WithMap.php" role="php" />
