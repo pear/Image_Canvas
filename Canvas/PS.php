@@ -224,6 +224,8 @@ class Image_Canvas_PS extends Image_Canvas
             }
         }
 
+				$this->setDefaultFont(array('name' => 'Helvetica', 'color' => 'black', 'size' => 9));
+
         if ((isset($param['orientation'])) && (strtoupper($param['orientation']) == 'LANDSCAPE')) {
             $w = $this->_pageWidth;
             $this->_pageWidth = $this->_pageHeight;
@@ -310,7 +312,7 @@ class Image_Canvas_PS extends Image_Canvas
             if (isset($param['filename'])) {
                 ps_open_file($this->_ps, $param['filename']);
             } else {
-                ps_open_file($this->_ps, '');
+                ps_open_file($this->_ps);
             }
 
             ps_set_parameter($this->_ps, 'warning', 'true');
@@ -859,7 +861,7 @@ class Image_Canvas_PS extends Image_Canvas
             $type = 'jpeg';
         }
 
-        $image = ps_load_image($this->_ps, $type, realpath($filename), '');
+        $image = ps_open_image_file($this->_ps, $type, realpath($filename), '');
         $width_ = ps_get_value($this->_ps, 'imagewidth', $image);
         $height_ = ps_get_value($this->_ps, 'imageheight', $image);
 
@@ -937,14 +939,17 @@ class Image_Canvas_PS extends Image_Canvas
         ps_end_page($this->_ps);
         ps_close($this->_ps);
 
-        $buf = ps_get_buffer($this->_ps);
-        $len = strlen($buf);
+        if($param['filename'] == "") {
+					$buf = ps_get_buffer($this->_ps);
+					$len = strlen($buf);
 
-        $fp = @fopen($param['filename'], 'wb');
-        if ($fp) {
-            fwrite($fp, $buf, strlen($buf));
-            fclose($fp);
-        }
+					$fp = @fopen($param['filename'], 'wb');
+					if ($fp) {
+							fwrite($fp, $buf, strlen($buf));
+							fclose($fp);
+					}
+				}
+
         ps_delete($this->_ps);
     }
     
