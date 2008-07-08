@@ -82,7 +82,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
                     ($alt ? ' alt="' . $alt . '"' : '') .
                     (isset($params['id']) ? ' id="' . $params['id'] . '"' : '') .
                     $tags .
-                    '>';
+                    ' />';
         }
     }    
     
