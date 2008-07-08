@@ -1728,7 +1728,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             (isset($params['alt']) ? ' alt="' . $params['alt'] . '"' : '') .
             (isset($params['cssclass']) ? ' class="' . $params['cssclass'] . '"' : '') .
             (isset($params['border']) ? ' border="' . $params['border'] . '"' : '') .
-            (isset($this->_imageMap) ? ' usemap="#' . $params['filename'] . '"' : '') . '>' .
+            (isset($this->_imageMap) ? ' usemap="#' . $params['filename'] . '"' : '') . ' />' .
             (isset($this->_imageMap) ? "\n" . $this->_imageMap->toHtml(array('name' => $params['filename'])) : '');
     }
 
