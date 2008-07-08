@@ -687,6 +687,8 @@ class Image_Canvas
      *
      * 'pdf': output in PDF format (using PDFlib)
      *
+     * 'ps': output in PostScript format (using pslib)
+     *
      * 'svg': output in SVG format
      * 
      * 'swf': output in SWF flash format (using ming extension)
