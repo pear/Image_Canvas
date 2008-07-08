@@ -455,7 +455,7 @@ class Image_Canvas_SVG extends Image_Canvas
     function polygon($params = array())
     {
         $connectEnds = (isset($params['connect']) ? $params['connect'] : false);
-        $fillColor = (isset($params['fill']) ? $params['line'] : false);
+        $fillColor = (isset($params['fill']) ? $params['fill'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
         if (!$connectEnds) {
@@ -528,7 +528,7 @@ class Image_Canvas_SVG extends Image_Canvas
         $y0 = min($this->_getY($params['y0']), $this->_getY($params['y1']));
         $x1 = max($this->_getX($params['x0']), $this->_getX($params['x1']));
         $y1 = max($this->_getY($params['y0']), $this->_getY($params['y1']));
-        $fillColor = (isset($params['fill']) ? $params['line'] : false);
+        $fillColor = (isset($params['fill']) ? $params['fill'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
         $attrs = (isset($params['attrs']) && is_array($params['attrs'])) ? $this->_getAttributes($params['attrs']) : null;
@@ -568,7 +568,7 @@ class Image_Canvas_SVG extends Image_Canvas
         $y = $this->_getY($params['y']);
         $rx = $this->_getX($params['rx']);
         $ry = $this->_getY($params['ry']);
-        $fillColor = (isset($params['fill']) ? $params['line'] : false);
+        $fillColor = (isset($params['fill']) ? $params['fill'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
         $attrs = (isset($params['attrs']) && is_array($params['attrs'])) ? $this->_getAttributes($params['attrs']) : null;
@@ -616,7 +616,7 @@ class Image_Canvas_SVG extends Image_Canvas
         $v2 = $this->_getY($params['v2']);
         $srx = (isset($params['srx']) ? $this->_getX($params['srx']) : false);
         $sry = (isset($params['sry']) ? $this->_getX($params['sry']) : false);
-        $fillColor = (isset($params['fill']) ? $params['line'] : false);
+        $fillColor = (isset($params['fill']) ? $params['fill'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
         $attrs = (isset($params['attrs']) && is_array($params['attrs'])) ? $this->_getAttributes($params['attrs']) : null;

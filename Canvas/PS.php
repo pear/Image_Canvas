@@ -553,7 +553,7 @@ class Image_Canvas_PS extends Image_Canvas
     function polygon($params = array())
     {
         $connectEnds = (isset($params['connect']) ? $params['connect'] : false);
-        $fillColor = (isset($params['fill']) ? $params['line'] : false);
+        $fillColor = (isset($params['fill']) ? $params['fill'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
         $line = $this->_setLineStyle($lineColor);
@@ -633,7 +633,7 @@ class Image_Canvas_PS extends Image_Canvas
         $y0 = $this->_getY($params['y0']);
         $x1 = $this->_getX($params['x1']);
         $y1 = $this->_getY($params['y1']);
-        $fillColor = (isset($params['fill']) ? $params['line'] : false);
+        $fillColor = (isset($params['fill']) ? $params['fill'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
         $line = $this->_setLineStyle($lineColor);
@@ -669,7 +669,7 @@ class Image_Canvas_PS extends Image_Canvas
         $y = $params['y'];
         $rx = $params['rx'];
         $ry = $params['ry'];
-        $fillColor = (isset($params['fill']) ? $params['line'] : false);
+        $fillColor = (isset($params['fill']) ? $params['fill'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
         $line = $this->_setLineStyle($lineColor);
@@ -738,7 +738,7 @@ class Image_Canvas_PS extends Image_Canvas
         $v2 = $this->_getY($params['v2']);
         $srx = $this->_getX($params['srx']);
         $sry = $this->_getY($params['sry']);
-        $fillColor = (isset($params['fill']) ? $params['line'] : false);
+        $fillColor = (isset($params['fill']) ? $params['fill'] : false);
         $lineColor = (isset($params['line']) ? $params['line'] : false);
 
         // TODO Implement pslib::pieSlice()
