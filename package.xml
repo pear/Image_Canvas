@@ -72,6 +72,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
     <file baseinstalldir="Image" name="pdf.php" role="test" />
     <file baseinstalldir="Image" name="pear-icon.png" role="test" />
     <file baseinstalldir="Image" name="png.php" role="test" />
+    <file baseinstalldir="Image" name="ps.php" role="test" />
     <file baseinstalldir="Image" name="README" role="test" />
     <file baseinstalldir="Image" name="svg.php" role="test" />
     <file baseinstalldir="Image" name="text.php" role="test" />
