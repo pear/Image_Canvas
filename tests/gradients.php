@@ -24,7 +24,7 @@
  * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
  * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
  * @version    CVS: $Id$
- * @link       http://pear.php.net/pepr/pepr-proposal-show.php?id=212
+ * @link       http://pear.php.net/package/Image_Canvas
  */  
 
 require_once 'Image/Canvas.php';
