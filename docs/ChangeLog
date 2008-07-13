@@ -3,7 +3,11 @@
 **************************
 Version 0.x.x-alpha [x-y-z]
     * Fixed Bug #12746 "generated img tag not xhtml compliant" (uwesteinm)
- 
+    * Fixed Bug #12745 "area tag not xhtml-compatible" (uwesteinm)
+    * Fixed Bug #12084 "Typos in PDF.php and SVG.php" (uwesteinm)
+    * Fixed Request #12122 "Add output driver for Flash (swf)" (uwesteinm)
+    * Fixed Req #12064 "Update @link in doc blocks" (uwesteinm)
+     
 Version 0.3.1 [2007-Jun-22] - Jesper Veggerby <pear.nosey@veggerby.dk>
     * Modified GD canvas addText() method with TTF fonts - (x, y) parameters now specify the absolute lower-left corner of the text (if angle is 0) instead of the baseline of the first letter, making texts appear incorrectly. This however require fonts to have a steady baseline, like fx. Arial, Verdana, etc. unlike Comic
     * Fixed Image_Canvas_PDF to display correctly
