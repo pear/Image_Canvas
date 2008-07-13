@@ -1,7 +1,7 @@
 **************************
  Image_Canvas - Changelog
 **************************
-Version 0.x.x-alpha [x-y-z] - Jesper Veggerby <pear.nosey@veggerby.dk>
+Version 0.x.x-alpha [x-y-z]
     * Fixed Bug #12746 "generated img tag not xhtml compliant" (uwesteinm)
  
 Version 0.3.1 [2007-Jun-22] - Jesper Veggerby <pear.nosey@veggerby.dk>
