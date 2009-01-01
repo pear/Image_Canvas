@@ -345,7 +345,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
     function toHtml($params)
     {
         if (count($this->_map) > 0) {
-            return '<map name="' . $params['name'] . '">' . "\n\t" . implode($this->_map, "\n\t") . "\n</map>";
+            return '<map name="' . $params['name'] . '" id="' . $params['name'] . '">' . "\n\t" . implode($this->_map, "\n\t") . "\n</map>";
         }
         return ''; 
     }
