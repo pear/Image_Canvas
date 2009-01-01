@@ -27,6 +27,8 @@ http://pear.php.net/dtd/package-2.0.xsd">
  </stability>
  <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
  <notes>
+* Fixed Bug #12747 "Added attribute id to map tag (Uwe Steinmann)"
+* Fixed Bug #12744 "Used shape poly instead of polygon in ImageMap (Uwe Steinmann)"
 * Fixed Bug #12064 "Updated all @link to official url (thanks to Torsten Roehr)"
 * Fixed Bug #14199 "Added new driver for PostScript output"
 * Fixed Bug #12122 "Added new driver for SWF output (thanks to Torsten Roehr)"
