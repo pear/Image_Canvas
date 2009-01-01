@@ -103,7 +103,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
         if (isset($params['url'])) {
             $mapsize = (isset($params['mapsize']) ? $params['mapsize'] : 2);
             $this->_addMapTag(
-                'polygon', 
+                'poly', 
                 $this->_getX($params['x0'] - $mapsize) . ',' . 
                 $this->_getY($params['y0'] - $mapsize) . ',' .
                 $this->_getX($params['x1'] + $mapsize) . ',' .
@@ -172,7 +172,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
                 }
                 $points .= $this->_getX($point['X']) . ',' . $this->_getY($point['Y']);            
             }
-            $this->_addMapTag('polygon', $points, $params);
+            $this->_addMapTag('poly', $points, $params);
         }
         parent::polygon($params);
     }
@@ -238,7 +238,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
                         round($this->_getY($params['y']) + $this->_getX($params['ry']) * sin(deg2rad($v % 360)));                        
                 }
                 $this->_addMapTag(
-                    'polygon',
+                    'poly',
                     $points,
                     $params
                 );
@@ -301,7 +301,7 @@ class Image_Canvas_ImageMap extends Image_Canvas
 
             }
                                                           
-            $this->_addMapTag('polygon', $points, $params);
+            $this->_addMapTag('poly', $points, $params);
         }
         parent::pieslice($params);
     }
