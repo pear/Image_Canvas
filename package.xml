@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.5.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
-http://pear.php.net/dtd/tasks-1.0.xsd
-http://pear.php.net/dtd/package-2.0
-http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.9.0RC1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Image_Canvas</name>
  <channel>pear.php.net</channel>
  <summary>A package providing a common interface to image drawing, making image source code independent on the library used.</summary>
- <description>A package providing a common interface to image drawing, making image source code independent on the library used.
- 
- </description>
+ <description>A package providing a common interface to image drawing, making image source code independent on the library used.</description>
  <lead>
   <name>Jesper Veggerby</name>
   <user>nosey</user>
   <email>pear.nosey@veggerby.dk</email>
   <active>yes</active>
  </lead>
- <date>2007-06-22</date>
- <time>22:31:28</time>
+ <date>2009-08-18</date>
+ <time>23:07:28</time>
  <version>
   <release>0.3.2</release>
   <api>0.3.2</api>
@@ -27,68 +22,58 @@ http://pear.php.net/dtd/package-2.0.xsd">
  </stability>
  <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
  <notes>
-* Fixed Bug #12747 "Added attribute id to map tag (Uwe Steinmann)"
-* Fixed Bug #12744 "Used shape poly instead of polygon in ImageMap (Uwe Steinmann)"
-* Fixed Bug #12064 "Updated all @link to official url (thanks to Torsten Roehr)"
-* Fixed Bug #14199 "Added new driver for PostScript output"
-* Fixed Bug #12122 "Added new driver for SWF output (thanks to Torsten Roehr)"
-* Fixed Bug #12084 "Set wrong fill color in PDF.php, SVG.php (thanks to Torsten Roehr)"
-* Fixed Bug #12745 "Make area tag xhtml compliant, added missing '/' (thanks to Christian Weiske)"
-* Fixed Bug #12746 "Make img tag xhtml compliant, added missing '/' (thanks to Christian Weiske)"
+  QA Release.
+* Fixed Bug #12064 &quot;Updated all @link to official url (thanks to Torsten Roehr)&quot;
+* Fixed Bug #12084 &quot;Set wrong fill color in PDF.php, SVG.php (thanks to Torsten Roehr)&quot;
+* Fixed Bug #12122 &quot;Added new driver for SWF output (thanks to Torsten Roehr)&quot;
+* Fixed Bug #12744 &quot;Used shape poly instead of polygon in ImageMap (Uwe Steinmann)&quot;
+* Fixed Bug #12745 &quot;Make area tag xhtml compliant, added missing &apos;/&apos; (thanks to Christian Weiske)&quot;
+* Fixed Bug #12746 &quot;Make img tag xhtml compliant, added missing &apos;/&apos; (thanks to Christian Weiske)&quot;
+* Fixed Bug #12747 &quot;Added attribute id to map tag (Uwe Steinmann)&quot;
+* Fixed Bug #14199 &quot;Added new driver for PostScript output&quot;
  </notes>
  <contents>
-  <dir name="/">
-   <dir name="Canvas">
-    <dir name="Fonts">
-     <file baseinstalldir="Image" name="fontmap.txt" role="php" />
-     <file baseinstalldir="Image" name="README" role="php" />
-    </dir> <!-- /Canvas/Fonts -->
-    <dir name="GD">
-     <file baseinstalldir="Image" name="JPG.php" role="php" />
-     <file baseinstalldir="Image" name="PNG.php" role="php" />
-    </dir> <!-- /Canvas/GD -->
-    <file baseinstalldir="Image" name="Color.php" role="php" />
-    <file baseinstalldir="Image" name="GD.php" role="php" />
-    <file baseinstalldir="Image" name="ImageMap.php" role="php" />
-    <file baseinstalldir="Image" name="PDF.php" role="php" />
-    <file baseinstalldir="Image" name="PS.php" role="php" />
-    <file baseinstalldir="Image" name="SVG.php" role="php" />
-    <file baseinstalldir="Image" name="SWF.php" role="php" />
-    <file baseinstalldir="Image" name="Tool.php" role="php" />
-    <file baseinstalldir="Image" name="WithMap.php" role="php" />
-   </dir> <!-- /Canvas -->
-   <dir name="docs">
-    <dir name="examples">
-     <file baseinstalldir="Image" name="canvas.php" role="doc" />
-     <file baseinstalldir="Image" name="pear-icon.png" role="doc" />
-    </dir> <!-- /docs/examples -->
-    <file baseinstalldir="Image" name="ChangeLog" role="doc" />
-    <file baseinstalldir="Image" name="README" role="doc" />
-   </dir> <!-- /docs -->
-   <dir name="tests">
-    <file baseinstalldir="Image" name="canvas_body.php" role="test" />
-    <file baseinstalldir="Image" name="gradients.php" role="test" />
-    <file baseinstalldir="Image" name="imagemap.php" role="test" />
-    <file baseinstalldir="Image" name="jpg.php" role="test" />
-    <file baseinstalldir="Image" name="lineends.php" role="test" />
-    <file baseinstalldir="Image" name="pdf.php" role="test" />
-    <file baseinstalldir="Image" name="pear-icon.png" role="test" />
-    <file baseinstalldir="Image" name="png.php" role="test" />
-    <file baseinstalldir="Image" name="ps.php" role="test" />
-    <file baseinstalldir="Image" name="README" role="test" />
-    <file baseinstalldir="Image" name="svg.php" role="test" />
-    <file baseinstalldir="Image" name="text.php" role="test" />
-   </dir> <!-- /tests -->
-   <file baseinstalldir="Image" name="Canvas.php" role="php" />
-  </dir> <!-- / -->
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="Image" md5sum="3f47aa4b84321445a0f7b72f77ce99f8" name="docs/ChangeLog" role="doc" />
+   <file baseinstalldir="Image" md5sum="4bbd9303d859da910c6871b9d18a4e8e" name="docs/README" role="doc" />
+   <file baseinstalldir="/" md5sum="d3245a7c9d3dfd9ceac387ccdb968d3a" name="docs/TODO" role="doc" />
+   <file baseinstalldir="Image" md5sum="cbe08048bc9938dad58dc6c966f5724f" name="docs/examples/canvas.php" role="doc" />
+   <file baseinstalldir="Image" md5sum="fa5c8de54f615176ce77221188aef76b" name="docs/examples/pear-icon.png" role="doc" />
+   <file baseinstalldir="/" md5sum="3ce14e2067fe377e68cacd7576e156da" name="Image/Canvas.php" role="php" />
+   <file baseinstalldir="/" md5sum="001505a6b111a6983ededf5657ebce28" name="Image/Canvas/Color.php" role="php" />
+   <file baseinstalldir="/" md5sum="7b64cdd79fb3c087e55161e589810570" name="Image/Canvas/GD.php" role="php" />
+   <file baseinstalldir="/" md5sum="fa95d83b5b21a6e0a74e9f1a45061563" name="Image/Canvas/ImageMap.php" role="php" />
+   <file baseinstalldir="/" md5sum="2081c2bd0a0f5780a8a9c267c738f13d" name="Image/Canvas/PDF.php" role="php" />
+   <file baseinstalldir="/" md5sum="960cf383e9e9c36752e3030ba8d04287" name="Image/Canvas/PS.php" role="php" />
+   <file baseinstalldir="/" md5sum="42e0c522f3ba37793cc0fd886cb5a05b" name="Image/Canvas/SVG.php" role="php" />
+   <file baseinstalldir="/" md5sum="bedbcb010075db09aee559b42b2445ab" name="Image/Canvas/SWF.php" role="php" />
+   <file baseinstalldir="/" md5sum="9e76744bc1b62e5cd651a00c4085963b" name="Image/Canvas/Tool.php" role="php" />
+   <file baseinstalldir="/" md5sum="b214625ad8d15e4530731152e04c6627" name="Image/Canvas/WithMap.php" role="php" />
+   <file baseinstalldir="/" md5sum="2bdeec77724050cdcb59b73483c82246" name="Image/Canvas/Fonts/fontmap.txt" role="data" />
+   <file baseinstalldir="/" md5sum="4dfbb91953e995c0fa63d4ac48d26e32" name="Image/Canvas/Fonts/README" role="data" />
+   <file baseinstalldir="/" md5sum="865ac9b6561308569a5325323dbe959d" name="Image/Canvas/GD/JPG.php" role="php" />
+   <file baseinstalldir="/" md5sum="9787a4e510e16e379b6bac9d4559cf64" name="Image/Canvas/GD/PNG.php" role="php" />
+   <file baseinstalldir="Image" md5sum="74f8ea63ef8184fcb555d51e690c0958" name="tests/canvas_body.php" role="test" />
+   <file baseinstalldir="Image" md5sum="e5b2e6359c0361e42cd309abba65f57c" name="tests/gradients.php" role="test" />
+   <file baseinstalldir="Image" md5sum="dbaf301065bf08fc977280f991c56059" name="tests/imagemap.php" role="test" />
+   <file baseinstalldir="Image" md5sum="ded7eb7aa89f75655c79dfd545c6f3ee" name="tests/jpg.php" role="test" />
+   <file baseinstalldir="Image" md5sum="c64e6e8750a66bdfe71b2522cba036b0" name="tests/lineends.php" role="test" />
+   <file baseinstalldir="Image" md5sum="06ef6313d44bca11953b11ce0420dcf5" name="tests/pdf.php" role="test" />
+   <file baseinstalldir="Image" md5sum="fa5c8de54f615176ce77221188aef76b" name="tests/pear-icon.png" role="test" />
+   <file baseinstalldir="Image" md5sum="04848d9c77fa7be673c18f9f8ec913f2" name="tests/png.php" role="test" />
+   <file baseinstalldir="Image" md5sum="d8d489231d4bafd14413f280727eb3b0" name="tests/ps.php" role="test" />
+   <file baseinstalldir="Image" md5sum="e57ee6ce6b53281052862e6906f123d6" name="tests/README" role="test" />
+   <file baseinstalldir="Image" md5sum="48315a6cec73adce49605492fdfb5fad" name="tests/svg.php" role="test" />
+   <file baseinstalldir="Image" md5sum="e08a6cd31e050392a7b6bb1930bf8e0d" name="tests/text.php" role="test" />
+  </dir>
  </contents>
  <dependencies>
   <required>
    <php>
-    <min>4.0.0</min>
+    <min>4.3.0</min>
    </php>
    <pearinstaller>
-    <min>1.4.0b1</min>
+    <min>1.8.1</min>
    </pearinstaller>
    <package>
     <name>Image_Color</name>
@@ -113,8 +98,8 @@ http://pear.php.net/dtd/package-2.0.xsd">
    </stability>
    <date>2005-03-21</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
-   <notes>First PEPr release
-    
+   <notes>
+First PEPr release
    </notes>
   </release>
   <release>
@@ -128,8 +113,8 @@ http://pear.php.net/dtd/package-2.0.xsd">
    </stability>
    <date>2005-03-21</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
-   <notes>First PEPr release
-    
+   <notes>
+First PEPr release
    </notes>
   </release>
   <release>
@@ -143,10 +128,10 @@ http://pear.php.net/dtd/package-2.0.xsd">
    </stability>
    <date>2005-07-21</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
-   <notes>* Changed write() to addText()
+   <notes>
+* Changed write() to addText()
 * Split done() into show() and save()
 * Changed all methods with more than 1 parameter to use hashed array as parameters
-    
    </notes>
   </release>
   <release>
@@ -160,7 +145,8 @@ http://pear.php.net/dtd/package-2.0.xsd">
    </stability>
    <date>2005-08-01</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
-   <notes>First released package in PEAR
+   <notes>
+First released package in PEAR
 
 Changes since last PEPr release:
 * Added support for image maps - a separate canvas (Image_Canvas_ImageMap) has been created to accomplish this
@@ -168,7 +154,6 @@ Changes since last PEPr release:
 * Added support for multi line texts    
 * Added a toHtml() method for to easy facilitate including canvas in HTML (this includes the associated image map, if any)
 * Added line ends - only supported in GD canvases currently and not on polygons (yet!)
-    
    </notes>
   </release>
   <release>
@@ -182,10 +167,10 @@ Changes since last PEPr release:
    </stability>
    <date>2005-08-08</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
-   <notes>* Added Request #4997 &quot;HTML attributes and JS actions in imagemaps&quot; - using &apos;htmltags&apos; entry
+   <notes>
+* Added Request #4997 &quot;HTML attributes and JS actions in imagemaps&quot; - using &apos;htmltags&apos; entry
 * Fixed bug with fonts, now it&apos;s not required for the font to have a name
 * Changed examples to use require_once instead of include/require
-    
    </notes>
   </release>
   <release>
@@ -199,7 +184,8 @@ Changes since last PEPr release:
    </stability>
    <date>2005-09-30</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
-   <notes>* Added &apos;border&apos; and &apos;cssclass&apos; option to Image_Canvas_GD::toHtml()
+   <notes>
+* Added &apos;border&apos; and &apos;cssclass&apos; option to Image_Canvas_GD::toHtml()
 * Added image support when using SVG (using embedded base64 encoding)
 * Added link (&quot;imagemap&quot;) support with SVG
 * Made image loading in GD canvas use getimagesize() to determine type instead of relying on extension
@@ -211,7 +197,6 @@ Changes since last PEPr release:
 * Fixed Bug #5066 &quot;Reference Notices&quot; (from Image_Graph)
 * Fixed bug #5175 &quot;Unable to define IMAGE_GRAPH_SYSTEM_FONT_PATH outside of Config.php&quot;
 * Fixed Bug #5325 &quot;Image/Color.php compatibility with old PHP versions&quot;
-    
    </notes>
   </release>
   <release>
@@ -225,9 +210,9 @@ Changes since last PEPr release:
    </stability>
    <date>2005-10-28</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
-   <notes>Fixed Bug #5786 &quot;Error in producing SVG&quot;
+   <notes>
+Fixed Bug #5786 &quot;Error in producing SVG&quot;
 * Fixed Bug #5805 &quot;Canvas\Fonts\fontmap.txt is missing&quot;
-    
    </notes>
   </release>
   <release>
@@ -241,9 +226,9 @@ Changes since last PEPr release:
    </stability>
    <date>2005-11-08</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
-   <notes>* Fixed a bug causing in Image_Canvas_SVG causing grouping to give a &quot;Missing argument...&quot; error (this rendered Image_Graph using SVG broken)
+   <notes>
+* Fixed a bug causing in Image_Canvas_SVG causing grouping to give a &quot;Missing argument...&quot; error (this rendered Image_Graph using SVG broken)
 * Fixed a bug causing rectangles not being displayed, if points were given in the wrong order
-    
    </notes>
   </release>
   <release>
@@ -257,13 +242,13 @@ Changes since last PEPr release:
    </stability>
    <date>2006-03-02</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
-   <notes>* Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())
+   <notes>
+* Added clipping (GD uses Image_Canvas method involving ImageCopy(), until native support is available throught existing GD functions gdImageSetClip())
 * Fixed the way SVG rotates text to now use transform
 * Added public reset() method to Image_Canvas
 * Fixed Bug #6406 &quot;method _mapFont missing&quot;
 * Fixed Request #6632 &quot;Style element assigned with = instead of :&quot;
 * Fixed Bug #6769 &quot;ImageMap.php does not check for boolean false with strpos&quot;
-    
    </notes>
   </release>
   <release>
@@ -277,17 +262,41 @@ Changes since last PEPr release:
    </stability>
    <date>2007-06-22</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
-   <notes>* Modified GD canvas addText() method with TTF fonts - (x, y) parameters now specify the absolute lower-left corner of the text (if angle is 0) instead of the baseline of the first letter, making texts appear incorrectly. This however require fonts to have a steady baseline, like fx. Arial, Verdana, etc. unlike Comic
+   <notes>
+* Modified GD canvas addText() method with TTF fonts - (x, y) parameters now specify the absolute lower-left corner of the text (if angle is 0) instead of the baseline of the first letter, making texts appear incorrectly. This however require fonts to have a steady baseline, like fx. Arial, Verdana, etc. unlike Comic
 * Fixed Image_Canvas_PDF to display correctly
-* Fixed Request #7285 "UTF-8 in SVGs"
-* Fixed Bug #7454 "Vertical axis title is shifted 180 degrees between SVG and PNG output"
-* Fixed Bug #8488 "wrong variable name" (thanks to troehr at php dot net)
-* Fixed Bug #8556 "SVG.php contains typo" (thanks to troehr at php dot net)
-* Fixed Bug #8776 "Fatal error: Call to undefined function: imageantialias()"
-* Fixed Bug #9070 "factory method causes PHP error if no GD" (thanks to troehr at php dot net)
-* Fixed Bug #9176 "UTF-8 in SVGs does not work (patch included)" (thanks to troehr at php dot net)
-* Fixed Bug #10236 "Pie Chart Shading Error when datapoint has 0 value" (thanks to peter_wake at hotmail dot com)
-* Fixed Request #11402 "Implement Image_Canvas_SVG::getData()" (thanks to troehr at php dot net)
+* Fixed Request #7285 &quot;UTF-8 in SVGs&quot;
+* Fixed Bug #7454 &quot;Vertical axis title is shifted 180 degrees between SVG and PNG output&quot;
+* Fixed Bug #8488 &quot;wrong variable name&quot; (thanks to troehr at php dot net)
+* Fixed Bug #8556 &quot;SVG.php contains typo&quot; (thanks to troehr at php dot net)
+* Fixed Bug #8776 &quot;Fatal error: Call to undefined function: imageantialias()&quot;
+* Fixed Bug #9070 &quot;factory method causes PHP error if no GD&quot; (thanks to troehr at php dot net)
+* Fixed Bug #9176 &quot;UTF-8 in SVGs does not work (patch included)&quot; (thanks to troehr at php dot net)
+* Fixed Bug #10236 &quot;Pie Chart Shading Error when datapoint has 0 value&quot; (thanks to peter_wake at hotmail dot com)
+* Fixed Request #11402 &quot;Implement Image_Canvas_SVG::getData()&quot; (thanks to troehr at php dot net)
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3.2</release>
+    <api>0.3.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2009-08-18</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>
+  QA Release.
+* Fixed Bug #12064 &quot;Updated all @link to official url (thanks to Torsten Roehr)&quot;
+* Fixed Bug #12084 &quot;Set wrong fill color in PDF.php, SVG.php (thanks to Torsten Roehr)&quot;
+* Fixed Bug #12122 &quot;Added new driver for SWF output (thanks to Torsten Roehr)&quot;
+* Fixed Bug #12744 &quot;Used shape poly instead of polygon in ImageMap (Uwe Steinmann)&quot;
+* Fixed Bug #12745 &quot;Make area tag xhtml compliant, added missing &apos;/&apos; (thanks to Christian Weiske)&quot;
+* Fixed Bug #12746 &quot;Make img tag xhtml compliant, added missing &apos;/&apos; (thanks to Christian Weiske)&quot;
+* Fixed Bug #12747 &quot;Added attribute id to map tag (Uwe Steinmann)&quot;
+* Fixed Bug #14199 &quot;Added new driver for PostScript output&quot;
    </notes>
   </release>
  </changelog>
