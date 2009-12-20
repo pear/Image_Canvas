@@ -18,13 +18,14 @@
  * to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
  * 02111-1307 USA
  *
- * @category   Images
- * @package    Image_Canvas
- * @author     Jesper Veggerby <pear.nosey@veggerby.dk>
- * @copyright  Copyright (C) 2003, 2004 Jesper Veggerby Hansen
- * @license    http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
- * @version    CVS: $Id$
- * @link       http://pear.php.net/package/Image_Canvas
+ * @category  Images
+ * @package   Image_Canvas
+ * @author    Jesper Veggerby <pear.nosey@veggerby.dk>
+ * @author    Stefan Neufeind <pear.neufeind@speedpartner.de>
+ * @copyright 2003-2009 The PHP Group
+ * @license   http://www.gnu.org/copyleft/lesser.html  LGPL License 2.1
+ * @version   SVN: $Id$
+ * @link      http://pear.php.net/package/Image_Canvas
  */
 
 require_once 'Image/Canvas.php';
@@ -70,28 +71,28 @@ for ($row = 0; $row < 3; $row++) {
         $y = 10 + $row * 90;
 
         switch ($row) {
-            case 0:
-                $text = 'Top';
-                break;
-            case 1:
-                $text = 'Center';
-                break;
-            case 2:
-                $text = 'Bottom';
-                break;
+        case 0:
+            $text = 'Top';
+            break;
+        case 1:
+            $text = 'Center';
+            break;
+        case 2:
+            $text = 'Bottom';
+            break;
         }
         switch ($col) {
-            case 0:
-                $text .= "\n" . 'Left';
-                break;
-            case 1:
-                if ($row !== 1) {
-                    $text .= "\n" . 'Center';
-                }
-                break;
-            case 2:
-                $text .= "\n" . 'Right';
-                break;
+        case 0:
+            $text .= "\n" . 'Left';
+            break;
+        case 1:
+            if ($row !== 1) {
+                $text .= "\n" . 'Center';
+            }
+            break;
+        case 2:
+            $text .= "\n" . 'Right';
+            break;
         }
 
         $canvas->setLineColor('red');
