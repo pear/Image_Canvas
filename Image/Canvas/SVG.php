@@ -694,7 +694,7 @@ class Image_Canvas_SVG extends Image_Canvas
     function textWidth($text)
     {
         if ((isset($this->_font['vertical'])) && ($this->_font['vertical'])) {
-            return $this->_font['size'];
+            return $this->_font['size'] * count(explode("\n",$text));
         } else {
             return round($this->_font['size'] * 0.7 * strlen($text));
         }
@@ -712,7 +712,7 @@ class Image_Canvas_SVG extends Image_Canvas
         if ((isset($this->_font['vertical'])) && ($this->_font['vertical'])) {
             return round($this->_font['size'] * 0.7 * strlen($text));
         } else {
-            return $this->_font['size'];
+            return $this->_font['size'] * count(explode("\n",$text));
         }
     }
 
@@ -793,7 +793,7 @@ class Image_Canvas_SVG extends Image_Canvas
             'x="0" ' .
             'y="0" ' .
             (isset($this->_font['angle']) && ($this->_font['angle'] > 0) ?
-                'transform="rotate(' . (($this->_font['angle'] + 180) % 360) . ')" ' :
+                'transform="rotate(' . (((-1) * $this->_font['angle']) % 360) . ')" ' :
                     ''
                 ) .
             'style="' .
@@ -806,7 +806,7 @@ class Image_Canvas_SVG extends Image_Canvas
             ) . ';' . $align . '"' . 
             ($attrs ? ' ' . $attrs : '') .
             '>' .
-            htmlspecialchars($text) .
+            ('<tspan x="0" dy="0em">'. implode('</tspan><tspan x="0" dy="1em">', explode("\n",htmlspecialchars($text))).'</tspan>') .
             '</text>' . "\n" . 
             $this->_indent . '</g>',
             $params
