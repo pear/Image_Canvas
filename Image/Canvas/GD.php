@@ -82,6 +82,14 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
     var $_gd2 = true;
 
     /**
+     * Do we need a factor to convert size in pixels to points?
+     * GD2 uses "pt" for font-sizes
+     * @var float
+     * @access private
+     */
+    var $_pxToPtFactor = 1;
+
+    /**
      * Antialiasing?
      * 
      * Possible values 'off', 'driver' and 'native'
@@ -151,6 +159,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
         parent::Image_Canvas_WithMap($param);
         
         $this->_gd2 = ($this->_version() == 2);
+        $this->_pxToPtFactor = ($this->_gd2 ? (72/96) : 1);
         $this->_font = array('font' => 1, 'color' => 'black');
 
         if ((isset($param['gd'])) && (is_resource($param['gd']))) {
@@ -1291,7 +1300,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             $lines = explode("\n", $text);
             foreach ($lines as $line) {
                 $bounds = ImageTTFBBox(
-                    $this->_font['size'],
+                    $this->_font['size']*$this->_pxToPtFactor,
                     $angle,
                     $this->_font['file'],
                     $text
@@ -1355,7 +1364,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             $lines = explode("\n", $text);
             foreach ($lines as $line) {            
                 $bounds = ImageTTFBBox(
-                    $this->_font['size'],
+                    $this->_font['size']*$this->_pxToPtFactor,
                     $angle,
                     $this->_font['file'],
                     $line
@@ -1420,17 +1429,17 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             if (($this->_font['angle'] >= 90) && ($this->_font['angle'] < 270)) {
                 $dx += $w0;
             }            
-        } else {       
+        } else {
             // get the maximum size of normal text above base line - sampled by 'Al'
-            $size1 = imagettfbbox($this->_font['size'], 0, $this->_font['file'], 'Al');    
+            $size1 = imagettfbbox($this->_font['size']*$this->_pxToPtFactor, 0, $this->_font['file'], 'Al');    
             $height1 = abs($size1[7] - $size1[1]);
             
             // get the maximum size of all text above base and below line - sampled by 'AlgjpqyQ'
-            $size2 = imagettfbbox($this->_font['size'], 0, $this->_font['file'], 'AlgjpqyQ');
+            $size2 = imagettfbbox($this->_font['size']*$this->_pxToPtFactor, 0, $this->_font['file'], 'AlgjpqyQ');
             $height2 = abs($size2[7] - $size2[1]);
         
             // get the size of the text, simulating height above baseline beinh max, by sampling using 'Al'
-            $size = imagettfbbox($this->_font['size'], 0, $this->_font['file'], 'Al' . $text);
+            $size = imagettfbbox($this->_font['size']*$this->_pxToPtFactor, 0, $this->_font['file'], 'Al' . $text);
             $height = abs($size[7] - $size[1]);
             
             // if all text is above baseline, i.e. height of text compares to max height above (within 10%)     
@@ -1461,7 +1470,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             }
             
             if ($factor != 0) {
-                $size = imagettfbbox($this->_font['size'], 0, $this->_font['file'], $text);
+                $size = imagettfbbox($this->_font['size']*$this->_pxToPtFactor, 0, $this->_font['file'], $text);
                 $w0 = abs($size[2] - $size[0]);                
                 $dx -= cos(deg2rad($this->_font['angle'])) * $w0 * $factor;
                 $dy += sin(deg2rad($this->_font['angle'])) * $w0 * $factor;
@@ -1533,7 +1542,7 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                     $result = $this->_getAbsolutePosition($x, $y, $line, $alignment);                    
                     ImageTTFText(
                         $this->_canvas,
-                        $this->_font['size'],
+                        $this->_font['size']*$this->_pxToPtFactor,
                         $this->_font['angle'],
                         $result['x'],
                         $result['y'],
