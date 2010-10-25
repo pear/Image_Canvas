@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.9.0RC1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Image_Canvas</name>
  <channel>pear.php.net</channel>
  <summary>A package providing a common interface to image drawing, making image source code independent on the library used.</summary>
@@ -10,10 +10,10 @@
   <email>pear.nosey@veggerby.dk</email>
   <active>yes</active>
  </lead>
- <date>2009-08-18</date>
- <time>23:07:28</time>
+ <date>2010-10-25</date>
+ <time>23:21:36</time>
  <version>
-  <release>0.3.2</release>
+  <release>0.3.3</release>
   <api>0.3.2</api>
  </version>
  <stability>
@@ -22,49 +22,47 @@
  </stability>
  <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
  <notes>
-  QA Release.
-* Fixed Bug #12064 &quot;Updated all @link to official url (thanks to Torsten Roehr)&quot;
-* Fixed Bug #12084 &quot;Set wrong fill color in PDF.php, SVG.php (thanks to Torsten Roehr)&quot;
-* Fixed Bug #12122 &quot;Added new driver for SWF output (thanks to Torsten Roehr)&quot;
-* Fixed Bug #12744 &quot;Used shape poly instead of polygon in ImageMap (Uwe Steinmann)&quot;
-* Fixed Bug #12745 &quot;Make area tag xhtml compliant, added missing &apos;/&apos; (thanks to Christian Weiske)&quot;
-* Fixed Bug #12746 &quot;Make img tag xhtml compliant, added missing &apos;/&apos; (thanks to Christian Weiske)&quot;
-* Fixed Bug #12747 &quot;Added attribute id to map tag (Uwe Steinmann)&quot;
-* Fixed Bug #14199 &quot;Added new driver for PostScript output&quot;
+Automatically built QA release
+Bug #16808 imagefilledpolygon(): You must have at least 3 points in your
+array - ghhoriuchi
+
+Bug #16927 PDF class implementation incomplete? - daveo
+
+Bug #17191 Deprecated: Assigning the return value of new by reference - neufeind
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
-   <file baseinstalldir="Image" md5sum="3f47aa4b84321445a0f7b72f77ce99f8" name="docs/ChangeLog" role="doc" />
-   <file baseinstalldir="Image" md5sum="4bbd9303d859da910c6871b9d18a4e8e" name="docs/README" role="doc" />
-   <file baseinstalldir="/" md5sum="d3245a7c9d3dfd9ceac387ccdb968d3a" name="docs/TODO" role="doc" />
-   <file baseinstalldir="Image" md5sum="cbe08048bc9938dad58dc6c966f5724f" name="docs/examples/canvas.php" role="doc" />
+   <file baseinstalldir="Image" md5sum="55bc088eace9e2c97781b126d313b181" name="docs/ChangeLog" role="doc" />
+   <file baseinstalldir="Image" md5sum="7025db885893f3a5c2f7a1b950d691f6" name="docs/README" role="doc" />
+   <file baseinstalldir="/" md5sum="c416c5dc25047920affc2de751085e73" name="docs/TODO" role="doc" />
+   <file baseinstalldir="Image" md5sum="7959a3f94b81e4eeeeaa1191566e6aa3" name="docs/examples/canvas.php" role="doc" />
    <file baseinstalldir="Image" md5sum="fa5c8de54f615176ce77221188aef76b" name="docs/examples/pear-icon.png" role="doc" />
-   <file baseinstalldir="/" md5sum="3ce14e2067fe377e68cacd7576e156da" name="Image/Canvas.php" role="php" />
-   <file baseinstalldir="/" md5sum="001505a6b111a6983ededf5657ebce28" name="Image/Canvas/Color.php" role="php" />
-   <file baseinstalldir="/" md5sum="7b64cdd79fb3c087e55161e589810570" name="Image/Canvas/GD.php" role="php" />
-   <file baseinstalldir="/" md5sum="fa95d83b5b21a6e0a74e9f1a45061563" name="Image/Canvas/ImageMap.php" role="php" />
-   <file baseinstalldir="/" md5sum="2081c2bd0a0f5780a8a9c267c738f13d" name="Image/Canvas/PDF.php" role="php" />
-   <file baseinstalldir="/" md5sum="960cf383e9e9c36752e3030ba8d04287" name="Image/Canvas/PS.php" role="php" />
-   <file baseinstalldir="/" md5sum="42e0c522f3ba37793cc0fd886cb5a05b" name="Image/Canvas/SVG.php" role="php" />
-   <file baseinstalldir="/" md5sum="bedbcb010075db09aee559b42b2445ab" name="Image/Canvas/SWF.php" role="php" />
-   <file baseinstalldir="/" md5sum="9e76744bc1b62e5cd651a00c4085963b" name="Image/Canvas/Tool.php" role="php" />
-   <file baseinstalldir="/" md5sum="b214625ad8d15e4530731152e04c6627" name="Image/Canvas/WithMap.php" role="php" />
-   <file baseinstalldir="/" md5sum="2bdeec77724050cdcb59b73483c82246" name="Image/Canvas/Fonts/fontmap.txt" role="data" />
-   <file baseinstalldir="/" md5sum="4dfbb91953e995c0fa63d4ac48d26e32" name="Image/Canvas/Fonts/README" role="data" />
-   <file baseinstalldir="/" md5sum="865ac9b6561308569a5325323dbe959d" name="Image/Canvas/GD/JPG.php" role="php" />
-   <file baseinstalldir="/" md5sum="9787a4e510e16e379b6bac9d4559cf64" name="Image/Canvas/GD/PNG.php" role="php" />
-   <file baseinstalldir="Image" md5sum="74f8ea63ef8184fcb555d51e690c0958" name="tests/canvas_body.php" role="test" />
-   <file baseinstalldir="Image" md5sum="e5b2e6359c0361e42cd309abba65f57c" name="tests/gradients.php" role="test" />
-   <file baseinstalldir="Image" md5sum="dbaf301065bf08fc977280f991c56059" name="tests/imagemap.php" role="test" />
-   <file baseinstalldir="Image" md5sum="ded7eb7aa89f75655c79dfd545c6f3ee" name="tests/jpg.php" role="test" />
-   <file baseinstalldir="Image" md5sum="c64e6e8750a66bdfe71b2522cba036b0" name="tests/lineends.php" role="test" />
-   <file baseinstalldir="Image" md5sum="06ef6313d44bca11953b11ce0420dcf5" name="tests/pdf.php" role="test" />
+   <file baseinstalldir="/" md5sum="d72df94aa4153db0b291b8fbcb8d841c" name="Image/Canvas.php" role="php" />
+   <file baseinstalldir="/" md5sum="6cd321c04efd783079ae4a791316144d" name="Image/Canvas/Color.php" role="php" />
+   <file baseinstalldir="/" md5sum="6daa51b3f612f7f25b15a007f50f0e29" name="Image/Canvas/GD.php" role="php" />
+   <file baseinstalldir="/" md5sum="00ae42fe60a2507b9562df08468e0ae1" name="Image/Canvas/ImageMap.php" role="php" />
+   <file baseinstalldir="/" md5sum="1cbc2ab0cf9990c7e01f86d21a0abb52" name="Image/Canvas/PDF.php" role="php" />
+   <file baseinstalldir="/" md5sum="c9d6f9e8d200e067a9f7e196a92c906e" name="Image/Canvas/PS.php" role="php" />
+   <file baseinstalldir="/" md5sum="b1a4c9564ed78bada0fce12122b94b55" name="Image/Canvas/SVG.php" role="php" />
+   <file baseinstalldir="/" md5sum="758d51b08f384a2d42c739134fcbd838" name="Image/Canvas/SWF.php" role="php" />
+   <file baseinstalldir="/" md5sum="323ee49b6fd3d0068eace13426260ba6" name="Image/Canvas/Tool.php" role="php" />
+   <file baseinstalldir="/" md5sum="904e6959b0c41e3a811f3eb7dee31e6b" name="Image/Canvas/WithMap.php" role="php" />
+   <file baseinstalldir="/" md5sum="eeac7258848e6384ef5cb8a412521265" name="Image/Canvas/Fonts/fontmap.txt" role="data" />
+   <file baseinstalldir="/" md5sum="6e5fb88c7850a299591549887ca5eceb" name="Image/Canvas/Fonts/README" role="data" />
+   <file baseinstalldir="/" md5sum="e466bc8fe3edb4de1d073826fd6c9ba0" name="Image/Canvas/GD/JPG.php" role="php" />
+   <file baseinstalldir="/" md5sum="ef40903b2c9bf75e0649ff76274b5cd2" name="Image/Canvas/GD/PNG.php" role="php" />
+   <file baseinstalldir="Image" md5sum="626b6c6a1335b52e607d9c7af6daca6c" name="tests/canvas_body.php" role="test" />
+   <file baseinstalldir="Image" md5sum="9fc16628d6a02590fa390b51dd6f78a4" name="tests/gradients.php" role="test" />
+   <file baseinstalldir="Image" md5sum="0336591b41191249dc4c2d26d8d7bb46" name="tests/imagemap.php" role="test" />
+   <file baseinstalldir="Image" md5sum="8bae84a1d2cd14906462aef9e2faa2d3" name="tests/jpg.php" role="test" />
+   <file baseinstalldir="Image" md5sum="823862b7995267ff1d5593dfb78a2be5" name="tests/lineends.php" role="test" />
+   <file baseinstalldir="Image" md5sum="7cfe196747f784cc74fa8d9705e43f4f" name="tests/pdf.php" role="test" />
    <file baseinstalldir="Image" md5sum="fa5c8de54f615176ce77221188aef76b" name="tests/pear-icon.png" role="test" />
-   <file baseinstalldir="Image" md5sum="04848d9c77fa7be673c18f9f8ec913f2" name="tests/png.php" role="test" />
-   <file baseinstalldir="Image" md5sum="d8d489231d4bafd14413f280727eb3b0" name="tests/ps.php" role="test" />
-   <file baseinstalldir="Image" md5sum="e57ee6ce6b53281052862e6906f123d6" name="tests/README" role="test" />
-   <file baseinstalldir="Image" md5sum="48315a6cec73adce49605492fdfb5fad" name="tests/svg.php" role="test" />
-   <file baseinstalldir="Image" md5sum="e08a6cd31e050392a7b6bb1930bf8e0d" name="tests/text.php" role="test" />
+   <file baseinstalldir="Image" md5sum="40010b45890c7e7a610fc863073bbf30" name="tests/png.php" role="test" />
+   <file baseinstalldir="Image" md5sum="1e679e5af7d0c098ed8e935a520d8acc" name="tests/ps.php" role="test" />
+   <file baseinstalldir="Image" md5sum="e20fa07754d17be1c2554e7d67f07afa" name="tests/README" role="test" />
+   <file baseinstalldir="Image" md5sum="b500bb873286a8964fcc6bf5d745b1ab" name="tests/svg.php" role="test" />
+   <file baseinstalldir="Image" md5sum="6b5353d97e52e87c6000aeb8b6955ff1" name="tests/text.php" role="test" />
   </dir>
  </contents>
  <dependencies>
@@ -288,7 +286,7 @@ Fixed Bug #5786 &quot;Error in producing SVG&quot;
    <date>2009-08-18</date>
    <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
    <notes>
-  QA Release.
+QA Release.
 * Fixed Bug #12064 &quot;Updated all @link to official url (thanks to Torsten Roehr)&quot;
 * Fixed Bug #12084 &quot;Set wrong fill color in PDF.php, SVG.php (thanks to Torsten Roehr)&quot;
 * Fixed Bug #12122 &quot;Added new driver for SWF output (thanks to Torsten Roehr)&quot;
@@ -297,6 +295,27 @@ Fixed Bug #5786 &quot;Error in producing SVG&quot;
 * Fixed Bug #12746 &quot;Make img tag xhtml compliant, added missing &apos;/&apos; (thanks to Christian Weiske)&quot;
 * Fixed Bug #12747 &quot;Added attribute id to map tag (Uwe Steinmann)&quot;
 * Fixed Bug #14199 &quot;Added new driver for PostScript output&quot;
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3.3</release>
+    <api>0.3.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2010-10-25</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>
+Automatically built QA release
+Bug #16808 imagefilledpolygon(): You must have at least 3 points in your
+array - ghhoriuchi
+
+Bug #16927 PDF class implementation incomplete? - daveo
+
+Bug #17191 Deprecated: Assigning the return value of new by reference - neufeind
    </notes>
   </release>
  </changelog>
