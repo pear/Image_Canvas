@@ -740,7 +740,8 @@ class Image_Canvas_SVG extends Image_Canvas
 
         $attrs = (isset($params['attrs']) && is_array($params['attrs'])) ? $this->_getAttributes($params['attrs']) : null;
         
-        $textHeight = $this->textHeight($text);
+        $lines = explode("\n", $text);
+        $textHeight = $this->textHeight($lines[0]);
 
         if (!is_array($alignment)) {
             $alignment = array('vertical' => 'top', 'horizontal' => 'left');
