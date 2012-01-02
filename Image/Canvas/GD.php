@@ -927,6 +927,20 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
     }
 
     /**
+     * Get the line thickness
+     *
+     * @param mixed $lineStyle The line style to return the thickness of,
+     * false if the one explicitly set
+     *
+     * @return float A line thickness
+     * @access private
+     */
+    function _getLineThickness($lineStyle = false)
+    {
+        return $this->_thickness;
+    }
+ 
+    /**
      * Parameter array:
      * 
      * 'connect': bool [optional] Specifies whether the start point should be
@@ -1079,20 +1093,22 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
                 }
             } else {
                 $prev_point = false;
-                if ($this->_antialias === 'driver') {
-                    reset($polygon);
-                    while (list(, $x) = each($polygon)) {
-                        list(, $y) = each($polygon);
-                        if ($prev_point) {
-                            $this->_antialiasedLine(
-                                $prev_point['X'],
-                                $prev_point['Y'],
-                                $x,
-                                $y,
-                                $lineColor
-                            );                            
+                if ($this->_getLineThickness() !== '0') {
+                    if ($this->_antialias === 'driver' && $this->_getLineThickness() == '') {
+                        reset($polygon);
+                        while (list(, $x) = each($polygon)) {
+                            list(, $y) = each($polygon);
+                            if ($prev_point) {
+                                $this->_antialiasedLine(
+                                    $prev_point['X'],
+                                    $prev_point['Y'],
+                                    $x,
+                                    $y,
+                                    $lineColor
+                                );                            
+                            }
+                            $prev_point = array('X' => $x, 'Y' => $y);;
                         }
-                        $prev_point = array('X' => $x, 'Y' => $y);;
                     }
                 } elseif (($line = $this->_getLineStyle($lineColor)) !== false) {
                     reset($polygon);
