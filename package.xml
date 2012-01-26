@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.9.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Image_Canvas</name>
  <channel>pear.php.net</channel>
  <summary>A package providing a common interface to image drawing, making image source code independent on the library used.</summary>
@@ -10,10 +10,10 @@
   <email>pear.nosey@veggerby.dk</email>
   <active>yes</active>
  </lead>
- <date>2010-10-25</date>
- <time>23:21:36</time>
+ <date>2012-01-26</date>
+ <time>12:06:25</time>
  <version>
-  <release>0.3.3</release>
+  <release>0.3.4</release>
   <api>0.3.2</api>
  </version>
  <stability>
@@ -22,47 +22,47 @@
  </stability>
  <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
  <notes>
-Automatically built QA release
-Bug #16808 imagefilledpolygon(): You must have at least 3 points in your
-array - ghhoriuchi
-
-Bug #16927 PDF class implementation incomplete? - daveo
-
-Bug #17191 Deprecated: Assigning the return value of new by reference - neufeind
+QA release
+Bug #16947 Font-size in GD (with GD2) incorrect
+Bug #17448 Font alignment for 90 degrees
+Bug #18366 Call to undefined function ps_new()
+Bug #18507 SVG output of multi-line axis labels is screwed up.
+Bug #18549 setThickness not working on GD / PNG output
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="Image" md5sum="55bc088eace9e2c97781b126d313b181" name="docs/ChangeLog" role="doc" />
    <file baseinstalldir="Image" md5sum="7025db885893f3a5c2f7a1b950d691f6" name="docs/README" role="doc" />
    <file baseinstalldir="/" md5sum="c416c5dc25047920affc2de751085e73" name="docs/TODO" role="doc" />
-   <file baseinstalldir="Image" md5sum="7959a3f94b81e4eeeeaa1191566e6aa3" name="docs/examples/canvas.php" role="doc" />
+   <file baseinstalldir="Image" md5sum="3ae8e57bde5e1c27d54dec2f9ebba5e3" name="docs/examples/canvas.php" role="doc" />
    <file baseinstalldir="Image" md5sum="fa5c8de54f615176ce77221188aef76b" name="docs/examples/pear-icon.png" role="doc" />
-   <file baseinstalldir="/" md5sum="d72df94aa4153db0b291b8fbcb8d841c" name="Image/Canvas.php" role="php" />
-   <file baseinstalldir="/" md5sum="6cd321c04efd783079ae4a791316144d" name="Image/Canvas/Color.php" role="php" />
-   <file baseinstalldir="/" md5sum="6daa51b3f612f7f25b15a007f50f0e29" name="Image/Canvas/GD.php" role="php" />
-   <file baseinstalldir="/" md5sum="00ae42fe60a2507b9562df08468e0ae1" name="Image/Canvas/ImageMap.php" role="php" />
-   <file baseinstalldir="/" md5sum="1cbc2ab0cf9990c7e01f86d21a0abb52" name="Image/Canvas/PDF.php" role="php" />
-   <file baseinstalldir="/" md5sum="c9d6f9e8d200e067a9f7e196a92c906e" name="Image/Canvas/PS.php" role="php" />
-   <file baseinstalldir="/" md5sum="b1a4c9564ed78bada0fce12122b94b55" name="Image/Canvas/SVG.php" role="php" />
-   <file baseinstalldir="/" md5sum="758d51b08f384a2d42c739134fcbd838" name="Image/Canvas/SWF.php" role="php" />
-   <file baseinstalldir="/" md5sum="323ee49b6fd3d0068eace13426260ba6" name="Image/Canvas/Tool.php" role="php" />
-   <file baseinstalldir="/" md5sum="904e6959b0c41e3a811f3eb7dee31e6b" name="Image/Canvas/WithMap.php" role="php" />
+   <file baseinstalldir="/" md5sum="08eed23c17ea129e061b124043cb430d" name="Image/Canvas.php" role="php" />
+   <file baseinstalldir="/" md5sum="ef828adf64c28720173204f18a9270f6" name="Image/Canvas/Color.php" role="php" />
+   <file baseinstalldir="/" md5sum="16ae72ae5d21c854033c56ec0ee36db6" name="Image/Canvas/GD.php" role="php" />
+   <file baseinstalldir="/" md5sum="eaee2720da01eeeb1987e8c93e2d8f54" name="Image/Canvas/ImageMap.php" role="php" />
+   <file baseinstalldir="/" md5sum="c6b40c6f3e81762e5beea59b62c483fb" name="Image/Canvas/PDF.php" role="php" />
+   <file baseinstalldir="/" md5sum="e4a699546d712aba8955ef48a9db096c" name="Image/Canvas/PS.php" role="php" />
+   <file baseinstalldir="/" md5sum="1cc98fbc070c1fc0322f17748f75029c" name="Image/Canvas/SVG.php" role="php" />
+   <file baseinstalldir="/" md5sum="a1be17f2f7cae4473d72c68d9885f878" name="Image/Canvas/SWF.php" role="php" />
+   <file baseinstalldir="/" md5sum="9278edd1f7414c026437a4422b42376a" name="Image/Canvas/Tool.php" role="php" />
+   <file baseinstalldir="/" md5sum="4ed76faea5e324187a49e5be2605af14" name="Image/Canvas/WithMap.php" role="php" />
    <file baseinstalldir="/" md5sum="eeac7258848e6384ef5cb8a412521265" name="Image/Canvas/Fonts/fontmap.txt" role="data" />
    <file baseinstalldir="/" md5sum="6e5fb88c7850a299591549887ca5eceb" name="Image/Canvas/Fonts/README" role="data" />
-   <file baseinstalldir="/" md5sum="e466bc8fe3edb4de1d073826fd6c9ba0" name="Image/Canvas/GD/JPG.php" role="php" />
-   <file baseinstalldir="/" md5sum="ef40903b2c9bf75e0649ff76274b5cd2" name="Image/Canvas/GD/PNG.php" role="php" />
-   <file baseinstalldir="Image" md5sum="626b6c6a1335b52e607d9c7af6daca6c" name="tests/canvas_body.php" role="test" />
-   <file baseinstalldir="Image" md5sum="9fc16628d6a02590fa390b51dd6f78a4" name="tests/gradients.php" role="test" />
-   <file baseinstalldir="Image" md5sum="0336591b41191249dc4c2d26d8d7bb46" name="tests/imagemap.php" role="test" />
-   <file baseinstalldir="Image" md5sum="8bae84a1d2cd14906462aef9e2faa2d3" name="tests/jpg.php" role="test" />
-   <file baseinstalldir="Image" md5sum="823862b7995267ff1d5593dfb78a2be5" name="tests/lineends.php" role="test" />
-   <file baseinstalldir="Image" md5sum="7cfe196747f784cc74fa8d9705e43f4f" name="tests/pdf.php" role="test" />
+   <file baseinstalldir="/" md5sum="a2f86c6c6bda3d3aa95bcffcd4abd39b" name="Image/Canvas/GD/JPG.php" role="php" />
+   <file baseinstalldir="/" md5sum="d99d3d2d97e4a59273af462e12e0e15e" name="Image/Canvas/GD/PNG.php" role="php" />
+   <file baseinstalldir="Image" md5sum="6ca1b4a7e1f004c4a3959d78c7de0879" name="tests/canvas_body.php" role="test" />
+   <file baseinstalldir="Image" md5sum="3afa5e9daa3010597efac63ae2a9f928" name="tests/gradients.php" role="test" />
+   <file baseinstalldir="Image" md5sum="03f751a77758c0c6be7213bc2aeee02f" name="tests/imagemap.php" role="test" />
+   <file baseinstalldir="Image" md5sum="ea443930e42485e3809b9c427d444ff0" name="tests/jpg.php" role="test" />
+   <file baseinstalldir="Image" md5sum="1aa00f316dbc1276c4f31f027cf4bc95" name="tests/lineends.php" role="test" />
+   <file baseinstalldir="Image" md5sum="0de1f1de708e1ac714404e26c7259f2c" name="tests/pdf.php" role="test" />
    <file baseinstalldir="Image" md5sum="fa5c8de54f615176ce77221188aef76b" name="tests/pear-icon.png" role="test" />
-   <file baseinstalldir="Image" md5sum="40010b45890c7e7a610fc863073bbf30" name="tests/png.php" role="test" />
-   <file baseinstalldir="Image" md5sum="1e679e5af7d0c098ed8e935a520d8acc" name="tests/ps.php" role="test" />
+   <file baseinstalldir="Image" md5sum="77ee23630eee091eb412bb2dabfa24ec" name="tests/png.php" role="test" />
+   <file baseinstalldir="Image" md5sum="20790647813da5784d84f7565ae2df74" name="tests/ps.php" role="test" />
    <file baseinstalldir="Image" md5sum="e20fa07754d17be1c2554e7d67f07afa" name="tests/README" role="test" />
-   <file baseinstalldir="Image" md5sum="b500bb873286a8964fcc6bf5d745b1ab" name="tests/svg.php" role="test" />
-   <file baseinstalldir="Image" md5sum="6b5353d97e52e87c6000aeb8b6955ff1" name="tests/text.php" role="test" />
+   <file baseinstalldir="Image" md5sum="483bb01d33246b75ec6efa114cd56c57" name="tests/svg.php" role="test" />
+   <file baseinstalldir="Image" md5sum="7e9022c5729c2a747725d403699de4b8" name="tests/text.php" role="test" />
+   <file baseinstalldir="/" md5sum="cef9a446b1574873a8cf524353e23ae9" name="README" role="data" />
   </dir>
  </contents>
  <dependencies>
@@ -316,6 +316,26 @@ array - ghhoriuchi
 Bug #16927 PDF class implementation incomplete? - daveo
 
 Bug #17191 Deprecated: Assigning the return value of new by reference - neufeind
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3.4</release>
+    <api>0.3.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-01-26</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>
+QA release
+Bug #16947 Font-size in GD (with GD2) incorrect
+Bug #17448 Font alignment for 90 degrees
+Bug #18366 Call to undefined function ps_new()
+Bug #18507 SVG output of multi-line axis labels is screwed up.
+Bug #18549 setThickness not working on GD / PNG output
    </notes>
   </release>
  </changelog>
