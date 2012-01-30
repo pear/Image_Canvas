@@ -228,13 +228,44 @@ class Image_Canvas_SVG extends Image_Canvas
 
         // TODO Linestyles (i.e. fx. dotted) does not work
 
-        if (($lineStyle != 'transparent') && ($lineStyle !== false)) {
-            $result = 'stroke-width:' . $this->_thickness . ';';
-            $result .= 'stroke:' .$this->_color($lineStyle) . ';';
-            if ($opacity = $this->_opacity($lineStyle)) {
-                $result .= 'stroke-opacity:' . $opacity . ';';
+        if (!is_array($lineStyle)) {
+            if (($lineStyle != 'transparent') && ($lineStyle !== false)) {
+                $result = 'stroke-width:' . $this->_thickness . ';';
+                $result .= 'stroke:' .$this->_color($lineStyle) . ';';
+                if ($opacity = $this->_opacity($lineStyle)) {
+                    $result .= 'stroke-opacity:' . $opacity . ';';
+                }
             }
+            return $result;
         }
+
+        //the following if-blocks are when $lineStyle is an array
+        //dotted line
+        if (count($lineStyle) == 2) {
+            if (($lineStyle[0] != 'transparent') && ($lineStyle[0] !== false)) {
+                $result = 'stroke-width:' . $this->_thickness . ';';
+                $result .= 'stroke:' .$this->_color($lineStyle[0]) . ';';
+                if ($opacity = $this->_opacity($lineStyle[0])) {
+                    $result .= 'stroke-opacity:' . $opacity . ';';
+                }
+                $result .= 'stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:1;stroke-dasharray:1,4;stroke-dashoffset:1;';
+            }
+            return $result;
+        }
+
+        //dashed line
+        if (count($lineStyle) == 6) {
+            if (($lineStyle[0] != 'transparent') && ($lineStyle[0] !== false)) {
+                $result = 'stroke-width:' . $this->_thickness . ';';
+                $result .= 'stroke:' .$this->_color($lineStyle[0]) . ';';
+                if ($opacity = $this->_opacity($lineStyle[0])) {
+                    $result .= 'stroke-opacity:' . $opacity . ';';
+                }
+                $result .= 'stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:1;stroke-dasharray:4,4;stroke-dashoffset:1;';
+            }
+            return $result;
+        }
+
         return $result;
     }
 
