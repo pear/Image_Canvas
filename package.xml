@@ -10,10 +10,10 @@
   <email>pear.nosey@veggerby.dk</email>
   <active>yes</active>
  </lead>
- <date>2012-01-26</date>
- <time>12:06:25</time>
+ <date>2012-07-27</date>
+ <time>15:09:44</time>
  <version>
-  <release>0.3.4</release>
+  <release>0.3.5</release>
   <api>0.3.2</api>
  </version>
  <stability>
@@ -23,45 +23,44 @@
  <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
  <notes>
 QA release
-Bug #16947 Font-size in GD (with GD2) incorrect
-Bug #17448 Font alignment for 90 degrees
-Bug #18366 Call to undefined function ps_new()
-Bug #18507 SVG output of multi-line axis labels is screwed up.
-Bug #18549 setThickness not working on GD / PNG output
+
+Doc Bug #19253	incorrect-fsf-address
+
+Bug #16992	dotted lines do not show up in SVG
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="Image" md5sum="55bc088eace9e2c97781b126d313b181" name="docs/ChangeLog" role="doc" />
    <file baseinstalldir="Image" md5sum="7025db885893f3a5c2f7a1b950d691f6" name="docs/README" role="doc" />
    <file baseinstalldir="/" md5sum="c416c5dc25047920affc2de751085e73" name="docs/TODO" role="doc" />
-   <file baseinstalldir="Image" md5sum="3ae8e57bde5e1c27d54dec2f9ebba5e3" name="docs/examples/canvas.php" role="doc" />
+   <file baseinstalldir="Image" md5sum="2b17eb1ba3828c86c32e116e199d6cb3" name="docs/examples/canvas.php" role="doc" />
    <file baseinstalldir="Image" md5sum="fa5c8de54f615176ce77221188aef76b" name="docs/examples/pear-icon.png" role="doc" />
-   <file baseinstalldir="/" md5sum="08eed23c17ea129e061b124043cb430d" name="Image/Canvas.php" role="php" />
-   <file baseinstalldir="/" md5sum="ef828adf64c28720173204f18a9270f6" name="Image/Canvas/Color.php" role="php" />
-   <file baseinstalldir="/" md5sum="16ae72ae5d21c854033c56ec0ee36db6" name="Image/Canvas/GD.php" role="php" />
-   <file baseinstalldir="/" md5sum="eaee2720da01eeeb1987e8c93e2d8f54" name="Image/Canvas/ImageMap.php" role="php" />
-   <file baseinstalldir="/" md5sum="c6b40c6f3e81762e5beea59b62c483fb" name="Image/Canvas/PDF.php" role="php" />
-   <file baseinstalldir="/" md5sum="e4a699546d712aba8955ef48a9db096c" name="Image/Canvas/PS.php" role="php" />
-   <file baseinstalldir="/" md5sum="1cc98fbc070c1fc0322f17748f75029c" name="Image/Canvas/SVG.php" role="php" />
-   <file baseinstalldir="/" md5sum="a1be17f2f7cae4473d72c68d9885f878" name="Image/Canvas/SWF.php" role="php" />
-   <file baseinstalldir="/" md5sum="9278edd1f7414c026437a4422b42376a" name="Image/Canvas/Tool.php" role="php" />
-   <file baseinstalldir="/" md5sum="4ed76faea5e324187a49e5be2605af14" name="Image/Canvas/WithMap.php" role="php" />
+   <file baseinstalldir="/" md5sum="f29b1fe1695f4fb6c9fbf8fe08cd875c" name="Image/Canvas.php" role="php" />
+   <file baseinstalldir="/" md5sum="852190a314b7745cabf9b825da8c2b3a" name="Image/Canvas/Color.php" role="php" />
+   <file baseinstalldir="/" md5sum="a5f472305ec5f47852c3c3e8b096cd22" name="Image/Canvas/GD.php" role="php" />
+   <file baseinstalldir="/" md5sum="09d44c3227afb07584caf94fe0d0914a" name="Image/Canvas/ImageMap.php" role="php" />
+   <file baseinstalldir="/" md5sum="00c1e1c984e188873b9a1e725174bc66" name="Image/Canvas/PDF.php" role="php" />
+   <file baseinstalldir="/" md5sum="3581797b2d91765f772adcb578363677" name="Image/Canvas/PS.php" role="php" />
+   <file baseinstalldir="/" md5sum="7ea41044fbf5d4582680e658c68cc0cf" name="Image/Canvas/SVG.php" role="php" />
+   <file baseinstalldir="/" md5sum="51f93b08615155c5284b0aaaed6531f5" name="Image/Canvas/SWF.php" role="php" />
+   <file baseinstalldir="/" md5sum="28730c750f4e0a0ad9ef2f506215ec91" name="Image/Canvas/Tool.php" role="php" />
+   <file baseinstalldir="/" md5sum="8fa360a31d7039ad040b5b400e91d5e2" name="Image/Canvas/WithMap.php" role="php" />
    <file baseinstalldir="/" md5sum="eeac7258848e6384ef5cb8a412521265" name="Image/Canvas/Fonts/fontmap.txt" role="data" />
    <file baseinstalldir="/" md5sum="6e5fb88c7850a299591549887ca5eceb" name="Image/Canvas/Fonts/README" role="data" />
-   <file baseinstalldir="/" md5sum="a2f86c6c6bda3d3aa95bcffcd4abd39b" name="Image/Canvas/GD/JPG.php" role="php" />
-   <file baseinstalldir="/" md5sum="d99d3d2d97e4a59273af462e12e0e15e" name="Image/Canvas/GD/PNG.php" role="php" />
-   <file baseinstalldir="Image" md5sum="6ca1b4a7e1f004c4a3959d78c7de0879" name="tests/canvas_body.php" role="test" />
-   <file baseinstalldir="Image" md5sum="3afa5e9daa3010597efac63ae2a9f928" name="tests/gradients.php" role="test" />
-   <file baseinstalldir="Image" md5sum="03f751a77758c0c6be7213bc2aeee02f" name="tests/imagemap.php" role="test" />
-   <file baseinstalldir="Image" md5sum="ea443930e42485e3809b9c427d444ff0" name="tests/jpg.php" role="test" />
-   <file baseinstalldir="Image" md5sum="1aa00f316dbc1276c4f31f027cf4bc95" name="tests/lineends.php" role="test" />
-   <file baseinstalldir="Image" md5sum="0de1f1de708e1ac714404e26c7259f2c" name="tests/pdf.php" role="test" />
+   <file baseinstalldir="/" md5sum="c12a61b8085a83ea869696bc32f87f3d" name="Image/Canvas/GD/JPG.php" role="php" />
+   <file baseinstalldir="/" md5sum="cbdf62a308a8ebc52196682150265f1d" name="Image/Canvas/GD/PNG.php" role="php" />
+   <file baseinstalldir="Image" md5sum="320f922e050ceea0b959c934d69622e6" name="tests/canvas_body.php" role="test" />
+   <file baseinstalldir="Image" md5sum="de28e816b62b307151341f8fdf5b0b9e" name="tests/gradients.php" role="test" />
+   <file baseinstalldir="Image" md5sum="de8552506c2aec01155ee6ab55173e85" name="tests/imagemap.php" role="test" />
+   <file baseinstalldir="Image" md5sum="aee885a963743b85420cb4ac5459d5a6" name="tests/jpg.php" role="test" />
+   <file baseinstalldir="Image" md5sum="c61a2651ec7f90fdc0f966f1b9559da0" name="tests/lineends.php" role="test" />
+   <file baseinstalldir="Image" md5sum="5d3ac25079aef52dc862327155e34ec6" name="tests/pdf.php" role="test" />
    <file baseinstalldir="Image" md5sum="fa5c8de54f615176ce77221188aef76b" name="tests/pear-icon.png" role="test" />
-   <file baseinstalldir="Image" md5sum="77ee23630eee091eb412bb2dabfa24ec" name="tests/png.php" role="test" />
-   <file baseinstalldir="Image" md5sum="20790647813da5784d84f7565ae2df74" name="tests/ps.php" role="test" />
+   <file baseinstalldir="Image" md5sum="d0ab97062978dc1f0c3ef2cfde287c41" name="tests/png.php" role="test" />
+   <file baseinstalldir="Image" md5sum="055385866cdedbc8e2403a92cc124bbf" name="tests/ps.php" role="test" />
    <file baseinstalldir="Image" md5sum="e20fa07754d17be1c2554e7d67f07afa" name="tests/README" role="test" />
-   <file baseinstalldir="Image" md5sum="483bb01d33246b75ec6efa114cd56c57" name="tests/svg.php" role="test" />
-   <file baseinstalldir="Image" md5sum="7e9022c5729c2a747725d403699de4b8" name="tests/text.php" role="test" />
+   <file baseinstalldir="Image" md5sum="308e33e7042eb7deacc9b75178910bf1" name="tests/svg.php" role="test" />
+   <file baseinstalldir="Image" md5sum="1fa0350e9caaf225f60cf072eea70b62" name="tests/text.php" role="test" />
    <file baseinstalldir="/" md5sum="cef9a446b1574873a8cf524353e23ae9" name="README" role="data" />
   </dir>
  </contents>
@@ -336,6 +335,25 @@ Bug #17448 Font alignment for 90 degrees
 Bug #18366 Call to undefined function ps_new()
 Bug #18507 SVG output of multi-line axis labels is screwed up.
 Bug #18549 setThickness not working on GD / PNG output
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3.5</release>
+    <api>0.3.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-07-27</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>
+QA release
+
+Doc Bug #19253	incorrect-fsf-address
+
+Bug #16992	dotted lines do not show up in SVG
    </notes>
   </release>
  </changelog>
