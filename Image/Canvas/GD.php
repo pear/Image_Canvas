@@ -1861,13 +1861,9 @@ class Image_Canvas_GD extends Image_Canvas_WithMap
             }
         }
 
-        if (preg_match('/1\.[0-9]{1,2}/', $version)) {
-            return 1;
-        } elseif (preg_match('/2\.[0-9]{1,2}/', $version)) {
-            return 2;
-        } else {
-            return 0;
-        }
+        preg_match('/\d/', $version, $result );
+
+        return $result[0];
     }
 
 }
