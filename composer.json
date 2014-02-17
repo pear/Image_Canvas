@@ -8,7 +8,7 @@
     ],
     "autoload": {
         "psr-0": {
-            "Image_Canvas": "./"
+            "Image": "./"
         }
     },
     "description": "More info available on: http://pear.php.net/package/Image_Canvas",
@@ -23,7 +23,8 @@
     },
     "type": "library",
     "require": {
-        "pear/pear_exception": "*"
+        "pear/pear_exception": "*",
+        "pear/image_color": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
