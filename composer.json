@@ -1,0 +1,32 @@
+{
+    "authors": [
+        {
+            "email": "pear.nosey@veggerby.dk",
+            "name": "Jesper Veggerby",
+            "role": "Lead"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Image": "./"
+        }
+    },
+    "description": "More info available on: http://pear.php.net/package/Image_Canvas",
+    "include-path": [
+        "./"
+    ],
+    "license": "LGPL",
+    "name": "pear/image_canvas",
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Image_Canvas",
+        "source": "https://github.com/pear/Image_Canvas"
+    },
+    "type": "library",
+    "require": {
+        "pear/pear_exception": "*",
+        "pear/image_color": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
