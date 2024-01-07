@@ -15,7 +15,7 @@
     "include-path": [
         "./"
     ],
-    "license": "LGPL",
+    "license": "LGPL-2.0-or-later",
     "name": "pear/image_canvas",
     "support": {
         "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Image_Canvas",
