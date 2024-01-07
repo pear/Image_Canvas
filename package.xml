@@ -10,11 +10,10 @@
   <email>pear.nosey@veggerby.dk</email>
   <active>yes</active>
  </lead>
- <date>2012-07-27</date>
- <time>15:09:44</time>
+ <date>2024-01-07</date>
  <version>
-  <release>0.3.5</release>
-  <api>0.3.2</api>
+  <release>0.4.0</release>
+  <api>0.4.0</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -23,10 +22,8 @@
  <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
  <notes>
 QA release
-
-Doc Bug #19253	incorrect-fsf-address
-
-Bug #16992	dotted lines do not show up in SVG
+PR #3:  Fix for incorrect GD version detection
+PR #5:  Fix error when loading Image_Canvas_Color
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -354,6 +351,24 @@ QA release
 Doc Bug #19253	incorrect-fsf-address
 
 Bug #16992	dotted lines do not show up in SVG
+   </notes>
+  </release>
+
+  <release>
+   <version>
+    <release>0.4.0</release>
+    <api>0.4.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2024-01-07</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>
+QA release
+PR #3:  Fix for incorrect GD version detection
+PR #5:  Fix error when loading Image_Canvas_Color
    </notes>
   </release>
  </changelog>
