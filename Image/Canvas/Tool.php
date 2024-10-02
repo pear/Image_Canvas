@@ -69,7 +69,7 @@ class Image_Canvas_Tool
      * @return string The filename of the font
      * @static
      */
-    function fontMap($name, $type = '.ttf')
+    static function fontMap($name, $type = '.ttf')
     {
         static $_fontMap;
         
@@ -126,7 +126,7 @@ class Image_Canvas_Tool
      * @return double The average of P1 and P2
      * @static
      */
-    function mid($p1, $p2)
+    static function mid($p1, $p2)
     {
         return ($p1 + $p2) / 2;
     }
@@ -142,7 +142,7 @@ class Image_Canvas_Tool
      * @return double $p1 mirrored in $p2 by Factor
      * @static
      */
-    function mirror($p1, $p2, $factor = 1)
+    static function mirror($p1, $p2, $factor = 1)
     {
         return $p2 + $factor * ($p2 - $p1);
     }
@@ -159,7 +159,7 @@ class Image_Canvas_Tool
      * @return double P1 mirrored in P2 by Factor
      * @static
      */
-    function controlPoint($p1, $p2, $factor, $smoothFactor = 0.75)
+    static function controlPoint($p1, $p2, $factor, $smoothFactor = 0.75)
     {
         $sa = Image_Canvas_Tool::mirror($p1, $p2, $smoothFactor);
         $sb = Image_Canvas_Tool::mid($p2, $sa);
@@ -185,7 +185,7 @@ class Image_Canvas_Tool
      *   $p1 and $p4 to calculate control points
      * @static
      */
-    function bezier($t, $p1, $p2, $p3, $p4)
+    static function bezier($t, $p1, $p2, $p3, $p4)
     {
         // (1-t)^3*p1 + 3*(1-t)^2*t*p2 + 3*(1-t)*t^2*p3 + t^3*p4
         return pow(1 - $t, 3) * $p1 +
@@ -205,7 +205,7 @@ class Image_Canvas_Tool
      * @return double The angle in degrees of the line
      * @static
      */
-    function getAngle($x0, $y0, $x1, $y1)
+    static function getAngle($x0, $y0, $x1, $y1)
     {
         
         $dx = ($x1 - $x0);
