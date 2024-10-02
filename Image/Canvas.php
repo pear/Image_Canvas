@@ -786,7 +786,7 @@ class Image_Canvas
      *         PEAR_Error on error
      * @static
      */
-    function &factory($canvas, $params)
+    static function &factory($canvas, $params)
     {
         $canvas = strtoupper($canvas);
         
