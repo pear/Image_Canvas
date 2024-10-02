@@ -27,7 +27,7 @@
  * @link      http://pear.php.net/package/Image_Canvas
  */
 
-require_once 'Image/Canvas.php';
+require_once 'vendor/autoload.php';
 
 $font = array('name' => 'Verdana', 'size' => 10);
 
