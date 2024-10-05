@@ -45,13 +45,11 @@ jobs:
     - run: sudo pear package-validate
     - run: sudo pear install --force *.tgz
     - run: sudo pear list
-    # Prepare fonts (see https://askubuntu.com/a/25614)
-    - run: echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-    - run: sudo apt install -y ttf-mscorefonts-installer
-    - run: sudo cp -rp /usr/share/fonts/truetype/msttcorefonts/verdana.ttf Image/Canvas/Fonts/
-    - run: sudo cp -rp /usr/share/fonts/truetype/msttcorefonts/verdanab.ttf Image/Canvas/Fonts/
-    - run: sudo cp -rp /usr/share/fonts/truetype/msttcorefonts/verdanai.ttf Image/Canvas/Fonts/
-    - run: sudo cp -rp /usr/share/fonts/truetype/msttcorefonts/verdanaz.ttf Image/Canvas/Fonts/
+    # Download and install Verdana font (for some reason ttf-mscorefonts-installer doesn't work)
+    - run: sudo apt install cabextract
+    - run: curl -L -o verdan32.exe 'http://download.sourceforge.net/corefonts/verdan32.exe'
+    - run: cabextract -d Image/Canvas/Fonts/ verdan32.exe
+    - run: mv Image/Canvas/Fonts/Verdana.TTF Image/Canvas/Fonts/verdana.ttf
     # Install pre-requisites and run test scripts
     - run: composer install
     - run: php tests/gradients.php > gradients.png
