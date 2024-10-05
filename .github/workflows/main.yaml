@@ -35,29 +35,35 @@ jobs:
         php-version: ${{ matrix.php-versions }}
         coverage: none
         ini-values: post_max_size=256M, max_execution_time=180
-    - run: sudo pear list
-    - run: sudo pear channel-update pear.php.net
-    - run: sudo pear upgrade --force pear/pear
-    - run: sudo pear list
-    - run: sudo pear install --force package.xml
-    - run: sudo pear list
-    - run: sudo pear package
-    - run: sudo pear package-validate
-    - run: sudo pear install --force *.tgz
-    - run: sudo pear list
-    # Download and install Verdana font (for some reason ttf-mscorefonts-installer doesn't work)
-    - run: sudo apt install cabextract
-    - run: curl -L -o verdan32.exe 'http://download.sourceforge.net/corefonts/verdan32.exe'
-    - run: cabextract -d Image/Canvas/Fonts/ verdan32.exe
-    - run: mv Image/Canvas/Fonts/Verdana.TTF Image/Canvas/Fonts/verdana.ttf
-    # Install pre-requisites and run test scripts
-    - run: composer install
-    - run: php tests/gradients.php > gradients.png
-    - run: php tests/imagemap.php > imagemap.html
-    - run: php tests/png.php
-    - run: php tests/jpg.php
-    # - run: php tests/ps.php
-    # - run:php tests/pdf.php
-    - run: php tests/svg.php
-    - run: php tests/text.php > text.png
-    - run: php tests/lineends.php > lineends.png
+    - name: Check package
+      run: |
+        sudo pear list
+        sudo pear channel-update pear.php.net
+        sudo pear upgrade --force pear/pear
+        sudo pear list
+        sudo pear install --force package.xml
+        sudo pear list
+        sudo pear package
+        sudo pear package-validate
+        sudo pear install --force *.tgz
+        sudo pear list
+    # For some reason ttf-mscorefonts-installer doesn't work
+    # so we only install Verdana
+    - name: Download and install Verdana font
+      run: |
+        sudo apt install cabextract
+        curl -L -o verdan32.exe 'http://download.sourceforge.net/corefonts/verdan32.exe'
+        cabextract -d Image/Canvas/Fonts/ verdan32.exe
+        mv Image/Canvas/Fonts/Verdana.TTF Image/Canvas/Fonts/verdana.ttf
+    - name: Install pre-requisites and run test scripts
+      run: |
+        composer install
+        php tests/gradients.php > gradients.png
+        php tests/imagemap.php > imagemap.html
+        php tests/png.php
+        php tests/jpg.php
+        # php tests/ps.php
+        # php tests/pdf.php
+        php tests/svg.php
+        php tests/text.php > text.png
+        php tests/lineends.php > lineends.png
