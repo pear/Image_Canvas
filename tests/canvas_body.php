@@ -305,11 +305,11 @@ $canvas->polygon(array('connect' => true));
 
 $canvas->addText(array('x' => 375, 'y' => 455, 'text' => 'Image'));
 
-$canvas->image(array('x' => 445, 'y' => 455, 'filename' => './pear-icon.png', 'url' => 'http://pear.veggerby.dk/', 'target' => '_blank'));
+$canvas->image(array('x' => 445, 'y' => 455, 'filename' => __DIR__ . '/pear-icon.png', 'url' => 'http://pear.veggerby.dk/', 'target' => '_blank'));
 
-$canvas->image(array('x' => 445, 'y' => 495, 'filename' => './pear-icon.png', 'width' => 20, 'height' => 20));
+$canvas->image(array('x' => 445, 'y' => 495, 'filename' => __DIR__ . '/pear-icon.png', 'width' => 20, 'height' => 20));
 
-$canvas->image(array('x' => 445, 'y' => 523, 'filename' => './pear-icon.png', 'width' => 40, 'height' => 40));
+$canvas->image(array('x' => 445, 'y' => 523, 'filename' => __DIR__ . '/pear-icon.png', 'width' => 40, 'height' => 40));
 
 //$canvas->show();
 $type = basename($_SERVER['SCRIPT_NAME'], '.php');

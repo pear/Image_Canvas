@@ -30,10 +30,10 @@
 // SPECIFY HERE WHERE A TRUETYPE FONT CAN BE FOUND
 $testFont = 'c:/windows/fonts/Arial.ttf';
 
-require_once 'Image/Canvas.php';
+require_once 'vendor/autoload.php';
 
 $canvas =& Image_Canvas::factory('svg', array('width' => 600, 'height' => 600));
 
-require_once './canvas_body.php';
+require_once __DIR__ . '/canvas_body.php';
 
 ?>
