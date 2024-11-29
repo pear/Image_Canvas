@@ -25,7 +25,7 @@
     "require": {
         "php": ">=5.6",
         "pear/pear_exception": "*",
-        "pear/image_color": "dev-port_php8"
+        "pear/image_color": "dev-master"
     },
     "repositories": [
         {
