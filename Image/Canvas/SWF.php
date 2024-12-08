@@ -88,9 +88,9 @@ class Image_Canvas_SWF extends Image_Canvas
      *
      * @return Image_Canvas_SWF
      */
-    function Image_Canvas_SWF($params)
+    function __construct($params)
     {
-        parent::Image_Canvas($params);
+        parent::__construct($params);
         $this->_reset();
 
         $version = (isset($params['version']) && $params['version'] <= 6)
