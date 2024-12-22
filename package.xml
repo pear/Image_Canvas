@@ -10,10 +10,10 @@
   <email>pear.nosey@veggerby.dk</email>
   <active>yes</active>
  </lead>
- <date>2024-01-07</date>
+ <date>2024-12-22</date>
  <version>
-  <release>0.4.0</release>
-  <api>0.4.0</api>
+  <release>0.5.0</release>
+  <api>0.5.0</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -21,9 +21,7 @@
  </stability>
  <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
  <notes>
-QA release
-PR #3:  Fix for incorrect GD version detection
-PR #5:  Fix error when loading Image_Canvas_Color
+PR #7:  Port to PHP 8
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -369,6 +367,22 @@ Bug #16992	dotted lines do not show up in SVG
 QA release
 PR #3:  Fix for incorrect GD version detection
 PR #5:  Fix error when loading Image_Canvas_Color
+   </notes>
+  </release>
+
+  <release>
+   <version>
+    <release>0.5.0</release>
+    <api>0.5.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2024-12-22</date>
+   <license uri="http://www.gnu.org/copyleft/lesser.html">LGPL</license>
+   <notes>
+PR #7:  Port to PHP 8
    </notes>
   </release>
  </changelog>
