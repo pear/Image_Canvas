@@ -150,7 +150,7 @@ class Image_Canvas
      *
      * @abstract
      */
-    function Image_Canvas($params)
+    function __construct($params)
     {
         if (isset($params['left'])) {
             $this->_left = $params['left'];
@@ -786,7 +786,7 @@ class Image_Canvas
      *         PEAR_Error on error
      * @static
      */
-    function &factory($canvas, $params)
+    static function &factory($canvas, $params)
     {
         $canvas = strtoupper($canvas);
         
