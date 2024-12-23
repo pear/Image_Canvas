@@ -27,7 +27,14 @@
  * @link      http://pear.php.net/package/Image_Canvas
  */  
 
-require_once 'vendor/autoload.php';
+
+if (file_exists('vendor/autoload.php')) {
+    // use composer if available
+    require_once 'vendor/autoload.php';
+} else {
+    // otherwise rely on classic PEAR include_path
+    require_once 'Image/Canvas.php';
+}
 
 $canvas =& Image_Canvas::factory(
     'png', 
