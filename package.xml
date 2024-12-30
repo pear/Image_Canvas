@@ -37,7 +37,6 @@ PR #7:  Port to PHP 8
    <file baseinstalldir="/" md5sum="00c1e1c984e188873b9a1e725174bc66" name="Image/Canvas/PDF.php" role="php" />
    <file baseinstalldir="/" md5sum="3581797b2d91765f772adcb578363677" name="Image/Canvas/PS.php" role="php" />
    <file baseinstalldir="/" md5sum="7ea41044fbf5d4582680e658c68cc0cf" name="Image/Canvas/SVG.php" role="php" />
-   <file baseinstalldir="/" md5sum="51f93b08615155c5284b0aaaed6531f5" name="Image/Canvas/SWF.php" role="php" />
    <file baseinstalldir="/" md5sum="28730c750f4e0a0ad9ef2f506215ec91" name="Image/Canvas/Tool.php" role="php" />
    <file baseinstalldir="/" md5sum="8fa360a31d7039ad040b5b400e91d5e2" name="Image/Canvas/WithMap.php" role="php" />
    <file baseinstalldir="/" md5sum="eeac7258848e6384ef5cb8a412521265" name="Image/Canvas/Fonts/fontmap.txt" role="data" />
