@@ -30,7 +30,13 @@
 // SPECIFY HERE WHERE A TRUETYPE FONT CAN BE FOUND
 $testFont = 'c:/windows/fonts/Arial.ttf';
 
-require_once 'vendor/autoload.php';
+if (file_exists('vendor/autoload.php')) {
+    // use composer if available
+    require_once 'vendor/autoload.php';
+} else {
+    // otherwise rely on classic PEAR include_path
+    require_once 'Image/Canvas.php';
+}
 
 $canvas =& Image_Canvas::factory('pdf', array('page' => 'A4', 'align' => 'center', 'width' => 600, 'height' => 600));
 
