@@ -764,8 +764,6 @@ class Image_Canvas
      * 'ps': output in PostScript format (using pslib)
      *
      * 'svg': output in SVG format
-     * 
-     * 'swf': output in SWF flash format (using ming extension)
      *
      * 'imagemap': output as a html image map
      *
@@ -795,19 +793,6 @@ class Image_Canvas
         }
         if (($canvas == 'JPG') || ($canvas == 'JPEG')) {
             $canvas = 'GD_JPG';
-        }
-        
-        if ($canvas == 'SWF') {
-            // return PEAR_Error object if ming extension is not installed
-            if (!extension_loaded('ming')) {
-
-                include_once 'PEAR.php';
-
-                $error  = 'PHP extension ming is required for output in swf format.';
-                $error .= 'Please install the ming extension (http://de.php.net/ming).';
-                $error  = new PEAR_Error($error);
-                return $error;
-            }
         }
 
         if ($canvas == 'IMAGEMAP') {
